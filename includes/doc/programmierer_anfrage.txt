@@ -1,0 +1,11 @@
+Hallo Leute,
+
+ich suche schon seit längerem Unterstützung für mein Projekt "Joorgportal". Ich habe dieses als Open-Source-Programm in sourceforge
+unter http://sourceforge.net/projects/joorgportal/ eingestellt. Auf meiner Homepage habe ich einwenig dazu geschrieben: http://www.horald.de/joomla25/index.php/projekte/open-source/jwebportal
+Ist zwar leider nicht ganz aktuell und vollständig, aber für den ersten Eindruck reicht es hoffentlich. Leider ist mein englisch
+nicht so gut, daher suche ich vorrangig deutsche Open-Source-Programmierer. Am lieben wären mir Leute im Raum Köln, wo man sich auch 
+mal treffen und austauschen könnte, aber ggfs wäre ich zu einem Mail- oder Forums-Austausch bereit. Ich finde es halt Schade, dass
+ich soviel Zeit und Arbeit da reinstecke und "nur" meine Familie davon profitieren kann. Ich hoffe es melden sich mal paar Leute.
+
+Viele Grüße sendet
+Horst

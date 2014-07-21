@@ -1,0 +1,13 @@
+<?php
+$listarray = array ( array ( 'label' => 'Verzeichnis',
+                             'name' => 'verz',
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldverz' ));
+
+$pararray = array ( 'headline' => 'Bildverzeichnis',
+                    'dbtable' => 'tblbildverz',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldindex' => 'fldindex');
+?>

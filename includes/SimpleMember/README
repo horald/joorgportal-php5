@@ -1,0 +1,53 @@
+ Simple Member :: Copyright (C) 2011  Free-PHP.Net
+ http://free-php.net (see LICENSE-GPLv3)
+
+ # Link to Us / Donate
+   -- If you use our script, please consider linking back or donating. Thx!
+   -- http://www.free-php.net
+ 
+ # Feedback / suggestions can be directed to the following page...
+   Visit --> http://www.free-php.net/592/
+   
+ # Requirements
+
+ -- PHP 5+ (http://www.php.net)
+ -- MySQL (http://www.mysql.com)
+
+ # MySQL Database Setup
+
+ -- Open sql.txt in the main Simple Member folder.
+ -- Paste the contents into a tool that can execute SQL commands for your MySQL DB
+
+ # Installation
+
+ -- Follow the MySQL Database Setup Before Continuing
+ -- Open main.php with any text editor in the root folder and modify the
+    settings for your server
+ -- Upload to your server
+
+ # How to Use Simple Member
+
+ -- At this time there are no admin utilities to view, edit, remove your members, etc.
+ -- The login / add member script is located at http://domain/to/main/path/index.php
+ -- Your members area would be located in member.php ... so this is where you
+    would put content that you want only your members to see. You may copy
+    member.php into a new file to add multiple member restricted pages. Look
+    for the MEMBER CONTENT GOES HERE comment.
+
+ # TROUBLE SHOOTING
+
+ -- Make sure that you have created the required database table (users)
+ -- Make sure all paths are correct in each file use full paths if necessary.
+ 
+ # Version Info
+
+ -- v1.2
+ ---- When signing up, fixed duplicate usernames being created
+ 
+ -- v1.1
+ ---- Changed session management to not depend on register_globals
+ ---- Changed code to not depend on register_globals being set
+ ---- Made script more efficient
+
+ -- v1.0
+ ---- Initial Creation 

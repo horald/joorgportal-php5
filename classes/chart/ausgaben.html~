@@ -1,0 +1,18 @@
+<html>
+<body>
+<h2>Chart-Beispiel</h2>
+<applet code="Chart.class" width=400 height=300>
+<param name="title" value="Ausgaben"/>
+<param name="values" value="3"/>
+<param name="name.1" value="Lebensmittel (310)"/>
+<param name="name.2" value="Haushalt (75)"/>
+<param name="name.3" value="Strom (800)"/>
+<param name="value.1" value="310"/>
+<param name="value.2" value="500"/>
+<param name="value.3" value="800"/>
+<param name="color.1" value="#AA00FF"/>
+<param name="color.2" value="#EE82EE"/>
+<param name="color.3" value="#FF8200"/>
+</applet>
+</body>
+</html>

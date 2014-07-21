@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` bigint(99) NOT NULL auto_increment,
+  `uid` varchar(255) default NULL,
+  `auth` varchar(255) default NULL,
+  `pwd` varchar(255) default NULL,
+  `email` varchar(255) default NULL,
+  `fname` varchar(255) NOT NULL default '',
+  `lname` varchar(255) NOT NULL default '',
+  `addr` varchar(255) NOT NULL default '',
+  `city` varchar(255) NOT NULL default '',
+  `state` varchar(255) NOT NULL default '',
+  `country` varchar(255) NOT NULL default '',
+  `zipcode` varchar(255) NOT NULL default '',
+  `phone` varchar(255) NOT NULL default '',
+  `dateexpire` varchar(255) NOT NULL default '',
+  `datesignup` varchar(255) NOT NULL default '',
+  `paymethod` enum('paypal','2checkout') default NULL,
+  `status` enum('active','expired') NOT NULL default 'expired',
+  `type` enum('adm','mem','sing') NOT NULL default 'sing',
+  `dt_changed` timestamp NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM;

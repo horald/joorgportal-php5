@@ -1,0 +1,21 @@
+<?php
+$menu=$_GET[menu];
+$idwert=$_GET[idwert];
+include("../config.php");
+include("bootstrapfunc.php");
+include("../sites/views/wp_".$menu."/showtab.inc.php");
+bootstraphead();
+bootstrapbegin($pararray['headline']);
+echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&idwert=".$idwert."'>zur&uumlck</a><br><br>";
+$query="SELECT * FROM ".$pararray['dbtable']." WHERE ".$pararray['fldindex']."=".$idwert;
+$result = mysql_query($query) or die(mysql_error());
+$line = mysql_fetch_array($result);
+$audio = $line['fldlink'];
+echo "<div class='alert alert-success'>";
+echo $line['fldbez']." (".$audio.")";
+echo "</div>";
+
+echo "<embed width='".$audiowidth."' height='".$audioheight."' src='".$audio."' type='application/x-mplayer2' autoplay='true'></embed>";
+
+bootstrapend();
+?>

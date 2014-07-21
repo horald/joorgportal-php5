@@ -1,0 +1,31 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 50, 
+                             'type' => 'text',
+                             'dbfield' => 'fldBez' ),                     
+                     array ( 'label' => 'Von Datum',
+                             'name' => 'vondatum',
+                             'width' => 10, 
+                             'type' => 'date',
+                             'dbfield' => 'fldVondatum' ),
+                     array ( 'label' => 'Bis Datum',
+                             'name' => 'bisdatum',
+                             'width' => 10, 
+                             'type' => 'date',
+                             'dbfield' => 'fldBisdatum' ),
+                     array ( 'label' => 'Grund',
+                             'name' => 'grund',
+                             'width' => 50, 
+                             'type' => 'selectid',
+                             'dbtable' => 'tbltc_grund',
+                             'seldbfield' => 'fldBez',
+                             'seldbindex' => 'fldIndex',
+                             'dbfield' => 'fldid_grund' ));
+
+$pararray = array ( 'headline' => 'Reiseliste',
+                    'dbtable' => 'tbltc_liste',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldindex' => 'fldIndex');
+?>

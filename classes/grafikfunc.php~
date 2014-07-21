@@ -1,0 +1,23 @@
+<?php
+header("content-type: text/html; charset=utf-8");
+
+function showgrafik($vonmonat,$bismonat) {
+include("../config.php");
+
+echo "<applet code='Chart.class' width=400 height=600>";
+echo "<param name='title' value='Ausgaben'/>";
+echo "<param name='values' value='3'/>";
+echo "<param name='name.1' value='Lebensmittel'/>";
+echo "<param name='name.2' value='Haushalt'/>";
+echo "<param name='name.3' value='Strom'/>";
+echo "<param name='value.1' value='310'/>";
+echo "<param name='value.2' value='500'/>";
+echo "<param name='value.3' value='800'/>";
+echo "<param name='color.1' value='#AA00FF'/>";
+echo "<param name='color.2' value='#EE82EE'/>";
+echo "<param name='color.3' value='#FF8200'/>";
+echo "</applet>";
+
+}
+
+?>

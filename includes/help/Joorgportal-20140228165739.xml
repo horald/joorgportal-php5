@@ -1,0 +1,469 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.8/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.8/ http://www.mediawiki.org/xml/export-0.8.xsd" version="0.8" xml:lang="de">
+  <siteinfo>
+    <sitename>Joorgportal</sitename>
+    <base>http://localhost/tools/mediawiki/index.php/Hauptseite</base>
+    <generator>MediaWiki 1.22.2</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Medium</namespace>
+      <namespace key="-1" case="first-letter">Spezial</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Diskussion</namespace>
+      <namespace key="2" case="first-letter">Benutzer</namespace>
+      <namespace key="3" case="first-letter">Benutzer Diskussion</namespace>
+      <namespace key="4" case="first-letter">Joorgportal</namespace>
+      <namespace key="5" case="first-letter">Joorgportal Diskussion</namespace>
+      <namespace key="6" case="first-letter">Datei</namespace>
+      <namespace key="7" case="first-letter">Datei Diskussion</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki Diskussion</namespace>
+      <namespace key="10" case="first-letter">Vorlage</namespace>
+      <namespace key="11" case="first-letter">Vorlage Diskussion</namespace>
+      <namespace key="12" case="first-letter">Hilfe</namespace>
+      <namespace key="13" case="first-letter">Hilfe Diskussion</namespace>
+      <namespace key="14" case="first-letter">Kategorie</namespace>
+      <namespace key="15" case="first-letter">Kategorie Diskussion</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Hauptseite</title>
+    <ns>0</ns>
+    <id>3</id>
+    <revision>
+      <id>393</id>
+      <parentid>383</parentid>
+      <timestamp>2014-02-20T22:33:24Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <text xml:space="preserve" bytes="383">'''Willkommen beim Joorgportal.'''
+
+Eine Groupware für Familien und Privatleute.
+
+
+
+== Menüpunkte ==
+{|
+|[[Home]]
+|-
+|[[Joorgportal/Privat|Privat]]
+|-
+|[[Notizen]]
+|-
+|[[Familie]]
+|-
+|[[Docman]]
+|-
+|[[Adressliste]]
+|-
+|[[Termine]]
+|-
+|[[Einkaufsliste]]
+|-
+|[[Essensplan]]
+|-
+|[[Prgupdate]]
+|-
+|[[Wiki]]
+|-
+|[[Administration]]
+|}
+
+== Versionen ==
+[[Joorgportal/Versionen|Versionen]]</text>
+      <sha1>6wj38q2u8u5nybfqztuzt3zon6wm883</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Adressliste</title>
+    <ns>0</ns>
+    <id>113</id>
+    <revision>
+      <id>343</id>
+      <timestamp>2014-02-20T17:39:37Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Adressliste =“</comment>
+      <text xml:space="preserve" bytes="15">= Adressliste =</text>
+      <sha1>tpcjccwuq6qyx543k6xv5glabqob1g6</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Docman</title>
+    <ns>0</ns>
+    <id>103</id>
+    <revision>
+      <id>333</id>
+      <timestamp>2014-02-20T17:38:10Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Docman =“</comment>
+      <text xml:space="preserve" bytes="10">= Docman =</text>
+      <sha1>altntzhb1o83bc08y815ngu3sf515vp</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Einkaufsliste</title>
+    <ns>0</ns>
+    <id>133</id>
+    <revision>
+      <id>363</id>
+      <timestamp>2014-02-20T17:43:33Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Einkaufsliste =“</comment>
+      <text xml:space="preserve" bytes="17">= Einkaufsliste =</text>
+      <sha1>7fmpm2c13754wn4xqq982nggdusgf2q</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Essensplan</title>
+    <ns>0</ns>
+    <id>143</id>
+    <revision>
+      <id>373</id>
+      <timestamp>2014-02-20T17:45:29Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Essensplan =“</comment>
+      <text xml:space="preserve" bytes="14">= Essensplan =</text>
+      <sha1>gx9wvcok40pdeh31hrk8fzt5m5w4x8r</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Familie</title>
+    <ns>0</ns>
+    <id>93</id>
+    <revision>
+      <id>323</id>
+      <timestamp>2014-02-20T17:19:56Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Familie =“</comment>
+      <text xml:space="preserve" bytes="11">= Familie =</text>
+      <sha1>4gmwk2vaqg5mik8cefnu1bdpxqw43qu</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Notizen</title>
+    <ns>0</ns>
+    <id>83</id>
+    <revision>
+      <id>313</id>
+      <timestamp>2014-02-20T17:17:47Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Notizen =“</comment>
+      <text xml:space="preserve" bytes="11">= Notizen =</text>
+      <sha1>nfu7zjm93yq4qvtdeus62horeqm9bxt</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Privat</title>
+    <ns>0</ns>
+    <id>63</id>
+    <revision>
+      <id>193</id>
+      <parentid>183</parentid>
+      <timestamp>2014-02-19T16:52:53Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <text xml:space="preserve" bytes="199">= Privat =
+
+== Menüpunkte ==
+- [[Joorgportal/Privat/Heizung|Heizung]]
+
+- Blutdruck
+
+- Umfragen
+
+- Tabletten
+
+- Bildverz
+
+- Erledigungen
+
+- [[Joorgportal/Privat/Konto|Konto]]
+
+- Vorrat
+
+- Fahrtenbuch</text>
+      <sha1>e18zbq3e97modmzglwhwjujjm2gsnet</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Privat/</title>
+    <ns>0</ns>
+    <id>53</id>
+    <revision>
+      <id>123</id>
+      <timestamp>2014-02-19T07:43:40Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „== Privat ==  = Menüpunkte = - [Joorgportal/Privat/Heizung|Heizung] - Blutdruck - Umfragen - Tabletten - Bildverz - Erledigungen - Konto - Vorrat - Fahrtenbuch“</comment>
+      <text xml:space="preserve" bytes="160">== Privat ==
+
+= Menüpunkte =
+- [Joorgportal/Privat/Heizung|Heizung]
+- Blutdruck
+- Umfragen
+- Tabletten
+- Bildverz
+- Erledigungen
+- Konto
+- Vorrat
+- Fahrtenbuch</text>
+      <sha1>3mrbojm58qsfqc60sm87i9jzc1qvxrv</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Privat/Blutdruck</title>
+    <ns>0</ns>
+    <id>73</id>
+    <revision>
+      <id>213</id>
+      <timestamp>2014-02-19T16:57:31Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Blutdruck =  == Anzeigefilter ==  == Allgemeine Funktionen == - Einfügen - sync - resync all - export - import - Drucken - Hilfe  == Spezielle Funktionen ==…“</comment>
+      <text xml:space="preserve" bytes="419">= Blutdruck =
+
+== Anzeigefilter ==
+
+== Allgemeine Funktionen ==
+- Einfügen
+- sync
+- resync all
+- export
+- import
+- Drucken
+- Hilfe
+
+== Spezielle Funktionen ==
+
+== Felder der Anzeigetabelle ==
+
+
+Hinweis: Da alle Einstellungen individuell geändert werden können, erklärt diese Hilfe nur die standardmässig vorgegebene Einstellung. Hilfe zu individuellen Änderungen müssen in dieser Hilfe selber eingepflegt werden.</text>
+      <sha1>mt5nu98mx90pqxnsvqjje10p2sh083a</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Privat/Heizung</title>
+    <ns>0</ns>
+    <id>23</id>
+    <revision>
+      <id>113</id>
+      <parentid>23</parentid>
+      <timestamp>2014-02-19T07:35:43Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>/* Heizung */</comment>
+      <text xml:space="preserve" bytes="1036">= Heizung =
+
+== Anzeigefilter ==
+- Geraet
+  Auswahlbox, welches Gerät angezeigt werden soll.
+  (ohne) bedeutet alle Geräte anzeigen.
+
+- Wo
+  Auswahlbox, welches Zimmer angezeigt werden soll.
+  (ohne) bedeutet alle Zimmer anzeigen.  
+
+- Jahr
+  Auswahlbox, welches Jahr angezeigt werden soll.
+  (ohne) bedeutet alle Jahre anzeigen.
+
+- OK
+  Auswahlbox, welcher Status, ob 'J' oder 'N' angezeigt werden soll.
+  (ohne) bedeutet alle Stati anzeigen.
+
+== Allgemeine Funktionen ==
+- Einfügen
+- sync
+- resync all
+- export
+- import
+- Drucken
+- Hilfe
+
+== Spezielle Funktionen ==
+- Preis ändern
+- Aus Archiv
+- Ins Archiv
+- Drucke leer
+- Drucke Vergleich
+
+== Felder der Anzeigetabelle ==
+- Nr
+- Geraet
+- Wo
+- Anz
+- Verbrauch
+- Preis
+- Gesamtpreis
+- Abrjahr
+- OK
+- Funktionsbutton: Bearbeiten
+- Funktionsbutton: Löschen
+
+Hinweis: Da alle Einstellungen individuell geändert werden können, erklärt diese Hilfe nur die standardmässig vorgegebene Einstellung. Hilfe zu individuellen Änderungen müssen in dieser Hilfe selber eingepflegt werden.</text>
+      <sha1>ozm7v08ho6lsioh4l963vxt8xswdlfu</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Privat/Konto</title>
+    <ns>0</ns>
+    <id>13</id>
+    <revision>
+      <id>203</id>
+      <parentid>13</parentid>
+      <timestamp>2014-02-19T16:55:18Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <text xml:space="preserve" bytes="425">= Kontoübersicht =
+
+== Anzeigefilter ==
+
+== Allgemeine Funktionen ==
+- Einfügen
+- sync
+- resync all
+- export
+- import
+- Drucken
+- Hilfe
+
+== Spezielle Funktionen ==
+
+== Felder der Anzeigetabelle ==
+
+
+Hinweis: Da alle Einstellungen individuell geändert werden können, erklärt diese Hilfe nur die standardmässig vorgegebene Einstellung. Hilfe zu individuellen Änderungen müssen in dieser Hilfe selber eingepflegt werden.</text>
+      <sha1>88hw8g4xfeky0v88u179tzhoafoptue</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Termine</title>
+    <ns>0</ns>
+    <id>123</id>
+    <revision>
+      <id>353</id>
+      <timestamp>2014-02-20T17:41:23Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „= Termine =“</comment>
+      <text xml:space="preserve" bytes="11">= Termine =</text>
+      <sha1>7ie99hguxlr7zxe7rre9c6rik1voodx</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Version/3.0.11</title>
+    <ns>0</ns>
+    <id>33</id>
+    <revision>
+      <id>433</id>
+      <parentid>423</parentid>
+      <timestamp>2014-02-28T06:41:33Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <text xml:space="preserve" bytes="743">Version 3.0.11
+
+Neu in dieser Version:
+
+- Mediawiki in Help eingebunden, im Menü Feld &quot;Helplink&quot; für verbindung zum Mediawiki.
+
+- Verbrauch der Heizung wird jetzt aus Anz(ahl) und dem Faktor beim hinterlegten Gerät errechnet
+
+- Unter Aufgabenplan wurde jetzt ein Aufgabenbenutzer eingebaut.
+
+- Bei Heizung wurde &quot;Druck Vergleich&quot; überarbeitet. Es können jetzt die Vergleichsjahre ausgewählt werden.
+
+- Hilfe-Button jetzt auch auf der Startseite (Home)
+
+- im Text-Feld können jetzt zwei Felder hinterlegt werden chklink,fldlink. Dann wird mit rot markiert wenn es die Datei nicht gibt.
+
+- Addressliste jetzt mit Erledigungsstatus.
+
+- Update jetzt auch mit seldbwhere-klausel.
+
+- Adressliste jetzt auch mit Handynummer und E-Mail-Adresse.</text>
+      <sha1>t1u8qv2wq80v9k8679wr38y84q3oktn</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+  <page>
+    <title>Joorgportal/Versionen</title>
+    <ns>0</ns>
+    <id>43</id>
+    <revision>
+      <id>93</id>
+      <timestamp>2014-02-14T06:22:27Z</timestamp>
+      <contributor>
+        <username>Admin</username>
+        <id>3</id>
+      </contributor>
+      <comment>Die Seite wurde neu angelegt: „Neue Versionen:  [[Joorgportal/Version/3.0.11|Version 3.0.11]]“</comment>
+      <text xml:space="preserve" bytes="62">Neue Versionen:
+
+[[Joorgportal/Version/3.0.11|Version 3.0.11]]</text>
+      <sha1>oiccrericaxkgk077q0ff6djzyxv2n1</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
+</mediawiki>

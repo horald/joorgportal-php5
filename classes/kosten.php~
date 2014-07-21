@@ -1,0 +1,19 @@
+<?php
+$menu=$_GET[menu];
+include("../config.php");
+include("kostenfunc.php");
+include("bootstrapfunc.php");
+include("../sites/views/wp_".$menu."/showtab.inc.php");
+bootstraphead();
+bootstrapbegin($pararray['headline']);
+
+$save = $_GET['save'];
+if ($save==1) {
+  kostenaufstellung();	
+} else {
+  kostenauswahl($menu);
+}  
+
+
+bootstrapend();
+?>

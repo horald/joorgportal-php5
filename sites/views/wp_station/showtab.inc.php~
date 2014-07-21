@@ -1,0 +1,14 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldBez' ));
+
+$pararray = array ( 'headline' => 'Kaufort',
+                    'dbtable' => 'tblorte',
+                    'orderby' => 'fldBez',
+                    'strwhere' => "fldo01typ='FREMD'",
+                    'fldindex' => 'fldIndex');
+
+?>

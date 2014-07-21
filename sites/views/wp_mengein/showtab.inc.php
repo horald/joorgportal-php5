@@ -1,0 +1,38 @@
+<?php
+$listarray = array ( array ( 'label' => 'Kurz',
+                             'name' => 'kurz',
+                             'width' => 50, 
+                             'type' => 'text',
+                             'dbfield' => 'fldkurz' ),
+                     array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 80, 
+                             'type' => 'text',
+                             'dbfield' => 'fldbez' ),
+                     array ( 'label' => 'Grundeinheit',
+                             'name' => 'grundeinheit',
+                             'width' => 80, 
+                             'type' => 'selectid',
+                             'dbtable' => 'tblgrundeinheit',
+                             'seldbfield' => 'fldbez',
+                             'seldbindex' => 'fldindex',
+                             'dbfield' => 'fldid_grundeinheit' ),
+                     array ( 'label' => 'Calc',
+                             'name' => 'calc',
+                             'width' => 80, 
+                             'type' => 'text',
+                             'dbfield' => 'fldcalc' ),
+                     array ( 'label' => 'Faktor',
+                             'name' => 'such',
+                             'width' => 80, 
+                             'type' => 'text',
+                             'dbfield' => 'fldfaktor' ));
+
+$pararray = array ( 'headline' => 'Mengeneinheit',
+                    'dbtable' => 'tblmengein',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldbez' => 'fldbez',
+                    'fldindex' => 'fldindex');
+
+?>
