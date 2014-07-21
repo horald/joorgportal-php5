@@ -31,6 +31,10 @@ $mediawikimain="Hauptseite";
 $winwidth=1135;
 $winheight=580;
 
+//audioframe
+$audiowidth=1200;
+$audioheight=300;
+
 //Database
 $config=new JConfig();
 //$gdbname="dbWebportal";

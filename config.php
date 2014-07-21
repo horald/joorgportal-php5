@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("configuration.php");
+//upgedatet auf sourceforge
 //general
 $gupdvers="0312";
 $updvers=$gupdvers;
