@@ -24,7 +24,7 @@ echo "Spielpl&aumltze in K&oumlln<br>";
       var map = new google.maps.Map(document.getElementById("map"), {
         //center: new google.maps.LatLng(47.6145, -122.3418),
         center: new google.maps.LatLng(50.93664488843189, 6.961641311645508),
-        zoom: 10,
+        zoom: 11,
         mapTypeId: 'roadmap'
       });
       var infoWindow = new google.maps.InfoWindow;
