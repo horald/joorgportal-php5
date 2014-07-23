@@ -1,0 +1,33 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 50, 
+                             'type' => 'text',
+                             'dbfield' => 'fldname' ),                     
+                     array ( 'label' => 'Adresse',
+                             'name' => 'adresse',
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldaddress' ),
+                     array ( 'label' => 'Latitude',
+                             'name' => 'lat',
+                             'width' => 10, 
+                             'type' => 'text',
+                             'dbfield' => 'fldlat' ),
+                     array ( 'label' => 'Long',
+                             'name' => 'lon',
+                             'width' => 10, 
+                             'type' => 'text',
+                             'dbfield' => 'fldlng' ),
+                     array ( 'label' => 'Type',
+                             'name' => 'type',
+                             'width' => 20, 
+                             'type' => 'text',
+                             'dbfield' => 'fldtype' ));
+
+$pararray = array ( 'headline' => 'Spielpl&aumltze',
+                    'dbtable' => 'tblmarkers',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldindex' => 'fldindex');
+?>
