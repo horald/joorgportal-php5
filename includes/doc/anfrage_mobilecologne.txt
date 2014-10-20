@@ -1,0 +1,7 @@
+Hallo,
+ich würde gerne mein Open Source Programm "Joorgportal" vorstellen. Zu finden unter:
+http://sourceforge.net/projects/joorgportal
+Dies kann mehr als Aufgaben, Termine und Adressen verwalten. Es ist Open Source und damit kostenlos und es ist mit Joomla gemacht und daher sehr flexible konfigurierbar. Die Funktionen kann ich gar nicht alle aufzählen. Hier nur einige: Einkaufsliste, Haushaltsbuch, Notizen, Heizkosten, Blutdruck, Tablettenliste, Dokumentenverwaltung, Fahrtenbuch und vieles mehr. Als berufstätiger Vater bin ich allerdings mit zeitlichen Möglichkeiten sehr begrenzt. Wir als Familie setzen die Groupware schon sehr intensiv ein, ich würde mich aber freuen auch andere davon zu begeistern es zu testen, verbesserungsvorschläge zu machen, und wer Interesse hat auch mitzuhelfen.
+
+Viele Grüße
+Horst Meyer

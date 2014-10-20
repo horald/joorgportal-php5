@@ -1,0 +1,19 @@
+<?php
+$menu=$_GET[menu];
+$menuid=$_GET[menuid];
+include("../config.php");
+include("birthdaytoterminfunc.php");
+include("bootstrapfunc.php");
+include("../sites/views/wp_".$menu."/showtab.inc.php");
+bootstraphead();
+bootstrapbegin($pararray['headline']);
+
+$birthday = $_GET['birthday'];
+if ($birthday==1) {
+  birthdayexec();
+} else {
+  birthdayabfrage($menu,$menuid);
+}  
+
+bootstrapend();
+?>

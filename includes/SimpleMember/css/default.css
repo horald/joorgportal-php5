@@ -1,0 +1,82 @@
+	body {
+		margin: 0px;
+		padding: 0px;
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		font-size: 14px;
+		text-transform: lowercase;
+		color: #6f6f6f;
+		background: #dfdfdf;
+	}
+
+	h1, h2, h3 {
+		margin-top: 0px;
+		font-weight: normal;
+		color: #6f6f6f;
+	}
+
+	h1 {
+		letter-spacing: -3px;
+		font-size: 34px;
+	}
+
+	a {
+		color: #6f6f6f;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	.footer {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	span {
+		color: red;
+	}
+
+	label {
+		display: none;
+	}
+	
+	#wrapper {
+		width: 940px;
+		background: #FFF;
+		margin: 40px auto;
+		padding: 20px;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;    /* for Safari */
+		-moz-border-radius: 10px;       /* for Firefox */			
+	}
+
+	.inputText, .inputSelect {
+		margin: 0 0 20px 0;
+		padding: 6px;
+		width: 98%;
+		color: #6f6f6f;
+		border: 1px solid #dfdfdf;
+		font: normal 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
+		text-transform: lowercase;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;    /* for Safari */
+		-moz-border-radius: 10px;       /* for Firefox */	
+	}
+
+	.inputSubmit {
+		height: 42px;
+		width: 134px;
+		display: block;
+		border: none;
+		margin-top: 30px;
+		background: #6f6f6f;
+		color: #FFF;
+		padding: 0 0 6px 0;
+		text-align: center;	
+		cursor: pointer;
+		font: normal 16px "Trebuchet MS", Arial, Helvetica, sans-serif;
+		border-radius: 10px;
+		-webkit-border-radius: 10px;    /* for Safari */
+		-moz-border-radius: 10px;       /* for Firefox */
+	}

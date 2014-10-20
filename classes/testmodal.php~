@@ -1,0 +1,15 @@
+<?php
+echo "<div class='modal fade' id='test_modal'>";
+echo "  <div class='modal-header'>";
+echo "    <a class='close' data-dismiss='modal'>&times;</a>";
+echo "    <h3>Modal Header</h3>";
+echo "  </div>";
+echo "  <div class='modal-body'>";
+echo "    <p>Test Modal</p>";
+echo "  </div>";
+echo "  <div class='modal-footer'>";
+echo "    <a href='#' class='btn' data-dismiss='modal'>Close</a>";
+echo "    <a href='#' class='btn btn-primary'>Save Changes</a>";
+echo "  </div>";
+echo "</div>";
+?>

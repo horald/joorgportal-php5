@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_JOORGPORTAL_JOORGPORTAL_VIEW_DEFAULT_TITLE">
+		<message>COM_JOORGPORTAL_JOORGPORTAL_VIEW_DEFAULT_DESC</message>
+	</layout>
+	<fields
+		name="request"
+		addfieldpath="/administrator/components/com_joorgportal/models/fields"
+	>
+		<fieldset name="request">
+			<field
+				name="id"
+				type="joorgportal"
+				label="COM_JOORGPORTAL_JOORGPORTAL_FIELD_BEMVINDO_LABEL"
+				description="COM_JOORGPORTAL_JOORGPORTAL_FIELD_BEMVINDO_DESC"
+			/>
+		</fieldset>
+	</fields>
+</metadata>
+

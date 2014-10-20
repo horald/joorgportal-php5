@@ -1,0 +1,12 @@
+.tabsonntagsansicht {
+  background-color: #0000ff;
+  color: #ffff00;
+}
+
+@media print {
+.tabsonntagsansicht {
+  font-size: 24pt;
+  background-color: #0000ff;
+  color: #ffff00;
+}
+}

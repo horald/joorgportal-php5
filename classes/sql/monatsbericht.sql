@@ -1,0 +1,1 @@
+SELECT sum(fldBetrag) AS Betrag,year(fldDatum) as Jahr, month(fldDatum) as Monat,fldInhaber,fldKonto FROM tblktosal,tblktogrpzuord WHERE tblktogrpzuord.fldKurz=tblktosal.fldKonto AND fldid_oberkonto=113 AND fldDetailInd=0 AND month(fldDatum)=01 AND year(fldDatum)=2014 AND fldInhaber='Bank_Horst' GROUP BY month(fldDatum),year(fldDatum),fldInhaber,fldKonto

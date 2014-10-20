@@ -1,0 +1,25 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldBez' ),
+                     array ( 'label' => 'Typ',
+                             'name' => 'typ',
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldTyp' ),
+                     array ( 'label' => '',
+                             'width' => 5, 
+                             'type' => 'icon',
+                             'func' => 'setfield.php',
+                             'dbfield' => 'icon-book' ) );
+
+
+$pararray = array ( 'headline' => 'Stammdatentyp',
+                    'dbtable' => 'tblstamm_typ',
+                    'orderby' => 'fldBez',
+                    'strwhere' => '',
+                    'fldindex' => 'fldIndex');
+                    
+?>

@@ -1,0 +1,71 @@
+<?php
+$menu=$_GET[menu];
+$menu="rezeptzutaten";
+$idwert=$_GET[idwert];
+$drucken="N";
+include("../config.php");
+include("showtabfunc.php");
+include("../sites/views/wp_".$menu."/showtab.inc.php");
+include("bootstrapfunc.php");
+bootstraphead();
+bootstrapbegin("rezept");
+echo "<div class='panel panel-primary'>";
+echo "  <div class='panel-heading'>";
+echo "    <h3 class='panel-title'>";
+echo "<a id='einausblendenbild' href='#einausblendenbild'>";
+echo "Bilder";
+echo "</h3>";
+echo "  </div>";
+echo "  <div id='collapseOne' class='panel-collapse collapse in'>";
+echo "  <div class='panel-body'>";
+
+echo "<div class='thumbnail span3'>";
+$query="SELECT * FROM tblrezepte WHERE fldIndex=".$idwert;
+$result = mysql_query($query) or die(mysql_error());
+$line = mysql_fetch_array($result);$wert=$line['fldid_bild'];
+if ($wert==0) {
+  echo "	<a href=''><img src='../images/rezepte/kein_bild.gif' alt='Pizza' /></a>";
+} else {  
+  echo '<img src="meinbild.php?id='. $wert .'" alt="Keine Bildanzeige" />';
+}  
+echo "</div>";
+
+echo "  </div></div></div>";
+echo "</div>";
+echo "<div class='panel panel-primary'>";
+echo "  <div class='panel-heading'>";
+echo "    <h3 class='panel-title'>";
+echo "<a id='einausblendenzutaten' href='#einausblendenzutaten'>";
+echo "Zutaten";
+echo "</h3>";
+echo "  </div>";
+echo "  <div id='collapseTwo' class='panel-collapse collapse in'>";
+echo "  <div class='panel-body'>";
+  $filter="";
+  $iddetail=0;
+  $langshort="dummy";
+  $pararray['strwhere']="fldid_rezepte=".$idwert;
+  showtablist($pararray,$listarray,$filterarray,$filter,$menu,$iddetail,$idwert,$drucken,$langshort);
+echo "  </div></div></div>";
+echo "</div>";
+echo "<div class='panel panel-primary'>";
+echo "  <div class='panel-heading'>";
+echo "    <h3 class='panel-title'>";
+echo "<a id='einausblendenzubereitung' href='#einausblendenzubereitung'>";
+echo "Zubereitung";
+echo "</h3>";
+echo "  </div>";
+echo "  <div id='collapseThree' class='panel-collapse collapse in'>";
+echo "  <div class='panel-body'>";
+if ($bootstrapver==3) {
+  echo "<div class='col-xs-3 col-md-3 well'><b>Arbeitszeit:</b> ca. 15 Min. </div>";
+  echo "<div class='col-xs-3 col-md-3 well'><b>Ruhezeit:</b> ca. 2 Tage </div>";
+  echo "<div class='col-xs-3 col-md-3 well'><b>Schwierigkeitsgrad:</b> simpel </div>";
+  echo "<div class='col-xs-3 col-md-3 well'><b>Kalorien p. P.:</b> keine Angabe </div><br>";
+  echo "<br>";
+}
+echo $line['fldzubereitung'];  
+echo "  </div></div></div>";
+echo "</div>";
+bootstrapend();
+?>

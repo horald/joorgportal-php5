@@ -1,0 +1,42 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 50, 
+                             'type' => 'text',
+                             'dbfield' => 'fldBez' ),                     
+                     array ( 'label' => 'Reise',
+                             'name' => 'reise',
+                             'width' => 50, 
+                             'type' => 'selectid',
+                             'dbtable' => 'tbltc_liste',
+                             'seldbfield' => 'fldBez',
+                             'seldbindex' => 'fldIndex',
+                             'dbfield' => 'fldid_reise' ),
+                     array ( 'label' => 'Link',
+                             'name' => 'link',
+                             'fieldhide' => 'true',
+                             'width' => 50, 
+                             'type' => 'text',
+                             'dbfield' => 'fldLink' ),
+                     array ( 'label' => 'Kosten',
+                             'name' => 'kosten',
+                             'width' => 10, 
+                             'type' => 'calc',
+                             'dbfield' => 'fldPreis' ));
+
+$filterarray = array ( array ( 'label' => 'Reise',
+                             'name' => 'fltreise', 
+                             'width' => 10, 
+                             'type' => 'selectid',
+                             'sign' => '=',
+                             'dbtable' => 'tbltc_liste',
+                             'seldbfield' => 'fldBez',
+                             'seldbindex' => 'fldIndex',
+                             'dbfield' => 'fldid_reise' ));
+
+$pararray = array ( 'headline' => 'Reisekosten',
+                    'dbtable' => 'tbltc_kosten',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldindex' => 'fldIndex');
+?>

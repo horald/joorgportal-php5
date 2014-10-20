@@ -1,0 +1,14 @@
+*** Opendataapp ***
+
+this is a webapp for all datas importing and showing with mysql or postgreSQL.
+You need also php and apache.
+
+--- Installation ---
+at the first start it will install automatically. If the config file config.php does
+not exist the install routine will start. Only following the instructions.
+
+the app use yii framework so you have to give some rights
+sudo chmod -R 775 app/protected/runtime
+sudo chown www-data:www-data app/protected/runtime
+sudo chmod -R 775 app/assets
+sudo chown www-data:www-data app/assets

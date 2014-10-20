@@ -1,0 +1,3 @@
+echo kompilieren...
+javac Chart.java
+read eingabe

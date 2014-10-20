@@ -1,0 +1,16 @@
+<?php
+$menu=$_GET[menu];
+$ncount=$_POST['count'];
+include("../config.php");
+include("setstatusfunc.php");
+include("bootstrapfunc.php");
+include("../sites/views/wp_".$menu."/showtab.inc.php");
+bootstraphead($pfad);
+bootstrapbegin($pararray['headline']);
+
+echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."'>zurück</a><br>";
+echo $ncount." x setze status <br>";
+
+bootstrapend();
+
+?>

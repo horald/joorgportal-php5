@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.0" type="template" client="site">
+  <name>Joorgportal30 Template</name>
+  <version>1.0</version>
+  <creationDate>05/23/2014</creationDate>
+  <author>Horst Aldebaran</author>
+  <authorEmail>support@joorgportal.de</authorEmail>
+  <copyright>Copyright (C) 2014 Horst Aldebaran</copyright>
+  <description>Groupware for familys and private people</description>
+  <files>
+    <filename>index.php</filename>
+    <folder>css</folder>
+    <folder>js</folder>
+    <folder>images</folder>
+  </files>
+  <positions>
+    <position>debug</position>
+    <position>pos-left</position>
+    <position>pos-right</position>
+    <position>pos-mainleft</position>
+    <position>pos-mainright</position>
+	<position>header</position>
+	<position>footer</position>
+  </positions>
+<config>
+</config>
+</extension>

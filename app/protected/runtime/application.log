@@ -1,0 +1,1186 @@
+2014/09/18 17:06:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/index".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('product/index')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=product/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/index.php?r=site/index
+---
+2014/09/18 17:06:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/new".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('product/new')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=product/new&tag=new
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/index.php?r=product/index
+---
+2014/09/18 17:06:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/index".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('product/index')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=product/index&tag=popular
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/index.php?r=product/new&tag=new
+---
+2014/09/18 17:06:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "product/index".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('product/index')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=product/index&tag=popular
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/index.php?r=product/new&tag=new
+---
+2014/09/18 17:39:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/action".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('controller/acti...')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=controller/action
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/index.php?r=site/index
+---
+2014/09/19 10:56:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/action".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('controller/acti...')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=controller/action
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/
+---
+2014/09/19 11:08:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/action".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('controller/acti...')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=controller/action
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/
+---
+2014/09/19 11:08:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/action".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('controller/acti...')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=controller/action
+HTTP_REFERER=http://localhost:8080/own/yiiframework/testdrive/index.php?r=site/index
+---
+2014/09/19 11:47:08 [error] [php] Trying to get property of non-object (C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CComponent.php(612) : eval()'d code:1)
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\grid\CButtonColumn.php(319): TbButtonColumn->renderButton()
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\grid\CGridColumn.php(151): TbButtonColumn->renderDataCellContent()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\grid\CGridView.php(616): TbButtonColumn->renderDataCell()
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\grid\CGridView.php(572): TbGridView->renderTableRow()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\grid\CGridView.php(482): TbGridView->renderTableBody()
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\CBaseListView.php(167): TbGridView->renderItems()
+#6 unknown(0): TbGridView->renderSection()
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback()
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\zii\widgets\CBaseListView.php(135): TbGridView->renderContent()
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(173): TbGridView->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\views\site\index.php(58): SiteController->widget()
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(869): SiteController->renderFile()
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(782): SiteController->renderPartial()
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\controllers\SiteController.php(32): SiteController->render()
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): SiteController->runAction()
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): SiteController->run()
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=site/index
+in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\extensions\bootstrap\widgets\TbButtonColumn.php (60)
+in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\views\site\index.php (58)
+in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\controllers\SiteController.php (32)
+2014/09/19 11:58:08 [error] [php] Undefined variable: model (C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\views\site\index.php:54)
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(782): SiteController->renderPartial()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\controllers\SiteController.php(32): SiteController->render()
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): SiteController->runAction()
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): SiteController->run()
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/own/yiiframework/testdrive/index.php?r=site/index
+in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\views\site\index.php (54)
+in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\protected\controllers\SiteController.php (32)
+in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\testdrive\index.php (13)
+2014/09/26 10:18:01 [error] [exception.CException] exception 'CException' with message 'SiteController contains improperly nested widget tags in its view "C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views//layouts/main.php". A CPortlet widget does not have an endWidget() call.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php:101
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('')
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/
+---
+2014/09/26 10:22:56 [error] [exception.CException] exception 'CException' with message 'Alias "ext.menu.EMenu" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:322
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.menu.EMenu', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'ext.menu.EMenu', Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.menu.EMenu', Array)
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\main.php(54): CBaseController->widget('ext.menu.EMenu', Array)
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/index
+---
+2014/09/26 11:14:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=admin
+---
+2014/09/26 11:16:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/
+---
+2014/09/26 11:16:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/
+---
+2014/09/26 11:16:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/admin
+---
+2014/09/26 11:18:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php
+---
+2014/09/26 13:27:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php
+---
+2014/09/26 13:28:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/login
+---
+2014/09/29 16:40:40 [error] [exception.CException] exception 'CException' with message 'Alias "ext.verticalmenu2levels.VerticalMenu2Levels" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:322
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.verticalmen...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'ext.verticalmen...', Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.verticalmen...', Array)
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\themes\lefty\views\layouts\main.php(71): CBaseController->widget('ext.verticalmen...', Array)
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 10:07:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/index
+---
+2014/10/02 10:07:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 10:20:42 [error] [exception.CException] exception 'CException' with message 'Alias "zii.widgets.EMenu" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:322
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWidgetFactory.php(146): YiiBase::import('zii.widgets.EMe...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'zii.widgets.EMe...', Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.EMe...', Array)
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\themes\lefty\views\layouts\main.php(45): CBaseController->widget('zii.widgets.EMe...', Array)
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('')
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php
+HTTP_REFERER=http://localhost:8080/
+---
+2014/10/02 10:25:30 [error] [exception.CException] exception 'CException' with message 'Alias "zii.widgets.EMenu" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:322
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWidgetFactory.php(146): YiiBase::import('zii.widgets.EMe...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'zii.widgets.EMe...', Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.EMe...', Array)
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\themes\lefty\views\layouts\main.php(44): CBaseController->widget('zii.widgets.EMe...', Array)
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('')
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php
+HTTP_REFERER=http://localhost:8080/
+---
+2014/10/02 10:37:19 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.mbmenu.MbMenu" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:322
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWidgetFactory.php(146): YiiBase::import('application.ext...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'application.ext...', Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(172): CBaseController->createWidget('application.ext...', Array)
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\themes\lefty\views\layouts\main.php(45): CBaseController->widget('application.ext...', Array)
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('')
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php
+HTTP_REFERER=http://localhost:8080/
+---
+2014/10/02 10:52:50 [error] [exception.CException] exception 'CException' with message 'Alias "booster.widgets.TbMenu" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWidgetFactory.php(146): YiiBase::import('booster.widgets...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'booster.widgets...', Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(172): CBaseController->createWidget('booster.widgets...', Array)
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\themes\lefty\views\layouts\main.php(61): CBaseController->widget('booster.widgets...', Array)
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#7 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(206): COutputProcessor->run()
+#10 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#12 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(126): require('C:\Meyer\Progra...')
+#13 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\Meyer\Progra...', Array, true)
+#14 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(784): CBaseController->renderFile('C:\Meyer\Progra...', Array, true)
+#15 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('')
+#21 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#22 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php
+HTTP_REFERER=http://localhost:8080/
+---
+2014/10/02 11:14:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php
+---
+2014/10/02 11:18:18 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.Bootstrap.class" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.Boot...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:19:00 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Bootstrap" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:19:37 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.components.Bootstrap" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:322
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('bootstrap.compo...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:20:55 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:19 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:21 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:21 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:21 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:21 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:22 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:22 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:22 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:22 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:22 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:21:23 [error] [exception.CException] exception 'CException' with message 'Alias "yiibooster.components.Booster" is invalid. Make sure it points to an existing directory or file.' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php:347
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(196): YiiBase::import('yiibooster.comp...', true)
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(125): CApplication->__construct('C:\Meyer\Progra...')
+#5 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'C:\Meyer\Progra...')
+#6 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): YiiBase::createWebApplication('C:\Meyer\Progra...')
+#7 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 11:27:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/index
+---
+2014/10/02 11:29:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/index
+---
+2014/10/02 11:34:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/contact
+---
+2014/10/02 12:31:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/fenster
+---
+2014/10/02 12:52:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/index
+---
+2014/10/02 13:07:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "about".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('about')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('about')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/about')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/about
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/index
+---
+2014/10/02 13:32:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php
+---
+2014/10/02 13:33:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/page&view=about
+---
+2014/10/02 13:39:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php:483
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=site/admin
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php
+---
+2014/10/02 14:02:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "https://www.google.de".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('https://www.goo...')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=https://www.google.de
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/fenster
+---
+2014/10/02 14:07:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "https://www.google.de".' in C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\web\CWebApplication.php(141): CWebApplication->runController('https://www.goo...')
+#1 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\Meyer\Programme\portable\mowes\www\own\yiiframework\joorgportal\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/own/yiiframework/joorgportal/index.php?r=https://www.google.de
+HTTP_REFERER=http://localhost:8080/own/yiiframework/joorgportal/index.php?r=site/fenster
+---
+2014/10/02 18:13:34 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.page" is not defined.' in /media/hd1/var/www/yii/yiiframework/framework/base/CComponent.php:130
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/base/CModule.php(105): CComponent->__get('page')
+#1 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/pages/iframe.php(9): CModule->__get('page')
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(126): require('/media/hd1/var/...')
+#3 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(95): CBaseController->renderInternal('/media/hd1/var/...', NULL, true)
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(869): CBaseController->renderFile('/media/hd1/var/...', NULL, true)
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(782): CController->renderPartial('pages/iframe', NULL, true)
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CViewAction.php(140): CController->render('pages/iframe')
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CAction.php(76): CViewAction->run()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CAction->runWithParams(Array)
+#9 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#10 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#11 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): CController->run('page')
+#12 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#13 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/page&view=iframe&page=1
+HTTP_REFERER=http://localhost/yii/yiiframework/joorgportal/index.php?r=site/page&view=iframe&page=1
+---
+2014/10/02 18:16:51 [error] [php] Undefined variable: item (/media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/pages/iframe.php:10)
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(869): SiteController->renderFile()
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CViewAction.php(140): SiteController->render()
+#3 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CAction.php(76): CViewAction->run()
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CViewAction->runWithParams()
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): SiteController->runAction()
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/page&view=iframe&page=1
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/pages/iframe.php (10)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/index.php (13)
+2014/10/02 18:17:38 [error] [php] Undefined variable: items (/media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/pages/iframe.php:10)
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(869): SiteController->renderFile()
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CViewAction.php(140): SiteController->render()
+#3 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CAction.php(76): CViewAction->run()
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CViewAction->runWithParams()
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): SiteController->runAction()
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/page&view=iframe&page=1
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/pages/iframe.php (10)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/index.php (13)
+2014/10/02 18:39:01 [error] [php] file_get_contents(../version.txt): failed to open stream: No such file or directory (/media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/index.php:12)
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(869): SiteController->renderFile()
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(782): SiteController->renderPartial()
+#3 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php(32): SiteController->render()
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): SiteController->runAction()
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): SiteController->run()
+#9 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/index
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/index.php (12)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php (32)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/index.php (13)
+2014/10/02 18:39:36 [error] [php] Undefined variable: gdbtyp (/media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/index.php:15)
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(869): SiteController->renderFile()
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(782): SiteController->renderPartial()
+#2 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php(32): SiteController->render()
+#3 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): SiteController->runAction()
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/index
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/index.php (15)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php (32)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/index.php (13)
+2014/10/03 17:04:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /media/hd1/var/www/yii/yiiframework/framework/web/CController.php:483
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/admin
+HTTP_REFERER=http://localhost/yii/yiiframework/joorgportal/index.php
+---
+2014/10/04 23:45:13 [error] [php] Undefined variable: logoutHtml (/media/hd1/var/www/yii/yiiframework/joorgportal/themes/lefty/views/layouts/main.php:55)
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(126): require()
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(784): SiteController->renderFile()
+#9 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php(32): SiteController->render()
+#10 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#11 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): SiteController->runAction()
+#13 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/index
+in /media/hd1/var/www/yii/yiiframework/joorgportal/themes/lefty/views/layouts/main.php (55)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php (32)
+2014/10/04 23:45:28 [error] [exception.CException] exception 'CException' with message 'Alias "bootstrap.widgets.BootNavbar" is invalid. Make sure it points to an existing PHP file and the file is readable.' in /media/hd1/var/www/yii/yiiframework/framework/YiiBase.php:322
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CWidgetFactory.php(146): YiiBase::import('bootstrap.widge...', true)
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(146): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 /media/hd1/var/www/yii/yiiframework/joorgportal/themes/lefty/views/layouts/main.php(57): CBaseController->widget('bootstrap.widge...', Array)
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(126): require('/media/hd1/var/...')
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(95): CBaseController->renderInternal('/media/hd1/var/...', Array, true)
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/media/hd1/var/...', Array, true)
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#9 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(206): COutputProcessor->run()
+#10 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#11 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#12 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(126): require('/media/hd1/var/...')
+#13 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(95): CBaseController->renderInternal('/media/hd1/var/...', Array, true)
+#14 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(784): CBaseController->renderFile('/media/hd1/var/...', Array, true)
+#15 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php(32): CController->render('index')
+#16 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#17 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#18 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#19 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): CController->run('index')
+#21 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController('site/index')
+#22 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#23 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/index
+HTTP_REFERER=http://localhost/yii/yiiframework/joorgportal/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+---
+2014/10/06 07:19:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /media/hd1/var/www/yii/yiiframework/framework/web/CController.php:483
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/admin&view=iframe
+HTTP_REFERER=http://localhost/yii/yiiframework/joorgportal/index.php
+---
+2014/10/06 07:20:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in /media/hd1/var/www/yii/yiiframework/framework/web/CController.php:483
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(270): CController->missingAction('admin')
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): CController->run('admin')
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController('site/admin')
+#3 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/admin&view=iframe
+HTTP_REFERER=http://localhost/yii/yiiframework/joorgportal/index.php
+---
+2014/10/06 08:01:51 [error] [php] file_get_contents(/yii/yiiframework/joorgportal/version.txt): failed to open stream: No such file or directory (/media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/index.php:13)
+Stack trace:
+#0 /media/hd1/var/www/yii/yiiframework/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#1 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(869): SiteController->renderFile()
+#2 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(782): SiteController->renderPartial()
+#3 /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php(32): SiteController->render()
+#4 /media/hd1/var/www/yii/yiiframework/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#5 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(286): SiteController->runAction()
+#7 /media/hd1/var/www/yii/yiiframework/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#8 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(282): SiteController->run()
+#9 /media/hd1/var/www/yii/yiiframework/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /media/hd1/var/www/yii/yiiframework/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /media/hd1/var/www/yii/yiiframework/joorgportal/index.php(13): CWebApplication->run()
+REQUEST_URI=/yii/yiiframework/joorgportal/index.php?r=site/index
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/views/site/index.php (13)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/protected/controllers/SiteController.php (32)
+in /media/hd1/var/www/yii/yiiframework/joorgportal/index.php (13)
+2014/10/06 17:58:25 [error] [php] Undefined index: fldMenu (/media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php:39)
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require()
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): SiteController->renderFile()
+#9 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): SiteController->render()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#11 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CViewAction->runWithParams()
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#13 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /media/hd1/var/www/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (39)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/own/opendataapp/app/index.php (13)
+2014/10/06 18:03:48 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tlbmenu_projekt.fldindex' in 'where clause'. The SQL statement executed was: SELECT * FROM tblmenu_liste, tblmenu_projekt WHERE tlbmenu_projekt.fldindex=fldid_menuprojekt AND fldparent='0' AND fldview='J' AND fldversion>'0302' ORDER BY fldSort.
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (37)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/own/opendataapp/app/index.php (13)
+2014/10/06 18:03:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tlbmenu_projekt.fldindex' in 'where clause'. The SQL statement executed was: SELECT * FROM tblmenu_liste, tblmenu_projekt WHERE tlbmenu_projekt.fldindex=fldid_menuprojekt AND fldparent='0' AND fldview='J' AND fldversion>'0302' ORDER BY fldSort' in /media/hd1/var/www/own/opendataapp/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/db/CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php(37): CDbCommand->query()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require('/media/hd1/var/...')
+#3 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): CBaseController->renderInternal('/media/hd1/var/...', Array, true)
+#4 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/media/hd1/var/...', Array, true)
+#5 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): COutputProcessor->run()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require('/media/hd1/var/...')
+#11 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): CBaseController->renderInternal('/media/hd1/var/...', Array, true)
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): CBaseController->renderFile('/media/hd1/var/...', Array, true)
+#13 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): CController->render('pages/iframe')
+#14 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CAction->runWithParams(Array)
+#16 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): CController->runAction(Object(CViewAction))
+#17 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): CController->runActionWithFilters(Object(CViewAction), Array)
+#18 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): CController->run('page')
+#19 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController('site/page')
+#20 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /media/hd1/var/www/own/opendataapp/app/index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+HTTP_REFERER=http://localhost/own/opendataapp/app/index.php
+---
+2014/10/06 18:30:00 [error] [php] Undefined variable: line (/media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php:45)
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require()
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): SiteController->renderFile()
+#9 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): SiteController->render()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#11 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CViewAction->runWithParams()
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#13 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /media/hd1/var/www/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (45)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/own/opendataapp/app/index.php (13)
+2014/10/06 18:30:42 [error] [php] Undefined variable: line (/media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php:45)
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require()
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): SiteController->renderFile()
+#9 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): SiteController->render()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#11 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CViewAction->runWithParams()
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#13 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /media/hd1/var/www/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (45)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/own/opendataapp/app/index.php (13)
+2014/10/06 18:31:47 [error] [php] Use of undefined constant fldwebadr - assumed 'fldwebadr' (/media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php:50)
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require()
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): SiteController->renderFile()
+#9 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): SiteController->render()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#11 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CViewAction->runWithParams()
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#13 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /media/hd1/var/www/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (50)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/own/opendataapp/app/index.php (13)
+2014/10/06 18:32:30 [error] [php] Undefined index: fldwebadr (/media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php:50)
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#1 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): CContentDecorator->run()
+#4 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): SiteController->endWidget()
+#5 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): SiteController->endContent()
+#6 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require()
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): SiteController->renderFile()
+#9 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): SiteController->render()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#11 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CViewAction->runWithParams()
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#13 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#14 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#16 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /media/hd1/var/www/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dschulen
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (50)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+in /media/hd1/var/www/own/opendataapp/app/index.php (13)
+2014/10/06 21:27:15 [error] [php] Undefined index: fldart (/media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/pagemenu.php:17)
+Stack trace:
+#0 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#1 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): SiteController->renderFile()
+#2 /media/hd1/var/www/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate()
+#3 /media/hd1/var/www/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput()
+#4 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(206): CContentDecorator->run()
+#5 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(300): SiteController->endWidget()
+#6 /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php(6): SiteController->endContent()
+#7 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(126): require()
+#8 /media/hd1/var/www/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#9 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(784): SiteController->renderFile()
+#10 /media/hd1/var/www/own/opendataapp/framework/web/actions/CViewAction.php(140): SiteController->render()
+#11 /media/hd1/var/www/own/opendataapp/framework/web/actions/CAction.php(76): CViewAction->run()
+#12 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(308): CViewAction->runWithParams()
+#13 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#14 /media/hd1/var/www/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /media/hd1/var/www/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /media/hd1/var/www/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /media/hd1/var/www/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php?r=site/page&view=iframe&page=http%3A%2F%2Flocalhost%2Fown%2Fopendataapp%2Fclasses%2Fshowtab.php%3Fmenu%3Dadmin&idwert=1733
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/pagemenu.php (17)
+in /media/hd1/var/www/own/opendataapp/app/themes/lefty/views/layouts/main.php (35)
+in /media/hd1/var/www/own/opendataapp/app/protected/views/layouts/column1.php (6)
+2014/10/13 22:30:48 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/var/www/html/own/opendataapp/app/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /var/www/html/own/opendataapp/framework/web/CAssetManager.php:138
+Stack trace:
+#0 /var/www/html/own/opendataapp/framework/web/CAssetManager.php(123): CAssetManager->setBasePath('/var/www/html/o...')
+#1 /var/www/html/own/opendataapp/framework/web/CAssetManager.php(217): CAssetManager->getBasePath()
+#2 /var/www/html/own/opendataapp/app/protected/extensions/bootstrap/components/Bootstrap.php(313): CAssetManager->publish('/var/www/html/o...', true, -1, false)
+#3 /var/www/html/own/opendataapp/app/protected/extensions/bootstrap/components/Bootstrap.php(57): Bootstrap->getAssetsUrl()
+#4 /var/www/html/own/opendataapp/app/protected/extensions/bootstrap/components/Bootstrap.php(88): Bootstrap->registerCoreCss()
+#5 /var/www/html/own/opendataapp/app/protected/extensions/bootstrap/components/Bootstrap.php(32): Bootstrap->registerAllCss()
+#6 /var/www/html/own/opendataapp/framework/base/CModule.php(387): Bootstrap->init()
+#7 /var/www/html/own/opendataapp/framework/base/CModule.php(523): CModule->getComponent('bootstrap')
+#8 /var/www/html/own/opendataapp/framework/base/CApplication.php(163): CModule->preloadComponents()
+#9 /var/www/html/own/opendataapp/framework/YiiBase.php(125): CApplication->__construct('/var/www/html/o...')
+#10 /var/www/html/own/opendataapp/framework/YiiBase.php(98): YiiBase::createApplication('CWebApplication', '/var/www/html/o...')
+#11 /var/www/html/own/opendataapp/app/index.php(13): YiiBase::createWebApplication('/var/www/html/o...')
+#12 {main}
+REQUEST_URI=/own/opendataapp/app/index.php
+---
+2014/10/13 22:31:19 [error] [php] file_get_contents(/media/hd1/var/www/own/opendataapp/app/version.txt): failed to open stream: No such file or directory (/var/www/html/own/opendataapp/app/protected/views/site/index.php:13)
+Stack trace:
+#0 /var/www/html/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#1 /var/www/html/own/opendataapp/framework/web/CController.php(869): SiteController->renderFile()
+#2 /var/www/html/own/opendataapp/framework/web/CController.php(782): SiteController->renderPartial()
+#3 /var/www/html/own/opendataapp/app/protected/controllers/SiteController.php(32): SiteController->render()
+#4 /var/www/html/own/opendataapp/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#5 /var/www/html/own/opendataapp/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /var/www/html/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#7 /var/www/html/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#8 /var/www/html/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#9 /var/www/html/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /var/www/html/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php
+in /var/www/html/own/opendataapp/app/protected/views/site/index.php (13)
+in /var/www/html/own/opendataapp/app/protected/controllers/SiteController.php (32)
+in /var/www/html/own/opendataapp/app/index.php (13)
+2014/10/13 22:33:45 [error] [php] file_get_contents(/var/www/own/opendataapp/app/version.txt): failed to open stream: No such file or directory (/var/www/html/own/opendataapp/app/protected/views/site/index.php:13)
+Stack trace:
+#0 /var/www/html/own/opendataapp/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#1 /var/www/html/own/opendataapp/framework/web/CController.php(869): SiteController->renderFile()
+#2 /var/www/html/own/opendataapp/framework/web/CController.php(782): SiteController->renderPartial()
+#3 /var/www/html/own/opendataapp/app/protected/controllers/SiteController.php(32): SiteController->render()
+#4 /var/www/html/own/opendataapp/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#5 /var/www/html/own/opendataapp/framework/web/CController.php(308): CInlineAction->runWithParams()
+#6 /var/www/html/own/opendataapp/framework/web/CController.php(286): SiteController->runAction()
+#7 /var/www/html/own/opendataapp/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#8 /var/www/html/own/opendataapp/framework/web/CWebApplication.php(282): SiteController->run()
+#9 /var/www/html/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /var/www/html/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /var/www/html/own/opendataapp/app/index.php(13): CWebApplication->run()
+REQUEST_URI=/own/opendataapp/app/index.php
+in /var/www/html/own/opendataapp/app/protected/views/site/index.php (13)
+in /var/www/html/own/opendataapp/app/protected/controllers/SiteController.php (32)
+in /var/www/html/own/opendataapp/app/index.php (13)
+2014/10/13 22:34:31 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dbopendataapp.tblmenu_liste' doesn't exist. The SQL statement executed was: SELECT tblmenu_liste.fldindex AS fldmlindex, fldmenu, fldparent, fldart FROM tblmenu_liste, tblmenu_projekt AS mp WHERE fldid_menuprojekt=mp.fldindex AND mp.fldaktiv='J' AND fldview='J' AND fldparent='0' AND fldversion>='0303' ORDER BY fldsort.
+in /var/www/html/own/opendataapp/app/themes/lefty/views/layouts/pagemenu.php (12)
+in /var/www/html/own/opendataapp/app/themes/lefty/views/layouts/main.php (35)
+in /var/www/html/own/opendataapp/app/protected/views/layouts/column1.php (6)
+2014/10/13 22:34:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'dbopendataapp.tblmenu_liste' doesn't exist. The SQL statement executed was: SELECT tblmenu_liste.fldindex AS fldmlindex, fldmenu, fldparent, fldart FROM tblmenu_liste, tblmenu_projekt AS mp WHERE fldid_menuprojekt=mp.fldindex AND mp.fldaktiv='J' AND fldview='J' AND fldparent='0' AND fldversion>='0303' ORDER BY fldsort' in /var/www/html/own/opendataapp/framework/db/CDbCommand.php:543
+Stack trace:
+#0 /var/www/html/own/opendataapp/framework/db/CDbCommand.php(377): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/html/own/opendataapp/app/themes/lefty/views/layouts/pagemenu.php(12): CDbCommand->query()
+#2 /var/www/html/own/opendataapp/app/themes/lefty/views/layouts/main.php(35): pagemenu('0')
+#3 /var/www/html/own/opendataapp/framework/web/CBaseController.php(126): require('/var/www/html/o...')
+#4 /var/www/html/own/opendataapp/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/o...', Array, true)
+#5 /var/www/html/own/opendataapp/framework/web/widgets/CContentDecorator.php(76): CBaseController->renderFile('/var/www/html/o...', Array, true)
+#6 /var/www/html/own/opendataapp/framework/web/widgets/CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#7 /var/www/html/own/opendataapp/framework/web/widgets/COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#8 /var/www/html/own/opendataapp/framework/web/CBaseController.php(206): COutputProcessor->run()
+#9 /var/www/html/own/opendataapp/framework/web/CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#10 /var/www/html/own/opendataapp/app/protected/views/layouts/column1.php(6): CBaseController->endContent()
+#11 /var/www/html/own/opendataapp/framework/web/CBaseController.php(126): require('/var/www/html/o...')
+#12 /var/www/html/own/opendataapp/framework/web/CBaseController.php(95): CBaseController->renderInternal('/var/www/html/o...', Array, true)
+#13 /var/www/html/own/opendataapp/framework/web/CController.php(784): CBaseController->renderFile('/var/www/html/o...', Array, true)
+#14 /var/www/html/own/opendataapp/app/protected/controllers/SiteController.php(32): CController->render('index')
+#15 /var/www/html/own/opendataapp/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#16 /var/www/html/own/opendataapp/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#17 /var/www/html/own/opendataapp/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#18 /var/www/html/own/opendataapp/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 /var/www/html/own/opendataapp/framework/web/CWebApplication.php(282): CController->run('')
+#20 /var/www/html/own/opendataapp/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#21 /var/www/html/own/opendataapp/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#22 /var/www/html/own/opendataapp/app/index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/own/opendataapp/app/index.php
+---

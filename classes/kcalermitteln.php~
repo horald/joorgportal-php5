@@ -1,0 +1,17 @@
+<?php
+session_start();
+include ("../config.php");
+echo "Kalorien ermitteln.";
+$dbselarr = $_SESSION['DBSELARR'];
+$count=sizeof($dbselarr);
+for ( $x = 0; $x < $count; $x++ ) {
+  $query="SELECT * FROM tblrezepte WHERE fldIndex=".$dbselarr[$x];	
+  //echo $query."<br>";	
+  $result = mysql_query($query) or die(mysql_error().$query);
+  $line = mysql_fetch_array($result);
+  $kcal=500;	
+  echo $line['fldBez']." | Neue Kalorien: ".$kcal."<br>";
+  $qryins="UPDATE tblrezepte SET fldkalorien=".$kcal." WHERE fldIndex=".$dbselarr[$x];
+  $resins = mysql_query($qryins) or die(mysql_error().$qryins);
+}
+?>

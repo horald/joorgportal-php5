@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=c
+Comment=
+Categories=Application;
+Exec=/home/horald/PrgEntw/java/Demo/applet/chart/c.sh
+Icon=
+Terminal=true
+StartupNotify=false

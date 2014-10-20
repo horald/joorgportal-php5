@@ -1,0 +1,13 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez', 
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldAbteilung' ));
+
+$pararray = array ( 'headline' => 'Funktionen ',
+                    'dbtable' => 'tblfunc',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldindex' => 'fldIndex');
+?>

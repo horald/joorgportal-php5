@@ -1,0 +1,33 @@
+<?php
+
+function buildSites($pictures) {
+   reset ($pictures);
+    
+   $ausgabe .= '<div id="navBar">' . "\n";
+   $ausgabe .= '    <div id="sectionLinks">' . "\n";
+   foreach($pictures as $key => $array) {
+      $ausgabe .= '        <h3>'.$pictures[$key]['name']['dir'].'</h3>' . "\n";
+      $ausgabe .= '        <ul>' . "\n";
+      foreach ($array as $key2 => $array1) {
+        
+         if(!empty($pictures[$key][$key2]['file'])){
+            $size     =    number_format($pictures[$key][$key2]['size'], 1, ',', '.');
+            $date     =    date("d.m.Y, H:i:s", $pictures[$key][$key2]['time']);
+            $alt      =    'Datum: ' . $date . ' / Größe: ' . $size . 'KB'; 
+            $path     = $pictures[$key]['name']['path'].$pictures[$key][$key2]['file'];
+            $ausgabe .= '            <li><a href="'.$path.'" target="_blank" title="'.$alt.'">';
+            $ausgabe .= $pictures[$key][$key2]['file'];
+            $ausgabe .= '</a></li>' . "\n"; 
+         }
+
+      }
+      $ausgabe .= '        </ul>' . "\n";
+   }
+    
+   $ausgabe .= '    </div>' . "\n";
+   $ausgabe .= '</div>' . "\n";
+    
+   return $ausgabe;
+} 
+
+?>
