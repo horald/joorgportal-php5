@@ -10,8 +10,8 @@ include("../config.php");
   fwrite($fh, "<body>\n");
   fwrite($fh, "<applet code='Chart.class' width=500 height=400>\n");
   fwrite($fh, "<param name='title' value='Kontenübersicht Ausgaben'/>\n");
-  $vondatum="2013-12-01";
-  $bisdatum="2013-12-04";
+  $vondatum="2014-11-01";
+  $bisdatum="2014-11-30";
 
   $query="SELECT fldKonto AS anz FROM tblktosal WHERE fldInhaber='HORST' and fldDatum>='".$vondatum."' and fldDatum<='".$bisdatum."' group by fldKonto";
   $result = mysql_query($query) or die("Error using mysql_query($query): ".mysql_error());

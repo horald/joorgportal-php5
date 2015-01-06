@@ -102,13 +102,15 @@
 	*
 	*/
 	private function LoadFiles()
-	{	   if(!file_exists($this->path."includes/styles/".$this->style."/style.css"))
+	{
+	   if(!file_exists($this->path."includes/styles/".$this->style."/style.css"))
           $this->style="default";
        echo  "<link href='".$this->path."includes/styles/".$this->style."/style.css' rel='stylesheet' type='text/css' />\n";
        if(file_exists($this->path."includes/styles/".$this->style."/common.css"))
           echo  "<link href='".$this->path."includes/styles/".$this->style."/common.css' rel='stylesheet' type='text/css' />\n";
        if(file_exists($this->path."includes/js/script.js"))
-          echo  "<script type='text/javascript' src='".$this->path."includes/js/script.js'></script>";    }
+          echo  "<script type='text/javascript' src='".$this->path."includes/js/script.js'></script>";
+    }
 
     /**
 	*	Displays this menu
@@ -132,7 +134,8 @@
        echo "<div id='nodes'>";
        echo "\n<form name='frmnodes' id='frmnodes' action='".$_SERVER["SCRIPT_NAME"]."' method='".$this->submissionType."'>\n";
        echo "<input type='hidden' id='nodeid' name='nodeid'/>\n";
-       if($this->caption!="")         echo "<legend>".$this->caption."</legend>";
+       if($this->caption!="")
+         echo "<legend>".$this->caption."</legend>";
        echo "\n<ul class='tree'>\n";
        for($i=1;$i<=$this->numChildren;$i++)
        {
@@ -180,27 +183,31 @@
         	if((isset($_REQUEST["node".$node->GetId()])
         	   && $_REQUEST["node".$node->GetId()]=='e')
         	   || $class=="selected")
-        	{                $liclass="expanded";
+        	{
+                $liclass="expanded";
                 $symbol="minus";
                 $value="e";
             }
             // if this node is collapsed
             else
-            {                $liclass="collapsed";
+            {
+                $liclass="collapsed";
                 $symbol="plus";
-                $value="c";            }
+                $value="c";
+            }
         	echo "\n<li class='".$liclass."' id='".$node->GetId()."'>";
         	// displaying plus or minus sign to the left of the text
         	if($last)
-        	   echo "<img src='includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\")'></img>";
+        	   echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\")'></img>";
         	else
-        	   echo "<img src='includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\")'></img>";
+        	   echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\")'></img>";
         	// hidden field which stores this node's state ('c' for collapsed and 'e' for expanded)
         	echo "\n<input type='hidden' id='node".$node->GetId()."' name='node".$node->GetId()."' value='".$value."' />";
         }
         // if node has no subnodes
         else
-        {        	if($last)
+        {
+        	if($last)
         	   echo "\n<li class='last' id='".$node->GetId()."'>";
             else echo "\n<li class='single' id='".$node->GetId()."'>";
         }
@@ -230,7 +237,8 @@
                $this->DisplayNode($node->GetId()."_".$i,$i==$node->getNumChildren());
             echo "\n</ul>";
         }
-        echo "</li>";    }
+        echo "</li>";
+    }
 
     /**
 	*	Returns number of nodes on the first level
@@ -264,7 +272,9 @@
 	*
 	*/
     public function GetCaption()
-    {    	return $this->caption;    }
+    {
+    	return $this->caption;
+    }
 
     /**
 	*	Sets menu's caption
@@ -363,7 +373,8 @@
 	   echo "<pre>";
 	   print_r($_POST);
 	   echo "</pre><br />";
-	   echo "</div>";    }
+	   echo "</div>";
+    }
  }
  /**
  *	class Node
@@ -441,7 +452,7 @@ class Node
     
     $winwidth=1035;
     //$winheight=580;
-    $winheight=700;
+    $winheight=580;
     //echo $this->file;
     echo "            <iframe src='".$this->file."' name='Fensterlein' width='".$winwidth."' height='".$winheight."'";
     echo "               align='center' frameborder='0'>";

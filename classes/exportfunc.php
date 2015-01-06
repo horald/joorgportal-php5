@@ -31,6 +31,7 @@ function exportabfrage($menu,$menuid) {
   echo "<option style='background-color:#c0c0c0;' value=3 >RSS-File</option>";
   echo "<option style='background-color:#c0c0c0;' value=4 >Einkaufsliste</option>";
   echo "<option style='background-color:#c0c0c0;' value=5 >HTML-File</option>";
+  echo "<option style='background-color:#c0c0c0;' value=7 selected>JSON-File</option>";
   echo "<option style='background-color:#c0c0c0;' value=6 >SQL-File selected data</option>";
   echo "</select>";
   echo "  <div class='form-actions'>";
@@ -50,6 +51,64 @@ function exportlog() {
   $tmpfile = $pfad."flatfile-".$pararray['dbtable']."-".$today.".tmp";
   echo $tmpfile."#<br>";
 
+}
+
+function jsonexportfunc($pfad,$pararray,$menu) {
+  include("../config.php");
+  $datnam=$_POST['datnam'];
+  $filename=$pfad.$datnam.".json";
+
+  $qrycol = "SHOW COLUMNS FROM ".$pararray['dbtable'];
+  $rescol = mysql_query($qrycol) or die(mysql_error());
+  $lincol = mysql_fetch_array($rescol);
+
+  $colarr[0] = $lincol[0];
+  $lincnt = 0;
+  $col = "";
+  while ($lincol = mysql_fetch_array($rescol)) {
+  	 $lincnt = $lincnt + 1;
+    $colarr[$lincnt] = $lincol[0];
+    if ($col=="") {
+      $col = $lincol[0];
+    } else {
+      $col = $col . "," . $lincol[0];
+    }     
+  }
+
+  $datei = fopen($filename,"w");
+  $zeile='var einkaufsliste = {"daten": [';
+  fwrite($datei, $zeile."\n");
+
+  $dbselarr = $_SESSION['DBSELARR'];
+  $count=sizeof($dbselarr);
+  $cnt=0;
+  for ( $zaehl = 0; $zaehl < $count; $zaehl++ ) {
+    $cnt=$cnt+1;
+    $idwert = $arrid[$zaehl];
+    $qryval = "SELECT ".$col." FROM ".$pararray['dbtable']." WHERE fldIndex=".$dbselarr[$zaehl];
+    //echo $qryval."<br>";
+    $resval = mysql_query($qryval) or die(mysql_error());
+    $linval = mysql_fetch_array($resval);
+    if (!$linval) {
+      echo " ist leer (INSERT).<br>";    
+    } else {
+      $val = '"'.$colarr[1].'":"'.$linval[0].'"';
+      for($lincount = 1; $lincount+1 < $lincnt; $lincount++) {
+        $val = $val . ',"'.$colarr[$lincount+1].'":"'.$linval[$lincount].'"';
+      }
+
+      $qry = " {".$val."},";
+      //echo $qry."<br>";
+      fwrite($datei, $qry."\n");
+    }  
+  }
+
+  $zeile=']};';
+  fwrite($datei, $zeile."\n");
+  fclose($datei);  
+  echo "<div class='alert alert-success'>";
+  echo $cnt." Datensätze exportiert nach ".$filename;
+  echo "</div>";
 }
 
 function sqlexportfunc($pfad,$pararray,$menu) {

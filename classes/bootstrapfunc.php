@@ -93,10 +93,10 @@ function bootstrapbegin($headline,$showheadline) {
 echo "<body>";
 echo "<div class='row-fluid'>";
 echo "<div class='span12'>";
-if ($showheadline=="true") {
+//if ($showheadline=="true") {
   echo "<legend>".$headline."</legend>";
-}
-echo "<div style='width:1500px; height: 3px; background-color: #eee'; padding-bottom: 3px;></div><br>";
+//}
+//echo "<div style='width:1500px; height: 3px; background-color: #eee'; padding-bottom: 3px;></div><br>";
 //echo "<div styke='border-bottom: 1px solid #eee;'></div>";
 }
 

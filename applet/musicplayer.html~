@@ -1,6 +1,0 @@
-<html>
-<body>
-Hier kommt ein Applet:
-<applet code="PlayAudioInApplet.class" width=250 height=100></applet>
-</body>
-</html>

@@ -6,6 +6,7 @@ function insarchivsave($pararray,$archivtable,$menu) {
 //  echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."'>zurueck</a><br>";
   $chkarchiv = $_POST['chkarchiv'];
   $datum=$_POST['datum'];
+  $buchdatum=$_POST['buchdatum'];
   if ($chkarchiv==1) {
     $dbselarr = $_SESSION['DBSELARR'];
     $count=sizeof($dbselarr);
@@ -124,7 +125,15 @@ function insarchivsave($pararray,$archivtable,$menu) {
         $kaufort=$_POST['idwert'.$zaehl];
         $ktoart=$_POST['ktoart'.$zaehl];
         $konto=$_POST['konto'.$zaehl];
-        if ($ktoart=="Lastschrift") {
+        if ($ktoart=="Lastschrift" || $ktoart=="EINKAUF") {
+          if ($ktoart=="Lastschrift") { 
+            $fldkto="LASTSCHRIFT";
+            $fldbez="Lastschrift";
+          }
+          if ($ktoart=="EINKAUF") { 
+            $fldkto="EINKAUF";
+            $fldbez="Einkauf";
+          }
           $pos=$pos+1;
           $qrysum = "SELECT sum(fldPreis * fldAnz) AS sumpreis FROM ".$pararray['dbtable']." WHERE fldOrt='".$kaufort."' AND ".$pararray['fldarchivdat']."='".$datum."'";
           //echo $qrysum."<br>";
@@ -132,7 +141,11 @@ function insarchivsave($pararray,$archivtable,$menu) {
           $linsum = mysql_fetch_array($ressum);
           $sumpreis = $linsum['sumpreis'];
           //echo $sumpreis."lastschrift erkannt.<br>";
-          $qryins="INSERT tblktosal (fldPos,fldDatum,fldBez,fldKonto,fldBetrag,fldInhaber) VALUES(".$pos.",'".$datum."','".$kaufort." Lastschrift','LASTSCHRIFT','".$sumpreis."','".$konto."')";
+          if ($datum=="") {
+            $qryins="INSERT tblktosal (fldPos,fldDatum,fldBez,fldKonto,fldBetrag,fldInhaber) VALUES(".$pos.",'".$buchdatum."','".$kaufort." ".$fldbez."','".$fldkto."','".$sumpreis."','".$konto."')";
+          } else {
+            $qryins="INSERT tblktosal (fldPos,fldDatum,fldBez,fldKonto,fldBetrag,fldInhaber) VALUES(".$pos.",'".$datum."','".$kaufort." ".$fldbez."','".$fldkto."','".$sumpreis."','".$konto."')";
+          } 
           echo $qryins."<br>";
           $resins = mysql_query($qryins) or die(mysql_error());
         }
@@ -151,7 +164,11 @@ function insarchivsave($pararray,$archivtable,$menu) {
           $resort = mysql_query($qryort) or die(mysql_error());
           $linort = mysql_fetch_array($resort);
           $ortid=$linort['fldIndex'];
-          $qryins="INSERT tblktosal (fldPos,fldDatum,fldBez,fldKonto,fldBetrag,fldInhaber,fldid_ort) VALUES(".$pos.",'".$datum."','".$kaufort." Einkauf','".$linpreis[fldKonto]."','".$preis."','".$konto."',".$ortid.")";
+          if ($datum=="") {
+            $qryins="INSERT tblktosal (fldPos,fldDatum,fldBez,fldKonto,fldBetrag,fldInhaber,fldid_ort) VALUES(".$pos.",'".$buchdatum."','".$kaufort." Einkauf','".$linpreis[fldKonto]."','".$preis."','".$konto."',".$ortid.")";
+          } else {
+            $qryins="INSERT tblktosal (fldPos,fldDatum,fldBez,fldKonto,fldBetrag,fldInhaber,fldid_ort) VALUES(".$pos.",'".$datum."','".$kaufort." Einkauf','".$linpreis[fldKonto]."','".$preis."','".$konto."',".$ortid.")";
+          }
           echo $qryins."<br>";
           $resins = mysql_query($qryins) or die(mysql_error());
         }
@@ -182,6 +199,13 @@ function insarchivinput($pararray,$archivtable,$eingdatum,$strort,$idwert,$menu)
 <?php 
   echo "</div>";
   echo "<div>";
+  echo "Buch-Datum: ";
+?>
+        <input type="Text" id="buchdatum" name="buchdatum" value="<?php echo $datum; ?>"/>
+        <img src="images2/cal.gif" onclick="javascript:NewCssCal('buchdatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
+<?php 
+  echo "</div>";
+  echo "<div>";
   echo "<br>";
   echo "<input type='checkbox' name='chkarchiv' value='1' >ins Archiv übertragen ";
   echo "<input type='checkbox' name='chkvorrat' value='1' >in den Vorrat übertragen ";
@@ -190,7 +214,8 @@ function insarchivinput($pararray,$archivtable,$eingdatum,$strort,$idwert,$menu)
   if ($strort<>"") {
     echo "<table class='table table-hover'>";
     echo "<thead>";
-    echo "<th width='5'><input type='checkbox' name='cbuttonAll' value='1'></th>";    echo "<th> Kaufort</th>";
+    echo "<th width='5'><input type='checkbox' name='cbuttonAll' value='1'></th>";
+    echo "<th> Kaufort</th>";
     echo "<th>Kontenart</th>";
     echo "<th>Konto</th>";
     echo "</thead>";  

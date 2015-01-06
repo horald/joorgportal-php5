@@ -13,7 +13,12 @@ function createtrigger($dbname,$dbtable) {
   $rescomputer = mysql_query($qrycomputer) or die(mysql_error());
   $menge = mysql_num_rows ( $rescomputer );
   if ($menge>0) {
-    $queryins="DROP TRIGGER IF EXISTS `".$dbtable."_ai` ";    $result = mysql_query($queryins) or die(mysql_error());    $queryupd="DROP TRIGGER IF EXISTS `".$dbtable."_au` ";    $result = mysql_query($queryupd) or die(mysql_error());    $querydel="DROP TRIGGER IF EXISTS `".$dbtable."_ad` ";    $result = mysql_query($querydel) or die(mysql_error());
+    $queryins="DROP TRIGGER IF EXISTS `".$dbtable."_ai` ";
+    $result = mysql_query($queryins) or die(mysql_error());
+    $queryupd="DROP TRIGGER IF EXISTS `".$dbtable."_au` ";
+    $result = mysql_query($queryupd) or die(mysql_error());
+    $querydel="DROP TRIGGER IF EXISTS `".$dbtable."_ad` ";
+    $result = mysql_query($querydel) or die(mysql_error());
     $queryins="CREATE TRIGGER `".$dbtable."_ai` AFTER INSERT ON `".$dbtable."` FOR EACH ROW BEGIN ";
     $queryupd="CREATE TRIGGER `".$dbtable."_au` AFTER UPDATE ON `".$dbtable."` FOR EACH ROW BEGIN ";
     $querydel="CREATE TRIGGER `".$dbtable."_ad` AFTER DELETE ON `".$dbtable."` FOR EACH ROW BEGIN ";
@@ -25,9 +30,11 @@ function createtrigger($dbname,$dbtable) {
     }
     $queryins=$queryins."END";
     echo $queryins."<br>";
-    $result = mysql_query($queryins) or die(mysql_error());    $queryupd=$queryupd."END";
+    $result = mysql_query($queryins) or die(mysql_error());
+    $queryupd=$queryupd."END";
     echo $queryupd."<br>";
-    $result = mysql_query($queryupd) or die(mysql_error());    $querydel=$querydel."END";
+    $result = mysql_query($queryupd) or die(mysql_error());
+    $querydel=$querydel."END";
     echo $querydel."<br>";
     $result = mysql_query($querydel) or die(mysql_error());
     echo "<div class='alert alert-success'>";
@@ -70,12 +77,12 @@ function synccreatetrigger($pararray,$dbname) {
 
 function changetoremote($dbremotehost,$dbremoteuser,$dbremotepass,$dbremotename) {
 
-  echo "changetoremote-1<br>";
-  echo $dbremotehost."=dbremotehost<br>";
-  echo $dbremoteuser."=dbuser<br>";
-  echo $dbremotepass."=dbpass<br>";
-  echo $dbremotename."=dbname<br>";
-  echo "--------------------<br>";
+  //echo "changetoremote-1<br>";
+  //echo $dbremotehost."=dbremotehost<br>";
+  //echo $dbremoteuser."=dbuser<br>";
+  //echo $dbremotepass."=dbpass<br>";
+  //echo $dbremotename."=dbname<br>";
+  //echo "--------------------<br>";
 
   mysql_close();
   //echo "changetoremote-2<br>";
@@ -110,14 +117,15 @@ function changetolocal($dbname) {
 function synctable($modus,$synchost,$syncuser,$syncpass,$localdbname,$remotedbname,$pararray,$compid,$checkmysqlsend,$cloud) {
 
 $tblname=$pararray['dbtable'];
-
+//echo $tblname.",".$modus."=table<br>";
+//echo $localdbname."=localdb<br>";
 if ($checkmysqlsend==1) {
   echo "mysqlsend erkannt.<br>";
 }
 
 //echo $modus.":<br>";
 if ($modus=="local") {
-  changetolocal("");
+  changetolocal($localdbname);
   $dbname=$localdbname;
   $updatedb=$remotedbname;
   $query = "SELECT * FROM tbldbsync WHERE fldtblname='$tblname' AND flddbname='$dbname' AND flddbsync='NEW' AND fldcompid=".$compid." ORDER BY fldindex";
@@ -242,10 +250,10 @@ while ($line = mysql_fetch_array($result)) {
     //echo $qrydb."<br>";
     $reserr = mysql_query($qrydb) or die(mysql_error());
     if ($modus=="local") {
-      //echo $synchost."=host-2-<br>";
-      //echo $syncuser."=user<br>";
-      //echo $syncpass."=pass<br>";
-      //echo $remotedbname."=dbname<br>";
+      echo $synchost."=host-2-<br>";
+      echo $syncuser."=user<br>";
+      echo $syncpass."=pass<br>";
+      echo $remotedbname."=dbname<br>";
       changetoremote($synchost,$syncuser,$syncpass,$remotedbname);
     } else {
       changetolocal($localdbname);
@@ -264,7 +272,8 @@ while ($line = mysql_fetch_array($result)) {
     }
   }  
   if ($modus=="local") {
-    changetolocal("");
+//    changetolocal("");
+    changetolocal($localdbname);
   } else {
     //echo $synchost."=host-3-<br>";
     //echo $syncuser."=user<br>";
@@ -478,6 +487,7 @@ function syncausfuehren($menu,$pararray) {
   include("../config.php");
   $count = $_POST['count'];
   $cnt=0;
+//echo $count."=count<br>";
   if ($count>0) {
     for($zaehl = 1; $zaehl <= $count; $zaehl++)
     {
@@ -498,9 +508,9 @@ function syncausfuehren($menu,$pararray) {
           $remotedbname=$gdbname;
         }
         $synchost=$line['fldIPAddr'];
-  //      echo $_POST['checklocal']."=checklocal<br>";
-  //      echo $_POST['checkremote']."=checkremote<br>";
-  //      echo $_POST['checkalter']."=checkalter<br>";
+        //echo $_POST['checklocal']."=checklocal<br>";
+        //echo $_POST['checkremote']."=checkremote<br>";
+        //echo $_POST['checkalter']."=checkalter<br>";
         $checkmysqlsend=$_POST['checkmysqlsend'];
         if ($_POST['checklocal']==1) {
           synctable("local", $synchost,$remoteuser,$remotepass,$dbname,$remotedbname,$pararray,$idwert,$checkmysqlsend,"J");

@@ -1,9 +1,8 @@
 <?php
-$listarray = array ( array ( 'label' => 'Artikelnr',
-                             'name' => 'artikelnr', 
-                             'width' => 50, 
-                             'type' => 'text',
-                             'dbfield' => 'fldartikelnr' ),
+$listarray = array ( array ( 'label' => 'Nr',
+                             'width' => 10, 
+                             'type' => 'nummer',
+                             'dbfield' => 'dummy' ),
                      array ( 'label' => 'Barcode',
                              'name' => 'barcode', 
                              'width' => 100, 
@@ -183,5 +182,5 @@ $pararray = array ( 'headline' => 'Vorrat',
                     'orderby' => '',
                     'strwhere' => '',
                     'updateaktual' => 'true',
-                    'fldindex' => 'fldv01index');
+                    'fldindex' => 'fldIndex');
 ?>

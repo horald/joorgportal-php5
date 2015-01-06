@@ -9,8 +9,9 @@
   	 $vondatum=$_POST['vondatum'];
   	 $bisdatum=$_POST['bisdatum'];
   } else {	
-    $vondatum="2014-01-01";
-    $bisdatum="2014-01-31";
+    $jahr=date("Y");
+    $vondatum=$jahr."-01-01";
+    $bisdatum=$jahr."-01-31";
   }  
 
   echo "<form class='form-horizontal' method='post' action='overviewaccount.php?overviewaccount=1'>";
@@ -45,19 +46,27 @@
 
   $where=" AND fldDatum>='".$vondatum."' AND fldDatum<='".$bisdatum."'";
   $query="SELECT * FROM tblktobanken WHERE fldcalc='JA'";
-  $result = mysql_query($query) or die(mysql_error());  echo "<table class='table table-hover'>";
+  $result = mysql_query($query) or die(mysql_error());
+  echo "<table class='table table-hover'>";
   echo "<thead>";
   echo "<th width='20px'>Bezeichnung</th>";
-  echo "<th width='20px'>Konto</th>";
+  echo "<th width='20px'>Betrag</th>";
   echo "</thead>";
+  $totalsum=0;
   while ($line = mysql_fetch_array($result)) { 
     $qrysum="SELECT sum(fldBetrag) AS summe FROM tblktosal WHERE fldInhaber='".$line['fldBez']."' AND fldDetailind=0".$where;
     $ressum = mysql_query($qrysum) or die(mysql_error());
-    $linsum = mysql_fetch_array($ressum);    echo "<tr>";
+    $linsum = mysql_fetch_array($ressum);
+    $totalsum=$totalsum+$linsum['summe'];
+    echo "<tr>";
     echo "<td width='20px'>".$line['fldBez']."</td>";
     echo "<td width='20px' style='text-align:right'>".$linsum['summe']."</td>";
     echo "</tr>";
   }  
+  echo "<tr>";
+  echo "<td width='20px'>Summe:</td>";
+  echo "<td width='20px' style='text-align:right'>".$totalsum."</td>";
+  echo "</tr>";
   echo "</table>";
   bootstrapend();
 ?>

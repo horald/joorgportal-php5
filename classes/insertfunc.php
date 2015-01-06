@@ -1,6 +1,10 @@
 <?php
 header("content-type: text/html; charset=utf-8");
 
+function mod($a, $n) {
+    return ($a % $n) + ($a < 0 ? $n : 0);
+}
+
 function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$menuid,$krit) {
 
   $strdetail="";
@@ -13,6 +17,7 @@ function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$id
 
   foreach ( $listarray as $arrelement )  
   {
+ 
     $defwert='';
     if ($arrelement['name']<>"") {
       if ($arrelement['getdefault']=="true") {
@@ -296,7 +301,10 @@ function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$id
         echo "</select>";
         echo "          </div>";
      }
+
   }
+
+  echo "</table>";
 
   echo "          <div class='control-group'>";
   echo "            <div class='checkbox'>";
@@ -317,7 +325,6 @@ function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$id
 }
 
 function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail) {
-
   $strdetail="";
   if ($iddetail!="") {
     $strdetail="&detail=".$iddetail;
@@ -360,7 +367,7 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
           }
           if ($arrelement['type']=='blob') {
             $filename = $_FILES['datei']['name'];
-            $filename = "/home/horald/daten/Bilder/" . $filename;
+            $filename = "/home/horald/daten/Bilder/ordnung/" . $filename;
             echo $filename."<br>";        
             //$filename = $_FILES['datei']['tmp_name'];
             //echo $filename."<br>";        
@@ -379,9 +386,11 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
           if ($arrelement['name']<>"") {
             if ($arrelement['getdefault']=="true") {
               $defquery="DELETE FROM tblfilter WHERE fldmaske='".strtoupper($menu)."_DEFAULT' and fldName='".$arrelement['name']."'"; 
-              mysql_query($defquery) or die("Error using mysql_query($sql): ".mysql_error());//              echo $defquery."=menu<br>";
+              mysql_query($defquery) or die("Error using mysql_query($sql): ".mysql_error());
+//              echo $defquery."=menu<br>";
               $defquery="REPLACE INTO tblfilter (fldmaske,fldName,fldwert) VALUES ('".strtoupper($menu)."_DEFAULT','".$arrelement['name']."','".$wert."')";
-              mysql_query($defquery) or die("Error using mysql_query($sql): ".mysql_error());//              echo $defquery."=menu<br>";
+              mysql_query($defquery) or die("Error using mysql_query($sql): ".mysql_error());
+//              echo $defquery."=menu<br>";
             }
           }    
         }
@@ -389,14 +398,14 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
     }
 
     $query = "INSERT INTO ".$pararray['dbtable']." (".$strfld.") VALUES(".$strval.") ";
-    //echo $query."<br>";
-    mysql_query($query) or die("Error using mysql_query($sql): ".mysql_error());
-    if ($lstinsid<>0) {
-      $insid=mysql_insert_id();
-      $qryupd = "UPDATE tbladr_lstgrp SET fldid_liste=".$insid." WHERE fldindex=".$lstinsid;      	
-      mysql_query($qryupd) or die("Error using mysql_query($qryupd): ".mysql_error());
+    echo $query."<br>";
+    mysql_query($query) or die("Error using mysql_query($query): ".mysql_error());
+    //if ($lstinsid<>0) {
+      //$insid=mysql_insert_id();
+      //$qryupd = "UPDATE tbladr_lstgrp SET fldid_liste=".$insid." WHERE fldindex=".$lstinsid;      	
+      //mysql_query($qryupd) or die("Error using mysql_query($qryupd): ".mysql_error());
       //echo $qryupd.",".$insid."=insid<br>";
-    }    
+    //}    
     mysql_close();
     echo "Die Daten wurden eingetragen<br>";
   } else {

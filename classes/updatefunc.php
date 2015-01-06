@@ -530,9 +530,13 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
     foreach ( $listarray as $arrelement )
     {
       if ($arrelement['fieldsave']<>'NO') {
-        if (($arrelement['type']=='blob') OR ($arrelement['type']=='zahlid') OR ($arrelement['type']=='pos') OR ($arrelement['type']=='textarea') OR ($arrelement['type']=='blutdruck') OR ($arrelement['type']=='average') OR ($arrelement['type']=='YN') OR ($arrelement['type']=='text') OR ($arrelement['type']=='procent') OR ($arrelement['type']=='calcsum') OR ($arrelement['type']=='blobid') OR ($arrelement['type']=='image') OR ($arrelement['type']=='calctext') OR ($arrelement['type']=='select') OR ($arrelement['type']=='selectid') OR ($arrelement['type']=='zahl') OR ($arrelement['type']=='date') OR ($arrelement['type']=='calc')) {
+        if (($arrelement['type']=='hostname') OR ($arrelement['type']=='blob') OR ($arrelement['type']=='zahlid') OR ($arrelement['type']=='pos') OR ($arrelement['type']=='textarea') OR ($arrelement['type']=='blutdruck') OR ($arrelement['type']=='average') OR ($arrelement['type']=='YN') OR ($arrelement['type']=='text') OR ($arrelement['type']=='procent') OR ($arrelement['type']=='calcsum') OR ($arrelement['type']=='blobid') OR ($arrelement['type']=='image') OR ($arrelement['type']=='calctext') OR ($arrelement['type']=='select') OR ($arrelement['type']=='selectid') OR ($arrelement['type']=='zahl') OR ($arrelement['type']=='date') OR ($arrelement['type']=='calc')) {
         $name=$arrelement['name'];
         $wert=$_POST[$name];
+
+        if ($arrelement['type']=='hostname') {
+          $wert=gethostname();
+        }
         
         if ($arrelement['type']=='pos') {
           if ($wert=="+") {
@@ -549,7 +553,10 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
           $filename = $_FILES['datei']['tmp_name'];
           //echo ">".$filename."<=filename<br>";
           if ($filename!="") {
-            $handle = fopen($filename, "rb");            $wert = addslashes(fread($handle, filesize($filename)));            fclose($handle);          }        
+            $handle = fopen($filename, "rb");
+            $wert = addslashes(fread($handle, filesize($filename)));
+            fclose($handle);
+          }        
         } 
         
         if ($strset=="") {
@@ -575,12 +582,14 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
     if ($resync==true) {
       $qrysync="INSERT INTO tbldbsync (flddbname, fldtblname, fldtblindex, fldstatus, flddbsync) VALUES ('".$dbname."','".$pararray['dbtable']."','".$idwert."','INS','NEW')";
       //echo $qrysync."<br>";
-      mysql_query($qrysync) or die("Error using mysql_query($sql): ".mysql_error());    }
+      mysql_query($qrysync) or die("Error using mysql_query($sql): ".mysql_error());
+    }
     $dscopy=$_POST['dscopy'];
     if ($dscopy==true) {
       $qrycopy = "INSERT INTO ".$pararray['dbtable']." (".$strfld.") VALUES(".$strval.") ";
       //echo $qrysync."<br>";
-      mysql_query($qrycopy) or die("Error using mysql_query($qrycopy): ".mysql_error());    }
+      mysql_query($qrycopy) or die("Error using mysql_query($qrycopy): ".mysql_error());
+    }
     echo "Die Daten wurden eingetragen<br>";
   } else {
     echo "Der Vorgang wurde abgebrochen.<br>"; 

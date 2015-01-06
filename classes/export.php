@@ -36,6 +36,8 @@ if ($export==1) {
       break;
       case 6:
         sqlexportfunc($exportpfad,$pararray,$menu);
+      case 7:
+        jsonexportfunc($exportpfad,$pararray,$menu);
       break;  	 
     }  	 
   } else {

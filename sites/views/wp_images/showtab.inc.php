@@ -4,7 +4,7 @@ $listarray = array ( array ( 'label' => 'Index',
                              'width' => 10, 
                              'type' => 'text',
                              'fieldsave' => 'NO',
-                             'dbfield' => 'fldb01index' ),
+                             'dbfield' => 'fldIndex' ),
                      array ( 'label' => 'Bezeichnung',
                              'name' => 'bez', 
                              'width' => 100, 
@@ -25,11 +25,18 @@ $listarray = array ( array ( 'label' => 'Index',
                              'name' => 'bild', 
                              'width' => 20, 
                              'type' => 'blobid',
-                             'dbfield' => 'fldb01index' ));
+                             'dbfield' => 'fldIndex' ));
+
+$filterarray = array ( array ( 'label' => 'Suchen',
+                             'name' => 'suchen', 
+                             'width' => 10, 
+                             'sign' => ' like ',
+                             'type' => 'search',
+                             'dbfield' => 'fldb01bez' ));
 
 $pararray = array ( 'headline' => 'Bilder',
                     'dbtable' => 'tblbilder',
                     'orderby' => '',
                     'strwhere' => '',
-                    'fldindex' => 'fldb01index');
+                    'fldindex' => 'fldIndex');
 ?>

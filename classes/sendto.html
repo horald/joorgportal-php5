@@ -1,0 +1,18 @@
+<html>
+<head>
+   <title>Test</title>
+   <script type="text/javascript" src="js/get.js"></script>
+   <script type="text/javascript">
+     function sendto() {
+       document.getElementById('showdata').innerHTML = JSON.stringify(liste, null, '\t');
+     }
+   </script>
+</head>
+<body onload="sendto()">
+in sendto
+
+<pre><code id="showdata">
+</code></pre>
+
+</body>
+</html>

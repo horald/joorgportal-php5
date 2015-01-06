@@ -22,7 +22,8 @@ function monatsberichtauswahl($menu,$drucken) {
         
   echo "<div>";
   echo "Von Datum: ";
-  $vondatum="2014-01-01";
+  $jahr=date("Y");
+  $vondatum=$jahr."-01-01";
 ?>
         <input type="Text" id="vondatum" name="vondatum" value="<?php echo $vondatum; ?>"/>
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('vondatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
@@ -30,7 +31,7 @@ function monatsberichtauswahl($menu,$drucken) {
   echo "</div>";
   echo "<div>";
   echo "Bis Datum: ";
-  $bisdatum="2014-01-31";
+  $bisdatum=$jahr."-01-31";
 ?>
         <input type="Text" id="bisdatum" name="bisdatum" value="<?php echo $bisdatum; ?>"/>
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('bisdatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
@@ -118,7 +119,12 @@ if ($ktogrp!="(ohne)") {
   echo "<div class='alert alert-info'>";
   if ($calc==true) {
   	 $qryinh="SELECT * FROM tblktobanken,tblktoinhgrpzuord WHERE tblktoinhgrpzuord.fldid_ktoinhaber=tblktobanken.fldIn AND fldid_ktoinhgrp=".$ktoinhgrp;
-    $inhaber="".$ktoinhgrp;
+
+    $fquery = "SELECT * FROM tblktoinhgrp_liste WHERE fldindex=".$ktoinhgrp;
+    $fresult = mysql_query($fquery) or die(mysql_error());
+    $fline = mysql_fetch_array($fresult);
+    //$inhaber="".$ktoinhgrp;
+    $inhaber=$fline['fldbez'];
     echo "Jahr: ".$jahr." Inhaber:".$inhaber;
   } else {
     echo "Jahr: ".$jahr;

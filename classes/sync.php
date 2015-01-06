@@ -14,7 +14,9 @@ $sync = $_GET['sync'];
 
 if ($sync==1) {
   if (isset($_REQUEST['submit'])) { 
-    echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&idwert=".$menuid."'>zur&uumlck</a><br>";    syncausfuehren($menu,$pararray);
+    echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&idwert=".$menuid."'>zur&uumlck</a><br>";
+    //echo $menu."<br>";
+    syncausfuehren($menu,$pararray);
   } else {
     echo "<meta http-equiv='refresh' content='0; URL=showtab.php?menu=".$menu."&idwert=".$menuid."'>";  
   }  

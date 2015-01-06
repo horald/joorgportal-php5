@@ -3,9 +3,9 @@ session_start();
 require_once("configuration.php");
 //upgedatet auf sourceforge
 //general
-$gupdvers="0312";
+$gupdvers="0315";
 $updvers=$gupdvers;
-$version="0.3.0.12 (alpha)";
+$version="0.3.0.15 (alpha)";
 $bootstrapver=2;
 
 //specific
@@ -14,8 +14,8 @@ $langshort="de";
 $_SESSION['LANGSHORT']="de";
 $dbscript="dbdemo.php";
 $dbarray = array ( 'dbdemo.php', 'db.php' );
-$importpfad = "/var/www/daten/import/";
-$exportpfad = "/var/www/daten/export/";
+$importpfad = "/var/www/html/daten/import/";
+$exportpfad = "/var/www/html/daten/export/";
 $imagepath = "/daten/image/";
 $downloadpath = "/home/horald/daten/Downloads/";
 $proxy="192.168.0.104:3128";
@@ -30,7 +30,8 @@ $mediawikimain="Hauptseite";
 //frame
 //$winwidth=1035;
 $winwidth=1135;
-$winheight=580;
+//$winheight=580;
+$winheight=300;
 
 //audioframe
 $audiowidth=1200;
