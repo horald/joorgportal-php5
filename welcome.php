@@ -92,6 +92,7 @@ echo "</td></tr>";
 //echo "<tr><td>Language</td><td>: ".$langshort."</td></tr>";
 $href=substr($PHP_SELF,-11)."index.php";
 echo "<tr><td>Aufruf</td><td>: <a href='".$href."' target='_blank'>Joorgportal</a></td></tr>";
+echo "<tr><td>Github</td><td>: <a href='https://github.com/horald/joorgportal' target='_blank'>github:Joorgportal</a></td></tr>";
 echo "</table>";
 echo "</pre>";
 echo "</form>";
