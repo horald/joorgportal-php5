@@ -16,6 +16,17 @@ if (isset($_POST['langshort'])) {
   $locallangshort=$langshort;
 }
 
+if (isset($_POST['sellayout'])) {
+  //echo $_POST['sellayout']."auswahl<br>";
+  $layout=$_POST['sellayout'];
+  $file = 'config.php';
+  $find = '$layout="joorgportal";';
+  $repl = '$layout="joorgmobil";';
+  file_put_contents($file,str_replace($find,$repl,file_get_contents($file)));
+} else {
+  $layout="Joorgportal";
+}
+
 include("language/lang_welcome.".$locallangshort.".php");
 include("classes/translatefunc.php");
 include("classes/tools.php");
@@ -85,6 +96,22 @@ if ($locallangshort=="en") {
 } else {
   echo "<option style='background-color:#c0c0c0;' value='en' >en</option>";
 }  
+echo "</select>";
+echo "<td> <button type='submit' name='submit' class='btn btn-primary'> Aktualisieren </button></td>";
+echo "</td></tr>";
+
+echo "<tr><td>Layout</td><td>: ";
+echo "<select name='sellayout' size='1'>";
+if ($layout=="Joorgportal") {
+  echo "<option style='background-color:#c0c0c0;' value='Joorgportal' selected>Joorgportal</option>";
+} else {
+  echo "<option style='background-color:#c0c0c0;' value='Joorgportal' >Joorgportal</option>";
+}
+if ($layout=="Joorgmobil") {
+  echo "<option style='background-color:#c0c0c0;' value='Joorgmobil' selected>Joorgmobil</option>";
+} else {
+  echo "<option style='background-color:#c0c0c0;' value='Joorgmobil' >Joorgmobil</option>";
+}
 echo "</select>";
 echo "<td> <button type='submit' name='submit' class='btn btn-primary'> Aktualisieren </button></td>";
 echo "</td></tr>";

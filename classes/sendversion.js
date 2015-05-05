@@ -1,0 +1,3 @@
+var arr={'versnr':'12',
+         'versdat':'test'};
+document.write(JSON.stringify(arr));         

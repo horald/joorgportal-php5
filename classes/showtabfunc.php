@@ -233,8 +233,8 @@ foreach ( $listarray as $arrelement ) {
   	 //echo "checkbox erkannt:".$count."<br>";
     for ( $x = 0; $x < $count; $x++ ) {
     	//$chk=$_POST[$arrelement['name'].$dbselarr[$x]];
-    	$nr=$x+1;
-    	$chk=$_POST['cbutton'.$nr];
+    	$nrcheck=$x+1;
+    	$chk=$_POST['cbutton'.$nrcheck];
     	if ($chk==1) {
     	  $qrysel="UPDATE ".$pararray['dbtable']." SET ".$arrelement['dbfield']."='J' WHERE ".$pararray['fldindex']."=".$dbselarr[$x];
         $ressel = mysql_query($qrysel) or die(mysql_error()." qrysel:".$qrysel);
@@ -466,6 +466,7 @@ if ($iddetail=="") {
 //  echo "Anzahl-2:".mysql_num_rows ( $rescomp )."<br>"; 
 
 if (is_array($filterarray)) {
+  mysql_query("SET NAMES 'utf8'");
   $strdetail="";
   if ($iddetail!="") {
     $strdetail="&detail=".$iddetail;
@@ -786,6 +787,14 @@ if ($pararray['subtitle']<>"") {
   $anzpers=$linrez['fldanzpers'];
   echo "<legend>F&uumlr ".$anzpers." Person(en)</legend><br>";
 }  
+if ($pararray['autowidth']=="N") {
+?>
+<style>
+ table { table-layout: fixed; }
+ table th, table td { overflow: hidden; }
+</style>
+<?php
+}
 echo "<form class='form-horizontal' method='post' action='showtab.php?addfunc=1&menu=".$menu.$strdetail."&idwert=".$idwert."'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";
@@ -795,7 +804,7 @@ foreach ( $listarray as $arrelement )
     switch ( $arrelement['type'] )
     {
       case 'checkbox':
-        echo "<th wdith='5'><input type='checkbox' value='0'></th>";
+        echo "<th width='".$arrelement['width']."'><input type='checkbox' value='0'></th>";
       break;
       case 'icon':
         $bez=$arrelement['label'];
@@ -894,8 +903,9 @@ if ($computerid>0) {
 }  
 $query = "SELECT * FROM ".$query;
 //echo $query."=query<br>";
+mysql_query("SET NAMES 'utf8'");
 $result = mysql_query($query) or die(mysql_error()." sql010:".$query);
-//$nr=0;
+$nr=0;
 $sum=0;
 $diffsum=0;
 $addsum=0;
@@ -911,7 +921,7 @@ $dbselarr=array();
   //$rescomp = mysql_query($qrycomp) or die(mysql_error());
   //echo "Anzahl-3:".mysql_num_rows ( $rescomp )."<br>"; 
 while ($line = mysql_fetch_array($result)) { 
-  $nr=$nr+1;
+//  $nr=$nr+1;
   $count=$count+1;
 //echo $count."=count<br>";
   if ($pararray['markfield']!="") {
@@ -998,7 +1008,7 @@ while ($line = mysql_fetch_array($result)) {
           case 5: $wotag="FR"; break;
           case 6: $wotag="SA"; break;
         }
-        echo "<td width='".$arrelement['width']."'>".$wotag."</td>";
+        echo "<td>".$wotag."</td>";
       break;
       case 'calweek':
         $datum = $line[$arrelement['dbfield']];
@@ -1007,7 +1017,7 @@ while ($line = mysql_fetch_array($result)) {
         $jahr = substr($datum,0,4);
         $datum = mktime(0,0,0,$monat,$tag,$jahr);
         $week = date ("W", $datum );
-        echo "<td width='".$arrelement['width']."'>".$week."</td>";
+        echo "<td>".$week."</td>";
       break;
       case 'cntind':
         $wertid=$line[$pararray['fldindex']];
@@ -1017,7 +1027,7 @@ while ($line = mysql_fetch_array($result)) {
         $linfch = mysql_fetch_array($resfch);
         $anz=$linfch['anz'];
         $anzsum=$anzsum+$anz;
-        echo "<td width='".$arrelement['width']."'>".$anz."</td>";
+        echo "<td>".$anz."</td>";
       break;
       case 'proccalc':
         $wertid=$line[$pararray['fldindex']];
@@ -1087,7 +1097,8 @@ while ($line = mysql_fetch_array($result)) {
         //echo "<input type='hidden' name='idwert".$count."' value='".$line[$pararray['fldindex']]."' />";
       break; 
       case 'nummer':
-        echo "<td width='".$arrelement['width']."'>".$nr."</td>";
+        $nr=$nr+1;
+        echo "<td>".$nr."</td>";
       break;
       case 'calc':
         //$wert=$line[$arrelement['dbfield']]*$line['fldAnz'];
@@ -1103,7 +1114,7 @@ while ($line = mysql_fetch_array($result)) {
           $nachkomma=$arrelement['nachkomma'];
         }
         $sum=$sum+$wert;
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".sprintf("%.".$nachkomma."f",$wert)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".sprintf("%.".$nachkomma."f",$wert)."</td>";
       break;
       case 'calctext':
         //$wert=$line[$arrelement['dbfield']]*$line['fldAnz'];
@@ -1115,14 +1126,14 @@ while ($line = mysql_fetch_array($result)) {
           $wert=$wert * strval($arrelement['calcfix']);
         }
         $sum=$sum+$wert;
-        echo "<td class='align-right' width='".$arrelement['width']."'>".sprintf("%.2f",$wert)."</td>";
+        echo "<td class='align-right'>".sprintf("%.2f",$wert)."</td>";
       break;
       case 'calcdiff':
         $wert=strval($line[$arrelement['dbfield']]);
         if ($arrelement['calcfield']!="") {
           $wert=$wert - strval($line[$arrelement['calcfield']]);
         }
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".sprintf("%.0f",$wert)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".sprintf("%.0f",$wert)."</td>";
       break;
       case 'calcdiffsum':
         $wert=strval($line[$arrelement['dbfield']]);
@@ -1150,7 +1161,7 @@ while ($line = mysql_fetch_array($result)) {
           $wert=$wert + strval($line[$arrelement['calcadddbfield']]) * strval($line[$arrelement['calcaddfield']]);
         }
         $addsum=$addsum+$wert;
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".sprintf("%.2f",$wert)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".sprintf("%.2f",$wert)."</td>";
       break;
       case 'calcsum':
         //$wert=$line[$arrelement['dbfield']]*$line['fldAnz'];
@@ -1161,7 +1172,7 @@ while ($line = mysql_fetch_array($result)) {
         //echo $calcsum.",".$wert.",".$startsum."=wert<br>";
         $calcsum=$calcsum+$wert+$startsum;
         $startsum=0;
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".sprintf("%.2f",$calcsum)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".sprintf("%.2f",$calcsum)."</td>";
       break;
       case 'calcanz':
         if ($arrelement['calcfield']!="") {
@@ -1169,7 +1180,7 @@ while ($line = mysql_fetch_array($result)) {
             $wert=strval($line[$arrelement['calcfield']]) / strval($line[$arrelement['calcteiler']]);
           }
         }
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".sprintf("%.2f",$wert)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".sprintf("%.2f",$wert)."</td>";
       break;
       case 'calcdb':
         $wert=strval($line[$arrelement['calcfield']]);
@@ -1182,7 +1193,7 @@ while ($line = mysql_fetch_array($result)) {
           $wert=$wert * strval($line[$arrelement['calcmultfield']]);
         }
         $dbsum[$arrelement['arrind']]=$dbsum[$arrelement['arrind']]+$wert;
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".sprintf("%.2f",$wert)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".sprintf("%.2f",$wert)."</td>";
       break;  
       case 'zahl':
         $prenumber=2; 
@@ -1195,7 +1206,7 @@ while ($line = mysql_fetch_array($result)) {
             $preformat = "%.".$prenumber."f";
           }
         }
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."' align='right'>".sprintf($preformat,$line[$arrelement['dbfield']])."</td>";
+        echo "<td style='text-align:right;padding-right:10px;' align='right'>".sprintf($preformat,$line[$arrelement['dbfield']])."</td>";
         $arrZahl[$nsp]=$line[$arrelement['dbfield']];
       break;
       case 'zahlid':
@@ -1224,7 +1235,7 @@ while ($line = mysql_fetch_array($result)) {
           }
         }
 
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."' align='right'>".sprintf($preformat,$wert)."</td>";
+        echo "<td style='text-align:right;padding-right:10px;' align='right'>".sprintf($preformat,$wert)."</td>";
         $arrZahl[$nsp]=$line[$arrelement['dbfield']];
         $sum=$sum+$wert;
       break;
@@ -1256,7 +1267,7 @@ while ($line = mysql_fetch_array($result)) {
         }
         $mult=$mult / $anzpers;
         $sum=$sum+$mult;
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."' align='right'>".number_format($mult,$prenumber, ",", ".")."</td>";
+        echo "<td style='text-align:right;padding-right:10px;' align='right'>".number_format($mult,$prenumber, ",", ".")."</td>";
       break;
       case 'anzds':
         $prenumber=2; 
@@ -1278,40 +1289,40 @@ while ($line = mysql_fetch_array($result)) {
           $anzds=$linds['anzds'];
         }
         $sum=$sum+$anzds;
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."' align='right'>".number_format($anzds,$prenumber, ",", ".")."</td>";
+        echo "<td style='text-align:right;padding-right:10px;' align='right'>".number_format($anzds,$prenumber, ",", ".")."</td>";
       break;
       case 'icon':
         if ($drucken=="N") {
         	 if ($arrelement['funcpara']<>"") {
-            echo "<td width='5'><a class='btn' href='".$arrelement['func']."?".$arrelement['funcpara']."&idwert=".$line[$pararray['fldindex']]."&menu=".$menu."'><i class='".$arrelement['dbfield']."'></i></a></td>";
+            echo "<td><a class='btn' href='".$arrelement['func']."?".$arrelement['funcpara']."&idwert=".$line[$pararray['fldindex']]."&menu=".$menu."'><i class='".$arrelement['dbfield']."'></i></a></td>";
         	 } else { 	
         	   if ($arrelement['target']<>"") {
-              echo "<td width='5'><a class='btn' href='".$arrelement['func']."?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."' target='_blank'><i class='".$arrelement['dbfield']."'></i></a></td>";
+              echo "<td><a class='btn' href='".$arrelement['func']."?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."' target='_blank'><i class='".$arrelement['dbfield']."'></i></a></td>";
         	   } else {
-        	     if ($line['fldfilename']<>'') {	
-        	       echo "<td><img src='../images/gruen-icon.jpg'></td>";
-        	     } else {
-        	       echo "<td><img src='../images/rot-icon.jpg'></td>";
-        	     }	
-              echo "<td width='5'><a class='btn' href='".$arrelement['func']."?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."'><i class='".$arrelement['dbfield']."'></i></a></td>";
+        	     //if ($line['fldfilename']<>'') {	
+        	     //  echo "<td><img src='../images/gruen-icon.jpg'></td>";
+        	     //} else {
+        	     //  echo "<td><img src='../images/rot-icon.jpg'></td>";
+        	     //}	
+              echo "<td><a class='btn' href='".$arrelement['func']."?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."'><i class='".$arrelement['dbfield']."'></i></a></td>";
             }  
           }  
         }  
       break;
       case 'choise':
-        echo "<td width='".$arrelement['width']."'>".$wert."</td>";
+        echo "<td>".$wert."</td>";
       break;
       case 'average':
         $wert=strval($line[$arrelement['dbfield']]);
         $average=$average+$wert;
-        echo "<td width='".$arrelement['width']."'>".$wert."</td>";
+        echo "<td>".$wert."</td>";
       break;
       case 'blutdruck':
         $wert=$line[$arrelement['dbfield']];
         $pos=strpos($wert,"/");
         $systole=$systole+strval(substr($wert,0,$pos));
         $diastole=$diastole+strval(substr($wert,$pos+1));
-        echo "<td width='".$arrelement['width']."'>".$wert."</td>";
+        echo "<td>".$wert."</td>";
       break;
       case 'blob':
           echo "<td><img src='meinbild.php?id=". $line[$pararray['fldindex']] ."' alt='test' /></td>";
@@ -1326,9 +1337,9 @@ while ($line = mysql_fetch_array($result)) {
         $Datum = $tag.".".$monat.".".$jahr;
         $Zeit = $std.":".$min;
         if ($arrelement['inctime']<>"") {
-          echo "<td width='".$arrelement['width']."'>".$Datum." ".$Zeit."</td>";
+          echo "<td>".$Datum." ".$Zeit."</td>";
         } else {
-          echo "<td width='".$arrelement['width']."'>".$Datum."</td>";
+          echo "<td>".$Datum."</td>";
         }  
       break;
       case 'todate':
@@ -1346,7 +1357,7 @@ while ($line = mysql_fetch_array($result)) {
         $date = $date+(60*60*24*$wert); 
         $Datum = date("d.m.Y",$date); 
         
-        echo "<td width='".$arrelement['width']."'>".$Datum."</td>";
+        echo "<td>".$Datum."</td>";
       break;
       case 'age':
         $Datum = $line[$arrelement['dbfield']];
@@ -1356,7 +1367,7 @@ while ($line = mysql_fetch_array($result)) {
         $jetzt = mktime(0,0,0,date("m"),date("d"),date("Y"));
         $geburt = mktime(0,0,0,$monat,$tag,$jahr);
         $age   = intval(($jetzt - $geburt) / (3600 * 24 * 365)); 
-        echo "<td style='text-align:right;padding-right:10px;' width='".$arrelement['width']."'>".$age."</td>";
+        echo "<td style='text-align:right;padding-right:10px;'>".$age."</td>";
       break;
       case 'selectid':
         $qwhere = $arrelement['seldbindex']."=".$line[$arrelement['dbfield']];
@@ -1375,18 +1386,18 @@ while ($line = mysql_fetch_array($result)) {
         	 //echo $qryref."<br>";
           $resref = mysql_query($qryref) or die(mysql_error()." sql004b2:".$qryref);
           $linref = mysql_fetch_array($resref);
-          echo "<td width='".$arrelement['width']."'>".$linsel[$arrelement['seldbfield']]." (".$linref[$arrelement['reffield']].")</td>";
+          echo "<td>".$linsel[$arrelement['seldbfield']]." (".$linref[$arrelement['reffield']].")</td>";
         } else {
-          echo "<td width='".$arrelement['width']."'>".$bez."</td>";
+          echo "<td>".$bez."</td>";
         }  
         $arrZahl[$nsp]=$linsel[$arrelement['seldbfield']];
       break;
       case 'image':
-        echo "<td width='".$arrelement['width']."'>".$line[$arrelement['dbfield']]."</td>";
+        echo "<td>".$line[$arrelement['dbfield']]."</td>";
       break; 
       case 'ref':
           $qrysel = "SELECT * FROM  WHERE ";
-          echo "<td width='".$arrelement['width']."'>".$qrysel."</td>";
+          echo "<td>".$qrysel."</td>";
       break;
       default:
   //$qrycomp="SELECT * FROM tblcomputer";
@@ -1425,12 +1436,12 @@ while ($line = mysql_fetch_array($result)) {
           }
           if ($linkwert!="") {
             if ($line[$targetfield]!="") {
-              echo "<td width='".$arrelement['width']."'><a href='".$linkwert."' target='".$targetfield."'>".$wert."</a></td>";
+              echo "<td><a href='".$linkwert."' target='".$targetfield."'>".$wert."</a></td>";
             } else {
-              echo "<td width='".$arrelement['width']."'><a href='".$linkwert."' >".$wert."</a></td>";
+              echo "<td><a href='".$linkwert."' >".$wert."</a></td>";
             }  
           } else {
-            echo "<td width='".$arrelement['width']."'>".$wert."</td>";
+            echo "<td>".$wert."</td>";
           }  
         } else {
         	 if ($arrelement['chklink']<>'') {
@@ -1438,12 +1449,12 @@ while ($line = mysql_fetch_array($result)) {
         	 	//echo $datei."=link<br>";
             $exists=file_get_contents($datei,0,null,0,1);
             if ($exists) { 
-              echo "<td width='".$arrelement['width']."'>".$wert."</td>";
+              echo "<td>".$wert."</td>";
         	 	} else {
-              echo "<td width='".$arrelement['width']."' bgcolor=#ff0000>".$wert."</td>";
+              echo "<td bgcolor=#ff0000>".$wert."</td>";
             }  
           } else {
-            echo "<td width='".$arrelement['width']."'>".$wert."</td>";
+            echo "<td>".$wert."</td>";
           }  
         }  
       break;

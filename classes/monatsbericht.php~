@@ -25,9 +25,16 @@ if ($save==1) {
   $oberkonten = $_POST['oberkonten'];
   $ktoogr = $_POST['ktoogr'];
   $ktoinhgrp = $_POST['ktoinhgrp'];
+  $rpt = $_POST['rpt'];
   echo $ktoinhgrp."=ktoinhgrp<br>";
   //echo $ktoogr."=ktoogr<br>";
-  monatsberichtanzeigen($menu,$calc,$oberkonten,$ktoogr,$ktoinhgrp);
+  //echo $rpt."<br>";
+  if ($rpt=="USRRPT") {
+  	 userberichtanzeigen();
+  }
+  if ($rpt=="MONRPT") {
+    monatsberichtanzeigen($menu,$calc,$oberkonten,$ktoogr,$ktoinhgrp,$rpt);
+  }
 } else {
   monatsberichtauswahl($menu,$drucken);
 }  

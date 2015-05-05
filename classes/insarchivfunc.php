@@ -125,7 +125,7 @@ function insarchivsave($pararray,$archivtable,$menu) {
         $kaufort=$_POST['idwert'.$zaehl];
         $ktoart=$_POST['ktoart'.$zaehl];
         $konto=$_POST['konto'.$zaehl];
-        if ($ktoart=="Lastschrift" || $ktoart=="EINKAUF") {
+        if ($ktoart=="LASTSCHRIFT" || $ktoart=="EINKAUF") {
           if ($ktoart=="Lastschrift") { 
             $fldkto="LASTSCHRIFT";
             $fldbez="Lastschrift";

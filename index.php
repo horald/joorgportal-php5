@@ -2,6 +2,11 @@
 include("config.php");
 include("menu.php");
 
+function startmobil() {
+  include("indexmobil.php");
+  startmobilfunc();
+}
+
 function startmenu() {
     require_once("treemenu.class.php");
 
@@ -59,25 +64,29 @@ function showfoot() {
     echo "    </html>";
 }
 
-function startseite() {
+function startseite($layout) {
 
   $dbFile="config.php";
   if (filesize($dbFile) == 0 ) {
     startinstall(); 
   } else {
-    $dbFile="update".$updvers.".sql";
+    $dbFile="update".$updvers.".sql";    
     if (filesize($dbFile) != 0 ) {
       echo "Update gefunden!<br>";
       include("updatewp.php");
     } else {
-      showhead();
-      startmenu();
-      showfoot();
+      if ($layout == "joorgmobil") {
+        startmobil();
+      } else {
+        showhead();
+        startmenu();
+        showfoot();
+      }
     }  
   }  
 
 }
 
-startseite();
+startseite($layout);
 
 ?>

@@ -7,6 +7,7 @@ function mod($a, $n) {
 
 function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$menuid,$krit) {
 
+  mysql_query("SET NAMES 'utf8'");
   $strdetail="";
   if ($iddetail!="") {
     $strdetail="&detail=".$iddetail;
@@ -398,7 +399,8 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
     }
 
     $query = "INSERT INTO ".$pararray['dbtable']." (".$strfld.") VALUES(".$strval.") ";
-    echo $query."<br>";
+    //echo $query."<br>";
+    mysql_query("SET NAMES 'utf8'");
     mysql_query($query) or die("Error using mysql_query($query): ".mysql_error());
     //if ($lstinsid<>0) {
       //$insid=mysql_insert_id();

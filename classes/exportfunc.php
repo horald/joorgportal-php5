@@ -24,6 +24,7 @@ function exportabfrage($menu,$menuid) {
 //  }
 //  echo "</table>";
 
+  echo "<input type='checkbox' name='checkdel' value='1'>Mit Delete-Statement.<br>";
   echo "<input name='datnam' value=''><br>";
   echo "<select name='auswahl' size='1'>";
   echo "<option style='background-color:#c0c0c0;' value=1 selected>Flatfile</option>";
@@ -111,7 +112,21 @@ function jsonexportfunc($pfad,$pararray,$menu) {
   echo "</div>";
 }
 
-function sqlexportfunc($pfad,$pararray,$menu) {
+function array_find($listarray, $lincol)
+{
+  $export="J";
+  foreach ($listarray as $arrelement)
+  {
+    if ($arrelement['dbfield']==$lincol) {
+      if (array_key_exists('export', $arrelement)) {
+        $export=$arrelement['export'];
+      }
+    }
+  }
+  return $export;
+}
+
+function sqlexportfunc($pfad,$pararray,$listarray,$menu) {
   include("../config.php");
   $datnam=$_POST['datnam'];
   $slash="/";
@@ -131,12 +146,16 @@ function sqlexportfunc($pfad,$pararray,$menu) {
   $lincnt = 1;
   while ($lincol = mysql_fetch_array($rescol)) {
   	 $lincnt = $lincnt + 1;
-    if ($col=="") {
-      $col = $lincol[0];
-    } else {
-      $col = $col . "," . $lincol[0];
+    $colarr=array_find($listarray,$lincol[0]);
+    if ($colarr<>"N") {
+      if ($col=="") {
+        $col = $lincol[0];
+      } else {
+        $col = $col . "," . $lincol[0];
+      }
     }     
   }
+echo $col."<br>";
 
   $dbselarr = $_SESSION['DBSELARR'];
   $count=sizeof($dbselarr);
@@ -169,7 +188,7 @@ function sqlexportfunc($pfad,$pararray,$menu) {
   echo $sqlfile."#<br>";
 }
 
-function exportfunc($pfad,$pararray,$menu) {
+function exportfunc($pfad,$pararray,$listarray,$menu) {
   include("../config.php");
   $slash="/";       
   if (substr($_SERVER['DOCUMENT_ROOT'],-1)=="/") {
@@ -218,11 +237,14 @@ function exportfunc($pfad,$pararray,$menu) {
   $col = "";
   $lincnt = 1;
   while ($lincol = mysql_fetch_array($rescol)) {
-  	 $lincnt = $lincnt + 1;
-    if ($col=="") {
-      $col = $lincol[0];
-    } else {
-      $col = $col . "," . $lincol[0];
+    $colarr=array_find($listarray,$lincol[0]);
+    if ($colarr<>"N") {
+      $lincnt = $lincnt + 1;
+      if ($col=="") {
+        $col = $lincol[0];
+      } else {
+        $col = $col . "," . $lincol[0];
+      }
     }     
   }
   

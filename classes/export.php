@@ -21,7 +21,7 @@ if ($export==1) {
         exportfunc($exportpfad);
       break;  	 
       case 2:
-        exportfunc($exportpfad,$pararray,$menu);
+        exportfunc($exportpfad,$pararray,$listarray,$menu);
       break;  	 
       case 3:
         echo "<div class='alert alert-success'>";
@@ -35,7 +35,7 @@ if ($export==1) {
         htmlexportfunc($exportpfad,$pararray);
       break;
       case 6:
-        sqlexportfunc($exportpfad,$pararray,$menu);
+        sqlexportfunc($exportpfad,$pararray,$listarray,$menu);
       case 7:
         jsonexportfunc($exportpfad,$pararray,$menu);
       break;  	 

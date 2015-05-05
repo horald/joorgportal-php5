@@ -1,5 +1,6 @@
 <?php
 header("content-type: text/html; charset=utf-8");
+session_start();
 echo "<html>";
 echo "<link rel='stylesheet' type='text/css' href='style.css' />";
 echo "<body>";
@@ -9,8 +10,8 @@ $uhrzeit = date("H:i",$timestamp);
 echo "<h3>Adressliste vom ".$datum." - ".$uhrzeit." Uhr</h3><br>";
 echo "<table border='3'>";
 include ("../config.php");
-$query = "SELECT * FROM tbladr_liste ORDER BY fldlastname";
-$result = mysql_query($query);
+//$query = "SELECT * FROM tbladr_liste ORDER BY fldlastname";
+//$result = mysql_query($query);
 echo "<tr class='tabAuswahl'>";
 echo "<td width='20'>Nr</td>";
 echo "<td width='100'>Vorname</td>";
@@ -20,10 +21,20 @@ echo "</tr>";
 echo "</table>";
 echo "<table border='3'>";
 $count=0;
-while ($line = mysql_fetch_array($result)) { 
- $count++;
+$dbselarr = $_SESSION['DBSELARR'];
+$count=sizeof($dbselarr)-1;
+//echo $count."=count<br>";
+mysql_query("SET NAMES 'utf8'");
+for ( $x = 0; $x <= $count; $x++ ) {
+//while ($line = mysql_fetch_array($result)) { 
+ $query = "SELECT * FROM tbladr_liste WHERE fldindex=".$dbselarr[$x];
+//echo $dbselarr[0].",".$x.",".$query."<br>";
+ $result = mysql_query($query) or die(mysql_error().$query);
+ $line = mysql_fetch_array($result);
+ //$count++;
  echo "<tr height='35'>";
- echo "<td width='20'>".$count."</td>";
+ $nr=$x+1;
+ echo "<td width='20'>".$nr."</td>";
  echo "<td width='100'>".$line[fldfirstname]."</td>";
  echo "<td width='100'>".$line[fldlastname]."</td>";
  echo "<td width='400'></td>";

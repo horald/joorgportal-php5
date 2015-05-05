@@ -5,6 +5,7 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
   include("../config.php");
 
   $query = "SELECT * FROM ".$pararray['dbtable']." WHERE ".$pararray['fldindex']."='$idwert'";
+  mysql_query("SET NAMES 'utf8'");
   $result = mysql_query($query) or die("Error using mysql_query($sql): ".mysql_error());
   $line = mysql_fetch_array($result);
 
@@ -577,6 +578,7 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
 
     $query = "UPDATE ".$pararray['dbtable']." SET ".$strset." WHERE ".$pararray['fldindex']."='$idwert'";
     //echo $query."<br>";
+    mysql_query("SET NAMES 'utf8'");
     mysql_query($query) or die("Error using mysql_query($sql): ".mysql_error());
     $resync=$_POST['resync'];
     if ($resync==true) {

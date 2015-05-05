@@ -1,0 +1,27 @@
+<html>
+<head>
+  <script type="text/javascript" src="../includes/jquery/jquery.min.js"></script>
+  <script src="php.js"></script>
+</head>
+<body>
+<script>
+  document.write('empfang version');
+  ob_start('someCallback', 4096, true);
+  //include("http://".$urladr.":8080/own/joorgsqlite/classes/senden.php");
+
+$.getScript("sendversion.js", function(){
+
+   //alert("Script loaded and executed.");
+  document.write('end'); 
+
+   // Use anything defined in the loaded script...
+});
+
+  ob_flush();
+  $json=ob_get_contents();
+  ob_end_clean(); 
+  document.write('end'); 
+
+</script>
+</body>
+</html>

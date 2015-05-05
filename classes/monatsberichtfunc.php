@@ -13,17 +13,20 @@ function monatsberichtauswahl($menu,$drucken) {
   echo "  <fieldset>";
   echo "          <div class='control-group'>";
 
-        $fquery = "SELECT * FROM tblktobanken";
-        $fresult = mysql_query($fquery) or die(mysql_error());
-        
+       
         //echo "<div class='input-append date' id='dp3' data-date-format='dd-mm-yyyy'>";
         //echo "<input class='span2' size='80' type='text' value='12-02-2013' readonly><span class='add-on'><i class='icon-th'></i></span>";
         //echo "</div><br>";        
         
   echo "<div>";
+  //$timestamp = time();
+  //$datum = date("Y-m-d",$timestamp);
+  //echo $datum."<br>";
   echo "Von Datum: ";
   $jahr=date("Y");
-  $vondatum=$jahr."-01-01";
+  $monat=date("m");
+  $tag=date("t");
+  $vondatum=$jahr."-".$monat."-01";
 ?>
         <input type="Text" id="vondatum" name="vondatum" value="<?php echo $vondatum; ?>"/>
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('vondatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
@@ -31,15 +34,29 @@ function monatsberichtauswahl($menu,$drucken) {
   echo "</div>";
   echo "<div>";
   echo "Bis Datum: ";
-  $bisdatum=$jahr."-01-31";
+  $bisdatum=$jahr."-".$monat."-".$tag;
 ?>
         <input type="Text" id="bisdatum" name="bisdatum" value="<?php echo $bisdatum; ?>"/>
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('bisdatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
 <?php 
   echo "</div>";
         
+
+        echo "Report: ";
+        $fquery = "SELECT * FROM tblreports";
+        $fresult = mysql_query($fquery) or die(mysql_error());
+        echo "<select name='rpt' size='1'>";
+        while ($fline = mysql_fetch_array($fresult)) {
+          $strbez = $fline[fldbez];
+          $strrpt = $fline[fldkurz];
+          echo "<option style='background-color:#c0c0c0;' value=".$strrpt." >".$strbez."</option>";
+        }
+        echo "</select>";
+        echo "<br>";
         
         echo "Kontogruppe: ";
+        $fquery = "SELECT * FROM tblktobanken";
+        $fresult = mysql_query($fquery) or die(mysql_error());
         echo "<select name='ktogrp' size='1'>";
         while ($fline = mysql_fetch_array($fresult)) {
           $strstatus = $fline[fldBez];
@@ -436,6 +453,112 @@ for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
 echo "</tr>";
 
 echo "</table>";
+
+}
+
+function userberichtanzeigen($ktoinhgrp) {
+  $vondatum=$_POST['vondatum'];
+  $bisdatum=$_POST['bisdatum'];
+  echo "<div class='alert alert-info'>";
+//  echo "Zeitraum: ".$vondatum." - ".$bisdatum." Inhabergruppe: ".$ktoinhgrp;
+  echo "Zeitraum: ".$vondatum." - ".$bisdatum." ";
+  echo "</div>";
+  //echo $ktoinhgrp."=ktoinhgrp<br>";
+  //echo "<br>userbericht<br>";
+  echo "<table class='table table-hover'>";
+  echo "<thead>";
+  echo "<th width='15'>Konto</th>";
+  $fquery = "SELECT * FROM tblktoinhgrpzuord WHERE fldid_ktoinhgrp=".$ktoinhgrp;
+  $fresult = mysql_query($fquery) or die(mysql_error());
+  $arrInhaber = array();
+  $arrBetrag = array();
+  $arrSumme = array();
+  $arrGesSum = array();
+  while ($fline = mysql_fetch_array($fresult)) {
+  	 $qryinh = "SELECT * FROM tblktobanken WHERE fldIndex=".$fline['fldid_ktoinhaber'];
+    $resinh = mysql_query($qryinh) or die(mysql_error());
+    $lininh = mysql_fetch_array($resinh);
+    $user=$lininh['fldBez'];
+    $arrInhaber[] = $user;
+    $arrBetrag[] = 0;
+    $arrSumme[] = 0;
+    $arrGesSum[] = 0;
+    echo "<th style='text-align:right' width='15'>".$user."</th>";
+  	  
+  }
+  $nAnz = count($arrInhaber);
+  echo "<th style='text-align:right' width='15'>Zusammen</th>";
+  echo "<th style='text-align:center' width='15'>Sparkline</th>";
+
+  echo "</thead>";
+  
+  $arrtyp[0][typ]   = "EINNAHME";
+  $arrtyp[0][bez]  = "Einnahmen";
+  $arrtyp[1][typ]   = "AUSGABE";
+  $arrtyp[1][bez]  = "Ausgaben";  
+  $arrtyp[2][typ]   = "UMBUCH";
+  $arrtyp[2][bez]  = "Umbuchungen";  
+  $nAnztyp=count($arrtyp);
+  for ( $icnttyp = 0; $icnttyp < $nAnztyp; $icnttyp++ ) {
+
+    for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+      $arrSumme[$icnt-1]=0;
+    }
+  $qrykto = "SELECT * FROM tblktokonten WHERE fldTyp='".$arrtyp[$icnttyp][typ]."'";
+  $reskto = mysql_query($qrykto) or die(mysql_error());
+  while ($linkto = mysql_fetch_array($reskto)) {
+    $zwsum=0;
+    $abssum=0;
+    for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+      $qrysal = "SELECT sum(fldBetrag) AS Betrag FROM tblktosal WHERE fldInhaber='".$arrInhaber[$icnt-1]."' AND fldKonto='".$linkto['fldKurz']."' AND fldDatum>='".$vondatum."' AND fldDatum<='".$bisdatum."'";
+      $ressal = mysql_query($qrysal) or die(mysql_error());
+      $linsal = mysql_fetch_array($ressal);
+      $arrBetrag[$icnt-1] = $linsal['Betrag'];
+      $arrSumme[$icnt-1] = $arrSumme[$icnt-1] + $linsal['Betrag'];
+      $zwsum=$zwsum + $linsal['Betrag'];
+      $abssum=$abssum + abs($linsal['Betrag']);
+    }
+    if ($abssum<>0) {
+      echo "<tr>";
+      echo "<td width='15'>".$linkto['fldBez']."</td>";
+      for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+        echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$arrBetrag[$icnt-1])."</td>";
+      }
+      echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$zwsum)."</td>";
+      echo "<td style='text-align:center' width='15'>.";
+      //echo "<img src='sparkline.php' usemap='#sparkline' />"; 
+      echo "</td>";
+      echo "</tr>";  
+    }
+  }
+      echo "<tr bgcolor=lightgreen>";
+      echo "<td width='15'>Summe ".$arrtyp[$icnttyp][bez]."</td>";
+      $zwsum=0;
+      for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+        echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$arrSumme[$icnt-1])."</td>";
+        $arrGesSum[$icnt-1]=$arrGesSum[$icnt-1]+$arrSumme[$icnt-1];
+        $zwsum=$zwsum+$arrSumme[$icnt-1];
+      }
+      echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$zwsum)."</td>";
+      echo "<td style='text-align:center' width='15'>.";
+      //echo "<img src='sparkline.php' usemap='#sparkline' />"; 
+      echo "</td>";
+      echo "</tr>";  
+      //Leerzeile
+      echo "<tr><td>.</td></tr>";
+  }
+  echo "<tr bgcolor=lightblue>";
+  echo "<td width='15'>Gesamtsumme</td>";
+  $zwsum=0;
+  for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+    echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$arrGesSum[$icnt-1])."</td>";
+    $zwsum=$zwsum+$arrGesSum[$icnt-1];
+  }
+  echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$zwsum)."</td>";
+  echo "<td style='text-align:center' width='15'>.";
+  //echo "<img src='sparkline.php' usemap='#sparkline' />"; 
+  echo "</td>";
+  echo "</tr>";  
 
 }
 

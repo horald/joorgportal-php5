@@ -19,7 +19,8 @@ function importabfrage($menu,$importpfad,$menuid) {
   echo "</div>";
   echo "<div>";
   echo "Jahr: ";
-  echo "<input type='Text' name='jahr' value='2014'/>";
+  $jahr=date("Y");
+  echo "<input type='Text' name='jahr' value='".$jahr."'/>";
   echo "</div>";
   echo "<div>";
   echo "CSV-Konto: ";
@@ -191,12 +192,12 @@ function importcsvfile($importarray,$datei,$importpfad,$konto,$monat,$jahr,$csvk
   if ($datum<>"") {
     $query="DELETE FROM tblktosal WHERE fldDatum>='".$datum."' AND fldInhaber='".$konto."'";
   } else {
-    $query="DELETE FROM tblktosal WHERE month(fldDatum)=".$monat." AND year(fldDatum)=".$jahr." AND fldInhaber='".$konto."'";
+    $query="DELETE FROM tblktosal WHERE month(fldDatum)=".$monat." AND year(fldDatum)=".$jahr." AND fldInhaber='".$konto."' AND fldtyp='CSVIMPORT'";
   }  
   //echo $query."=del<br>";
   $result = mysql_query($query) or die(mysql_error());
   foreach ($lines as $line_num => $textline) {
-    $sql="INSERT INTO tblktosal (fldDatum,fldUhrzeit,fldBetrag,fldKonto,fldBez,fldInhaber) VALUES(";
+    $sql="INSERT INTO tblktosal (fldDatum,fldUhrzeit,fldBetrag,fldKonto,fldBez,fldInhaber,fldtyp) VALUES(";
     $count=$count+1;
     $textline=trim($textline);
     //var_dump($textline);
@@ -248,7 +249,8 @@ function importcsvfile($importarray,$datei,$importpfad,$konto,$monat,$jahr,$csvk
       $teilcnt=$teilcnt+1;
     }
     if ($kto==$csvkto) {
-      $sql=$sql."'".$konto."');";
+      $sql=$sql."'".$konto."',";
+      $sql=$sql."'CSVIMPORT');";
       echo $sql."=sql<br>";
       $result = mysql_query($sql) or die(mysql_error());
     }  
@@ -277,7 +279,7 @@ function importkskfile($importarray,$datei,$konto,$headerline,$zeroignore,$impor
   $pfad = $importpfad;
 //  echo $monat."=monat<br>";
 //  $pfad = "/var/www/wp/webportal30/sites/import/";
-  $query="DELETE FROM tblktosal WHERE month(fldDatum)=".$monat." AND year(fldDatum)=".$jahr." AND fldInhaber='".$konto."'";
+  $query="DELETE FROM tblktosal WHERE month(fldDatum)=".$monat." AND year(fldDatum)=".$jahr." AND fldInhaber='".$konto."' AND fldtyp=''";
   //echo $query."<br>";
   $result = mysql_query($query) or die(mysql_error());
 // echo $pfad.$datei."=file<br>";
@@ -335,7 +337,7 @@ function importkskfile($importarray,$datei,$konto,$headerline,$zeroignore,$impor
       $fresult = mysql_query($fquery) or die(mysql_error());
       while ($fline = mysql_fetch_array($fresult)) {
         //echo $fline['fldSuch'].",".$ktobez."=ktobez<br>";	
-        if ( ereg ( $fline['fldSuch'], $ktobez ) )
+        if ( ereg ( $fline['fldSuch'], strtoupper($ktobez) ) )
         {
           $kto=$fline['fldKurz'];
         }
@@ -449,6 +451,54 @@ function importtxtfile($importarray,$datei,$importpfad,$gdbtyp) {
   echo "</div>";
 }
 
+function importsqlite() {  
+  include("../config.php");
+  $menu="shopping";
+  include("../sites/views/wp_".$menu."/showtab.inc.php");
+  $fields="";
+  foreach ( $listarray as $arrelement ) {
+    $weiter=false;
+    if ($arrelement['sqliteimport']<>"N") {
+      if (($arrelement['type']=='text') OR ($arrelement['type']=='select')) {
+        $weiter=true;
+      }
+    }
+    if ($weiter) {
+      if ($fields=="") {
+        $fields=$arrelement['dbfield'];
+      } else {
+        $fields=$fields.",".$arrelement['dbfield'];
+      }
+    } 
+  }
+  //echo $fields."<br>";
+  $sql="SELECT ".$fields." FROM ".$pararray['dbtable']; 
+  //echo $sql."<br>";
+  $db = new SQLite3('../../../android/own/joorgsqlite/data/joorgsqlite.db');
+  $results = $db->query($sql);
+  while ($row = $results->fetchArray()) {
+    $daten="";
+    foreach ( $listarray as $arrelement ) {
+      $weiter=false;
+      if ($arrelement['sqliteimport']<>"N") {
+        if (($arrelement['type']=='text') OR ($arrelement['type']=='select')) {
+          $weiter=true;
+        }
+      }
+      if ($weiter) {
+        if ($daten=="") {
+          $daten="'".$row[$arrelement['dbfield']]."'";
+        } else {
+          $daten=$daten.",'".$row[$arrelement['dbfield']]."'";
+        }
+      } 
+    } 
+    $sqlins="INSERT INTO ".$pararray['dbtable']." (".$fields.") VALUES (".$daten.")";
+    echo $sqlins."<br>";
+    mysql_query($sqlins) or die("Error using mysql_query($sqlins): ".mysql_error());
+  }
+}
+
 function importfunc($importpfad) {
   $zeroignore = $_POST['zeroignore'];
   $count = $_POST['count'];
@@ -473,7 +523,7 @@ function importfunc($importpfad) {
     for($zaehl = 1; $zaehl <= $count; $zaehl++)
     {
       $idcheck = $_POST['cbutton'.$zaehl];
-	   if ($idcheck==1) {
+      if ($idcheck==1) {
 	     $cnt=$cnt+1;
         $datei = $_POST['idwert'.$zaehl];
         $jahr = $_POST['jahr'];  
@@ -512,10 +562,13 @@ function importfunc($importpfad) {
           importtxtfile($importarray,$datei,$importpfad,$gdbtyp);
         }
         if ($ktotyp=="ICAL-IMPORT") {
-          importicalfile($datei,$importpfad);
+          importicalfile($datei,$importpfad); 
         }
       }
     }
+    if ($ktotyp=="SQLITE-IMPORT") {
+      importsqlite();
+   }
   }     
   
 }
