@@ -1,3 +1,3 @@
-var arr={'versnr':'12',
-         'versdat':'test'};
+var arr={'versnr':'123',
+         'versdat':'test123'};
 document.write(JSON.stringify(arr));         

@@ -62,6 +62,9 @@ for ( $x = 0; $x < $count; $x++ ) {
           $wert=$linsel[$arrelement['seldbfield']];
           echo "<td width='".$width."'>".$wert."</td>";
         break;  
+        case 'calc':
+          echo "<td style='text-align:right' width='".$width."'>".$line[$arrelement['dbfield']]."</td>";
+        break;
         default:
           echo "<td width='".$width."'>".$line[$arrelement['dbfield']]."</td>";
         break;

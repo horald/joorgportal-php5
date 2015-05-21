@@ -787,12 +787,14 @@ if ($pararray['subtitle']<>"") {
   $anzpers=$linrez['fldanzpers'];
   echo "<legend>F&uumlr ".$anzpers." Person(en)</legend><br>";
 }  
+if ($pararray['autowidth']=="N") {
 ?>
 <style>
  table { table-layout: fixed; }
  table th, table td { overflow: hidden; }
 </style>
 <?php
+}
 echo "<form class='form-horizontal' method='post' action='showtab.php?addfunc=1&menu=".$menu.$strdetail."&idwert=".$idwert."'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";

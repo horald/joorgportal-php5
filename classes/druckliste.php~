@@ -59,7 +59,7 @@ for ( $x = 0; $x < $count; $x++ ) {
           //echo $qrysel."<br>";
           $ressel = mysql_query($qrysel) or die(mysql_error().$qrysel);
           $linsel = mysql_fetch_array($ressel);
-          $wert="wert";
+          $wert=$linsel[$arrelement['seldbfield']];
           echo "<td width='".$width."'>".$wert."</td>";
         break;  
         default:

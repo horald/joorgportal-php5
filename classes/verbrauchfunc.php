@@ -28,15 +28,18 @@ $verbrauchpos=round($verbrauchproz*10)+10;
 imagefilledrectangle ($bild, 10, 25, $verbrauchpos, 35, $gruen);
 
 $date1 = time();
-$date2 = mktime(0, 0, 0, 5, 7, 2015);
+$mon1 = date('m', $date1);
+$nextmon=$mon1+1;
+$nextday=6;
+$nextyear=2015;
+$date2 = mktime(0, 0, 0, $nextmon, $nextday, $nextyear);
 $datum=date('d.m.Y',$date1);
 $day1 = date('d', $date1);
 $day2 = date('d', $date2);
-$mon1 = date('m', $date1);
 $mon2 = date('m', $date2);
-$maxtage=31;
+$maxtage=30;
 if ($mon1==$mon2) {
-  $anztage=$day2-$day1;
+  $anztage=$day2-$day1-1;
 } else {
   $anztage=$maxtage-$day1+$day2;
 }
@@ -49,7 +52,7 @@ $str=$verbrauch." MB von 1 GB verbraucht (".$verbrauchproz."%)";
 ImageString ($bild, 20, 50, 45, $str, $gruen);
 
 $difftage=$maxtage-$anztage;
-$str="am ".$datum." bis 7.5.2015 (".$proztage."%) ".$difftage." von ".$maxtage." Tage, Rest ".$anztage." Tage";
+$str="am ".$datum." bis ".$nextday.".".$nextmon.".".$nextyear." (".$proztage."%) ".$difftage." von ".$maxtage." Tage, Rest ".$anztage." Tage";
 ImageString ($bild, 100, 50, 95, $str, $gruen);
 
 imageline($bild,110,35,110,40,$gruen);

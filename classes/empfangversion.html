@@ -5,22 +5,22 @@
 </head>
 <body>
 <script>
-  document.write('empfang version');
-  ob_start('someCallback', 4096, true);
+  document.write('empfang version<br>');
+  //ob_start('someCallback', 4096, true);
   //include("http://".$urladr.":8080/own/joorgsqlite/classes/senden.php");
 
-$.getScript("sendversion.js", function(){
+$.getScript("https://github.com/horald/joorgportal/tree/master/classes/sendversion.js", function(){
 
    //alert("Script loaded and executed.");
-  document.write('end'); 
+  document.write('endintern'); 
 
    // Use anything defined in the loaded script...
 });
 
-  ob_flush();
-  $json=ob_get_contents();
-  ob_end_clean(); 
-  document.write('end'); 
+  //ob_flush();
+  //$json=ob_get_contents();
+  //ob_end_clean(); 
+  document.write('endextern'); 
 
 </script>
 </body>

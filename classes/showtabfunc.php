@@ -1106,6 +1106,9 @@ while ($line = mysql_fetch_array($result)) {
         if ($arrelement['calcfield']!="") {
           $wert=$wert * strval($line[$arrelement['calcfield']]);
         }
+        if ($arrelement['calcdiv']!="") {
+          $wert=$wert / strval($line[$arrelement['calcdiv']]);
+        }
         if ($arrelement['calcfix']!="") {
           $wert=$wert * strval($arrelement['calcfix']);
         }

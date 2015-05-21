@@ -3,6 +3,7 @@ header("content-type: text/html; charset=utf-8");
 
 function druckaufgabenplan($datum,$dbtable,$prtfield,$prtuser,$orderby,$hoehe,$anzzl) {
 include ("../config.php");
+mysql_query("SET NAMES 'utf8'");
 if ($orderby<>"") {
   $orderby=" ORDER BY ".$orderby;
 }
@@ -82,7 +83,11 @@ for ($ikw = 1; $ikw <= $anzzl; $ikw++) {
       //$line = mysql_fetch_array($result);
       $olduserid="";
       while ($line = mysql_fetch_array($result)) {
-        $wert=$line[$prtfield];
+        $qryauf="SELECT * FROM tblaufgabenliste WHERE fldindex=".$line['fldid_aufgabe'];
+        $resauf = mysql_query($qryauf) or die(mysql_error());
+        $linauf = mysql_fetch_array($resauf);
+        //$wert=$line[$prtfield];
+        $wert=$linauf['fldbez'];
 //        if ($wert == '') {
 //          $id=$line[fldid_rezepte];
 //          if ($id!="") {
@@ -130,7 +135,7 @@ function druckaufgabenplanauswahl($dbtable,$prtfield,$prtuser,$orderby) {
   echo "  </div>";
   echo "  <div class='control-group'>";
   echo "    <label class='control-label' style='text-align:left' for='input01'>Anzahl Zeilen</label>";
-  echo "    <input type='text' name=anzzl value='4' >";
+  echo "    <input type='text' name=anzzl value='3' >";
   echo "  </div>";
   echo "  <input type='hidden' name=dbtable value='".$dbtable."' >";
   echo "  <input type='hidden' name=prtfield value='".$prtfield."' >";

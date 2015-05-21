@@ -109,6 +109,20 @@ function schedulecopyauswahl($dbtable,$menu,$menuid) {
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('neudatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
 <?php 
       echo "          </div>";
+
+/*      
+  $qryusr = "SELECT * FROM tblbenutzer ";
+  $resusr = mysql_query($qryusr) or die(mysql_error().$qryusr);
+        echo "<div class='control-group'>";
+        echo "  <label class='control-label' style='text-align:left' for='input01'>Benutzer</label>";
+        echo "  <select name='benutzer' size='1'>";
+        while ($linusr = mysql_fetch_array($resusr)) {
+          echo "<option style='background-color:#c0c0c0;' >".$linusr['fldbez']."</option>";
+        }
+        echo "  </select>";
+        echo "</div>";
+*/      
+      
   echo "  <input type='hidden' name=dbtable value='".$dbtable."' >";
   echo "  <div class='form-actions'>";
   echo "     <button type='submit' name='submit' class='btn btn-primary'>Speichern</button>";

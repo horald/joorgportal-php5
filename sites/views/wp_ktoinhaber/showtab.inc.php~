@@ -1,0 +1,49 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez',
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldBez' ),
+                     array ( 'label' => 'Calc',
+                             'name' => 'calc',
+                             'width' => 10, 
+                             'type' => 'text',
+                             'dbfield' => 'fldcalc' ),                     
+                     array ( 'label' => 'Benutzer',
+                             'name' => 'userid',
+                             'fieldhide' => 'true1', 
+                             'default' => '(ohne)',
+                             'width' => 100, 
+                             'type' => 'selectid',
+                             'dbtable' => 'tblbenutzer',
+                             'seldbfield' => 'fldbez',
+                             'seldbindex' => 'fldindex',
+                             'dbfield' => 'fldid_benutzer' ),
+                     array ( 'label' => '',
+                             'width' => 5, 
+                             'type' => 'icon',
+                             'func' => 'mark.php',
+                             'dbfield' => 'icon-book' ) );
+
+$filterarray = array (
+                      array ( 'label' => 'Benutzer',
+                             'name' => 'benutzer', 
+                             'value' => '(ohne)',
+                             'width' => 10, 
+                             'type' => 'select',
+                             'sign' => '=',
+                             'dbtable' => 'tblktobanken',
+                             'seldbfield' => 'fldBez',
+                             'dbfield' => 'fldInhaber' ));
+
+
+$pararray = array ( 'headline' => 'Kontoinhaber',
+                    'dbtable' => 'tblktobanken',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'markseldb' => 'JA',
+                    'markselno' => 'NEIN',
+                    'marktoggle' => 'true',
+                    'markfield' => 'fldcalc',
+                    'fldindex' => 'fldIndex');
+?>

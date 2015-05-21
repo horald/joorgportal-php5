@@ -412,7 +412,7 @@ for ( $kto = 0; $kto < $nAnz; $kto++ )
     echo "<td width='15'>".$arrKtoBez[$kto]."</td>";
     for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
     {
-      $SumUmbuchBetrag[$mon]=$SumUmbuchBetrag[$mon]+$Betrag[$mon];
+      //$SumUmbuchBetrag[$mon]=$SumUmbuchBetrag[$mon]+$Betrag[$mon];
       echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$Betrag[$mon])."</td><td width='5'> </td>";
     }
     echo "</tr>";
@@ -496,7 +496,9 @@ function userberichtanzeigen($ktoinhgrp) {
   $arrtyp[0][bez]  = "Einnahmen";
   $arrtyp[1][typ]   = "AUSGABE";
   $arrtyp[1][bez]  = "Ausgaben";  
-  $nAnztyp=2;
+  $arrtyp[2][typ]   = "UMBUCH";
+  $arrtyp[2][bez]  = "Umbuchungen";  
+  $nAnztyp=count($arrtyp);
   for ( $icnttyp = 0; $icnttyp < $nAnztyp; $icnttyp++ ) {
 
     for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {

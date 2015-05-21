@@ -438,7 +438,7 @@ echo "<td width='15'>Saldo Umbuch</td>";
 for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
 {
   $saldo=$SumEinnahmeBetrag[$mon]+$SumAusgabeBetrag[$mon]+$SumUmbuchBetrag[$mon];
-  echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$saldo)."</td><td width='5'> </td>";
+  echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$SumUmbuchBetrag[$mon])."</td><td width='5'> </td>";
 }
 echo "</tr>";
 echo "<tr><td>.</td></tr>"; // leerzeile
