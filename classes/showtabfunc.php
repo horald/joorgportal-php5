@@ -211,6 +211,7 @@ function showlist() {
 
 function showtablist($pararray,$listarray,$filterarray,$getfilter,$menu,$iddetail,$idwert,$drucken,$langshort,$computerid) {
 include("../config.php");
+mysql_query("SET NAMES 'utf8'");
 
 $korrektur=false;
 $strwhere="";

@@ -21,8 +21,9 @@ if ($insert==1) {
   if ($_POST['aktual']=="aktual") {
     insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$menuid);
   } else {
-    insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail);
-    if ($_POST['errmsg']<>true) {
+  	 $errmsg=$_POST['errmsg'];
+    insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$errmsg);
+    if ($errmsg<>true) {
       echo "<meta http-equiv='refresh' content='0; URL=showtab.php?menu=".$menu.$strdetail."&idwert=".$menuid."'>";
     }  
   }    

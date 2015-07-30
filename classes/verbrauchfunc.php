@@ -28,13 +28,17 @@ $verbrauchpos=round($verbrauchproz*10)+10;
 imagefilledrectangle ($bild, 10, 25, $verbrauchpos, 35, $gruen);
 
 $date1 = time();
+$day1 = date('d', $date1);
 $mon1 = date('m', $date1);
-$nextmon=$mon1+1;
-$nextday=6;
+$nextday=5;
+if ($day1<$nextday) {
+  $nextmon=$mon1;
+} else {
+  $nextmon=$mon1+1;
+}
 $nextyear=2015;
 $date2 = mktime(0, 0, 0, $nextmon, $nextday, $nextyear);
 $datum=date('d.m.Y',$date1);
-$day1 = date('d', $date1);
 $day2 = date('d', $date2);
 $mon2 = date('m', $date2);
 $maxtage=30;

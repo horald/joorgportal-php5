@@ -40,14 +40,14 @@ $audioheight=300;
 
 //Database
 $config=new JConfig();
-//$gdbname="dbWebportal";
-//$gdbhost="localhost";
-//$gdbuser="root";
-//$gdbpass="mysql";
-$gdbname=$config->db;
-$gdbhost=$config->host;
-$gdbuser=$config->user;
-$gdbpass=$config->password;
+$gdbname="dbjoorgportal";
+$gdbhost="localhost";
+$gdbuser="root";
+$gdbpass="mysql";
+//$gdbname=$config->db;
+//$gdbhost=$config->host;
+//$gdbuser=$config->user;
+//$gdbpass=$config->password;
 
 $gdbcon = mysql_connect($gdbhost,$gdbuser,$gdbpass) or die(mysql_error());
 $gdbres = mysql_select_db($gdbname) or die(mysql_error());

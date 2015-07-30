@@ -1,7 +1,7 @@
 <?php
 header("content-type: text/html; charset=utf-8");
 
-function schedulecopyausfuehren($vondatum,$bisdatum,$neudatum,$dbtable) {
+function schedulecopyausfuehren($vondatum,$bisdatum,$neudatum,$dbtable,$anzwhg) {
 
   $tag = substr($vondatum,8,2);
   $monat = substr($vondatum,5,2);
@@ -36,6 +36,9 @@ function schedulecopyausfuehren($vondatum,$bisdatum,$neudatum,$dbtable) {
     }         
   }
 
+  //echo $anztage."=anz<br>";
+  $anztage = $anztage * $anzwhg;
+  //echo $anztage."=anz<br>";
   for ($itag = 0; $itag <= $anztage; $itag++) {
     $date = $vondate+(60*60*24*$itag); 
     $wheredatum = date("Y-m-d",$date);
@@ -108,6 +111,10 @@ function schedulecopyauswahl($dbtable,$menu,$menuid) {
         <input type="Text" id=neudatum name=neudatum value='<?php echo $neudatum; ?>' >
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('neudatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
 <?php 
+      echo "          </div>";
+      echo "          <div class='control-group'>";
+      echo "            <label class='control-label' style='text-align:left' for='input01'>Anzahl</label>";
+      echo "            <input type='Text' name=anzwhg value='' >";
       echo "          </div>";
 
 /*      

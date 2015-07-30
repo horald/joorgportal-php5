@@ -190,7 +190,7 @@ function importcsvfile($importarray,$datei,$importpfad,$konto,$monat,$jahr,$csvk
   $startline=0;
   $datum=$_POST['datum'];
   if ($datum<>"") {
-    $query="DELETE FROM tblktosal WHERE fldDatum>='".$datum."' AND fldInhaber='".$konto."'";
+    $query="DELETE FROM tblktosal WHERE fldDatum>='".$datum."' AND fldInhaber='".$konto."' AND fldtyp='CSVIMPORT'";
   } else {
     $query="DELETE FROM tblktosal WHERE month(fldDatum)=".$monat." AND year(fldDatum)=".$jahr." AND fldInhaber='".$konto."' AND fldtyp='CSVIMPORT'";
   }  
@@ -451,15 +451,14 @@ function importtxtfile($importarray,$datei,$importpfad,$gdbtyp) {
   echo "</div>";
 }
 
-function importsqlite() {  
+function importsqlite($menu) {  
   include("../config.php");
-  $menu="shopping";
   include("../sites/views/wp_".$menu."/showtab.inc.php");
   $fields="";
   foreach ( $listarray as $arrelement ) {
     $weiter=false;
     if ($arrelement['sqliteimport']<>"N") {
-      if (($arrelement['type']=='text') OR ($arrelement['type']=='select')) {
+      if (($arrelement['type']=='text') OR ($arrelement['type']=='select') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl')) {
         $weiter=true;
       }
     }
@@ -472,8 +471,16 @@ function importsqlite() {
     } 
   }
   //echo $fields."<br>";
-  $sql="SELECT ".$fields." FROM ".$pararray['dbtable']; 
-  //echo $sql."<br>";
+  //$where="fldVondatum>='2015-01-01'";
+  $where="";
+  if ($where<>"") {
+    $sql="SELECT ".$fields." FROM ".$pararray['dbtable']." WHERE ".$where; 
+  } else {
+    $sql="SELECT ".$fields." FROM ".$pararray['dbtable']; 
+  }
+  echo "<div class='alert alert-success'>";
+  echo $sql."<br>";
+  echo "</div>";
   $db = new SQLite3('../../../android/own/joorgsqlite/data/joorgsqlite.db');
   $results = $db->query($sql);
   while ($row = $results->fetchArray()) {
@@ -481,7 +488,7 @@ function importsqlite() {
     foreach ( $listarray as $arrelement ) {
       $weiter=false;
       if ($arrelement['sqliteimport']<>"N") {
-        if (($arrelement['type']=='text') OR ($arrelement['type']=='select')) {
+        if (($arrelement['type']=='text') OR ($arrelement['type']=='select') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl')) {
           $weiter=true;
         }
       }
@@ -494,12 +501,14 @@ function importsqlite() {
       } 
     } 
     $sqlins="INSERT INTO ".$pararray['dbtable']." (".$fields.") VALUES (".$daten.")";
+    echo "<div class='alert alert-success'>";
     echo $sqlins."<br>";
+    echo "</div>";
     mysql_query($sqlins) or die("Error using mysql_query($sqlins): ".mysql_error());
   }
 }
 
-function importfunc($importpfad) {
+function importfunc($importpfad,$menu) {
   $zeroignore = $_POST['zeroignore'];
   $count = $_POST['count'];
   $ktotyp = $_POST['ktotyp'];
@@ -567,7 +576,7 @@ function importfunc($importpfad) {
       }
     }
     if ($ktotyp=="SQLITE-IMPORT") {
-      importsqlite();
+      importsqlite($menu);
    }
   }     
   

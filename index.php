@@ -70,6 +70,8 @@ function startseite($layout) {
   if (filesize($dbFile) == 0 ) {
     startinstall(); 
   } else {
+//    include("classes/checkupgrade.php");
+//    check_version();
     $dbFile="update".$updvers.".sql";    
     if (filesize($dbFile) != 0 ) {
       echo "Update gefunden!<br>";

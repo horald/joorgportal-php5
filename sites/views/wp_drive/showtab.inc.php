@@ -143,7 +143,7 @@ $filterarray = array ( array ( 'label' => 'Anbieter',
 
 $pararray = array ( 'headline' => 'Fahrtenbuch',
                     'dbtable' => 'tblfahrtenbuch',
-                    'orderby' => 'fldVondatum,fldFahrzeug',
+                    'orderby' => 'fldVondatum desc,fldFahrzeug',
                     'strwhere' => '',
                     'marktype' => 'text',
                     'markbgcolor' => '22ff22',

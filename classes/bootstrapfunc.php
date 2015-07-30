@@ -34,6 +34,9 @@ echo "<link href='css/jstyle.css' rel='stylesheet'>";
 echo "<script type='text/javascript' src='../includes/bootstrap/js/bootstrap-datepicker.js' charset='UTF-8'></script>";
 echo "<script src='datetimepicker_css.js'></script>";
 
+//grafik
+echo "<script type='text/javascript' src='../includes/canvasjs/canvasjs.min.js'></script>";
+
 
 //fullcalendar
 echo "<link href='../includes/fullcalendar/fullcalendar/fullcalendar.css' rel='stylesheet' />";

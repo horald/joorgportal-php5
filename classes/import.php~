@@ -18,6 +18,7 @@ if ($import==2) {
       importfunc($importpfad);
     } else {
       echo "Der Vorgang wurde abgebrochen.<br>"; 
+      echo "<meta http-equiv='refresh' content='0; URL=showtab.php?menu=".$menu."&idwert=".$menuid."'>";
     }  
   } else {
     //importfilename($menu);

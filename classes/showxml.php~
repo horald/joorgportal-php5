@@ -1,0 +1,14 @@
+<?php
+$urlxml="http://localhost/daten/xml/sms-20150611175719.xml";
+$xml = simplexml_load_file($urlxml);
+echo "show xml=".$urlxml."<br>";
+
+//foreach($xml->sms[0]->attributes() as $a => $b) {
+//    echo $a,'="',$b,"\"\n";
+//}
+foreach($xml->sms as $strbody) {
+  echo $strbody['contact_name'].",";	
+  echo $strbody['body']."<br>";	
+}
+
+?>

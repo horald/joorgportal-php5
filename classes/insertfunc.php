@@ -325,7 +325,7 @@ function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$id
 
 }
 
-function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail) {
+function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$errmsg) {
   $strdetail="";
   if ($iddetail!="") {
     $strdetail="&detail=".$iddetail;
@@ -399,7 +399,9 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
     }
 
     $query = "INSERT INTO ".$pararray['dbtable']." (".$strfld.") VALUES(".$strval.") ";
-    //echo $query."<br>";
+    if ($errmsg==true) {
+      echo $query."<br>";
+    } 
     mysql_query("SET NAMES 'utf8'");
     mysql_query($query) or die("Error using mysql_query($query): ".mysql_error());
     //if ($lstinsid<>0) {

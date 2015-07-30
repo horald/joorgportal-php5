@@ -1,0 +1,14 @@
+<?php
+include("bootstrapfunc.php");
+include("schnellerfassfunc.php");
+//include("../sites/views/wp_".$menu."/showtab.inc.php");
+bootstraphead();
+//bootstrapbegin($pararray['headline']);
+bootstrapbegin("Schnellerfass");
+$ausarchiv = $_GET['ausarchiv'];
+if ($ausarchiv==1) {
+} else {
+  schnellerfassauswahl();
+}  
+bootstrapend();
+?>

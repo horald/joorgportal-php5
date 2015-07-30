@@ -4,12 +4,12 @@ header("content-type: text/html; charset=utf-8");
 //echo "<script type='text/javascript' src='../includes/bootstrap/js/bootstrap-datepicker.js' charset='UTF-8'></script>";
 //echo "<script src='../includes/js/datepicker.js'></script>";
 
-function monatsberichtauswahl($menu,$drucken) {
+function monatsberichtauswahl($menu,$drucken,$vormonat) {
   $druckparam="";
   if ($drucken=="J") {
     $druckparam="&drucken=J";
   }
-  echo "<form class='form-horizontal' method='post' action='monatsbericht.php?save=1&menu=".$menu.$druckparam."'>";
+  echo "<a class='btn btn-primary' href='monatsbericht.php?menu=".$menu."&vormonat=1'>Vormonat</a><br>";  echo "<form class='form-horizontal' method='post' action='monatsbericht.php?save=1&menu=".$menu.$druckparam."'>";
   echo "  <fieldset>";
   echo "          <div class='control-group'>";
 
@@ -25,7 +25,12 @@ function monatsberichtauswahl($menu,$drucken) {
   echo "Von Datum: ";
   $jahr=date("Y");
   $monat=date("m");
-  $tag=date("t");
+  if ($vormonat==1) {
+    $monat=date("m", strtotime('-1 month'));
+    $tag=date('t', strtotime('-1 month')); 
+  } else {
+    $tag=date("t");
+  }  
   $vondatum=$jahr."-".$monat."-01";
 ?>
         <input type="Text" id="vondatum" name="vondatum" value="<?php echo $vondatum; ?>"/>
@@ -412,7 +417,7 @@ for ( $kto = 0; $kto < $nAnz; $kto++ )
     echo "<td width='15'>".$arrKtoBez[$kto]."</td>";
     for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
     {
-      //$SumUmbuchBetrag[$mon]=$SumUmbuchBetrag[$mon]+$Betrag[$mon];
+      $SumUmbuchBetrag[$mon]=$SumUmbuchBetrag[$mon]+$Betrag[$mon];
       echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$Betrag[$mon])."</td><td width='5'> </td>";
     }
     echo "</tr>";
@@ -438,7 +443,7 @@ echo "<td width='15'>Saldo Umbuch</td>";
 for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
 {
   $saldo=$SumEinnahmeBetrag[$mon]+$SumAusgabeBetrag[$mon]+$SumUmbuchBetrag[$mon];
-  echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$saldo)."</td><td width='5'> </td>";
+  echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$SumUmbuchBetrag[$mon])."</td><td width='5'> </td>";
 }
 echo "</tr>";
 echo "<tr><td>.</td></tr>"; // leerzeile

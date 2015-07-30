@@ -22,7 +22,9 @@ if ($insert==1) {
     insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$menuid);
   } else {
     insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail);
-    echo "<meta http-equiv='refresh' content='0; URL=showtab.php?menu=".$menu.$strdetail."&idwert=".$menuid."'>";
+    if ($_POST['errmsg']<>true) {
+      echo "<meta http-equiv='refresh' content='0; URL=showtab.php?menu=".$menu.$strdetail."&idwert=".$menuid."'>";
+    }  
   }    
 } else {
   insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$iddetail,$menuid,$krit);

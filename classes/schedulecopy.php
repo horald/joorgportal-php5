@@ -14,11 +14,12 @@ if ($schedulecopy==1) {
     $vondatum=$_POST['vondatum'];	
     $bisdatum=$_POST['bisdatum'];	
     $neudatum=$_POST['neudatum'];	
+    $anzwhg=$_POST['anzwhg'];	
     //echo "von datum:".$_POST['vondatum']."<br>";	
     //echo "bis datum:".$_POST['bisdatum']."<br>";	
     //echo "neu datum:".$_POST['neudatum']."<br>";
     $dbtable=$_POST['dbtable'];
-    echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&idwert=".$menuid."'>zur&uumlck</a><br><br>";    schedulecopyausfuehren($vondatum,$bisdatum,$neudatum,$dbtable);	
+    echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&idwert=".$menuid."'>zur&uumlck</a><br><br>";    schedulecopyausfuehren($vondatum,$bisdatum,$neudatum,$dbtable,$anzwhg);	
   } else {
     echo "Der Vorgang wurde abgebrochen.<br>"; 
     echo "<meta http-equiv='refresh' content='0; URL=showtab.php?menu=".$menu."&idwert=".$menuid."'>";

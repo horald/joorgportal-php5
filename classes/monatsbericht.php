@@ -36,7 +36,8 @@ if ($save==1) {
     monatsberichtanzeigen($menu,$calc,$oberkonten,$ktoogr,$ktoinhgrp,$rpt);
   }
 } else {
-  monatsberichtauswahl($menu,$drucken);
+  $vormonat = $_GET['vormonat'];
+  monatsberichtauswahl($menu,$drucken,$vormonat);
 }  
 
 bootstrapend();

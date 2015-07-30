@@ -2,7 +2,7 @@
 header("content-type: text/html; charset=utf-8");
 session_start();
 
-function exportabfrage($menu) {
+function exportabfrage($menu,$menuid) {
 //  echo "exportabfrage";
   echo "<form method='post' action='export.php?export=1&menu=".$menu."&menuid=".$menuid."'>";
 
@@ -23,7 +23,19 @@ function exportabfrage($menu) {
 //    echo "</tr>";    
 //  }
 //  echo "</table>";
+  echo "<input type='checkbox' name='checkdel' value='1'>Mit Delete-Statement.<br>";
 
+  echo "<div>";
+  echo "Buch-Datum: ";
+?>
+        <input type="Text" id="buchdatum" name="buchdatum" value="<?php echo $datum; ?>"/>
+        <img src="images2/cal.gif" onclick="javascript:NewCssCal('buchdatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
+<?php 
+  echo "</div>";
+
+  echo "Uhrzeit:";
+  echo "<input name='uhrzeit' value=''><br>";
+  echo "Name:";
   echo "<input name='datnam' value=''><br>";
   echo "<select name='auswahl' size='1'>";
   echo "<option style='background-color:#c0c0c0;' value=1 selected>Flatfile</option>";
@@ -31,6 +43,7 @@ function exportabfrage($menu) {
   echo "<option style='background-color:#c0c0c0;' value=3 >RSS-File</option>";
   echo "<option style='background-color:#c0c0c0;' value=4 >Einkaufsliste</option>";
   echo "<option style='background-color:#c0c0c0;' value=5 >HTML-File</option>";
+  echo "<option style='background-color:#c0c0c0;' value=7 selected>JSON-File</option>";
   echo "<option style='background-color:#c0c0c0;' value=6 >SQL-File selected data</option>";
   echo "</select>";
   echo "  <div class='form-actions'>";
@@ -52,9 +65,82 @@ function exportlog() {
 
 }
 
-function sqlexportfunc($pfad,$pararray,$menu) {
+function jsonexportfunc($pfad,$pararray,$menu) {
   include("../config.php");
   $datnam=$_POST['datnam'];
+  $filename=$pfad.$datnam.".json";
+
+  $qrycol = "SHOW COLUMNS FROM ".$pararray['dbtable'];
+  $rescol = mysql_query($qrycol) or die(mysql_error());
+  $lincol = mysql_fetch_array($rescol);
+
+  $colarr[0] = $lincol[0];
+  $lincnt = 0;
+  $col = "";
+  while ($lincol = mysql_fetch_array($rescol)) {
+  	 $lincnt = $lincnt + 1;
+    $colarr[$lincnt] = $lincol[0];
+    if ($col=="") {
+      $col = $lincol[0];
+    } else {
+      $col = $col . "," . $lincol[0];
+    }     
+  }
+
+  $datei = fopen($filename,"w");
+  $zeile='var einkaufsliste = {"daten": [';
+  fwrite($datei, $zeile."\n");
+
+  $dbselarr = $_SESSION['DBSELARR'];
+  $count=sizeof($dbselarr);
+  $cnt=0;
+  for ( $zaehl = 0; $zaehl < $count; $zaehl++ ) {
+    $cnt=$cnt+1;
+    $idwert = $arrid[$zaehl];
+    $qryval = "SELECT ".$col." FROM ".$pararray['dbtable']." WHERE fldIndex=".$dbselarr[$zaehl];
+    //echo $qryval."<br>";
+    $resval = mysql_query($qryval) or die(mysql_error());
+    $linval = mysql_fetch_array($resval);
+    if (!$linval) {
+      echo " ist leer (INSERT).<br>";    
+    } else {
+      $val = '"'.$colarr[1].'":"'.$linval[0].'"';
+      for($lincount = 1; $lincount+1 < $lincnt; $lincount++) {
+        $val = $val . ',"'.$colarr[$lincount+1].'":"'.$linval[$lincount].'"';
+      }
+
+      $qry = " {".$val."},";
+      //echo $qry."<br>";
+      fwrite($datei, $qry."\n");
+    }  
+  }
+
+  $zeile=']};';
+  fwrite($datei, $zeile."\n");
+  fclose($datei);  
+  echo "<div class='alert alert-success'>";
+  echo $cnt." Datensätze exportiert nach ".$filename;
+  echo "</div>";
+}
+
+function array_find($listarray, $lincol)
+{
+  $export="J";
+  foreach ($listarray as $arrelement)
+  {
+    if ($arrelement['dbfield']==$lincol) {
+      if (array_key_exists('export', $arrelement)) {
+        $export=$arrelement['export'];
+      }
+    }
+  }
+  return $export;
+}
+
+function sqlexportfunc($pfad,$pararray,$listarray,$menu) {
+  include("../config.php");
+//  $datnam=$_POST['datnam'];
+  $datnam="";
   $slash="/";
   if (substr($_SERVER['DOCUMENT_ROOT'],-1)=="/") {
     $slash="";
@@ -72,12 +158,16 @@ function sqlexportfunc($pfad,$pararray,$menu) {
   $lincnt = 1;
   while ($lincol = mysql_fetch_array($rescol)) {
   	 $lincnt = $lincnt + 1;
-    if ($col=="") {
-      $col = $lincol[0];
-    } else {
-      $col = $col . "," . $lincol[0];
+    $colarr=array_find($listarray,$lincol[0]);
+    if ($colarr<>"N") {
+      if ($col=="") {
+        $col = $lincol[0];
+      } else {
+        $col = $col . "," . $lincol[0];
+      }
     }     
   }
+echo $col."<br>";
 
   $dbselarr = $_SESSION['DBSELARR'];
   $count=sizeof($dbselarr);
@@ -110,15 +200,23 @@ function sqlexportfunc($pfad,$pararray,$menu) {
   echo $sqlfile."#<br>";
 }
 
-function exportfunc($pfad,$pararray,$menu) {
+function exportfunc($pfad,$pararray,$listarray,$menu) {
   include("../config.php");
   $slash="/";       
   if (substr($_SERVER['DOCUMENT_ROOT'],-1)=="/") {
     $slash="";
   }
   $today = date('Y-m-d-H-i-s');
+  $datum=$_POST['datum'];
+  if ($datum<>"") {
+    $today=$datum."-".$_POST['uhrzeit']."-00";
+  }
+  $datnam=$_POST['datnam'];
+  if ($datnam<>"") {
+    $datnam=$datnam."-";
+  }
   //$pfad = $_SERVER['DOCUMENT_ROOT'].$slash."webportal30/";
-  $tmpfile = $pfad."mysql-in-".$pararray['dbtable']."-".$today.".tmp";
+  $tmpfile = $pfad."mysql-in-".$datnam.$pararray['dbtable']."-".$today.".tmp";
   echo $tmpfile."#<br>";
   $datei = fopen($tmpfile,"w");
 
@@ -159,18 +257,21 @@ function exportfunc($pfad,$pararray,$menu) {
   $col = "";
   $lincnt = 1;
   while ($lincol = mysql_fetch_array($rescol)) {
-  	 $lincnt = $lincnt + 1;
-    if ($col=="") {
-      $col = $lincol[0];
-    } else {
-      $col = $col . "," . $lincol[0];
+    $colarr=array_find($listarray,$lincol[0]);
+    if ($colarr<>"N") {
+      $lincnt = $lincnt + 1;
+      if ($col=="") {
+        $col = $lincol[0];
+      } else {
+        $col = $col . "," . $lincol[0];
+      }
     }     
   }
   
   //delete first
   $qry = "DELETE FROM ".$pararray['dbtable'].$qrywhere.";\n";
   echo $qry."<br>";
-  fwrite($datei, $qry);
+  //fwrite($datei, $qry);
 
   for($zaehl = 1; $zaehl <= $count; $zaehl++)
   {
@@ -196,7 +297,7 @@ function exportfunc($pfad,$pararray,$menu) {
     }  
   }
   fclose($datei);  
-  $sqlfile = $pfad."mysql-in-".$pararray['dbtable']."-".$today.".sql";
+  $sqlfile = $pfad."mysql-in-".$datnam.$pararray['dbtable']."-".$today.".sql";
   rename($tmpfile,$sqlfile);
   echo $sqlfile."#<br>";
 

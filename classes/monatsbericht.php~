@@ -26,11 +26,11 @@ if ($save==1) {
   $ktoogr = $_POST['ktoogr'];
   $ktoinhgrp = $_POST['ktoinhgrp'];
   $rpt = $_POST['rpt'];
-  echo $ktoinhgrp."=ktoinhgrp<br>";
+  //echo $ktoinhgrp."=ktoinhgrp<br>";
   //echo $ktoogr."=ktoogr<br>";
   //echo $rpt."<br>";
   if ($rpt=="USRRPT") {
-  	 userberichtanzeigen();
+  	 userberichtanzeigen($ktoinhgrp);
   }
   if ($rpt=="MONRPT") {
     monatsberichtanzeigen($menu,$calc,$oberkonten,$ktoogr,$ktoinhgrp,$rpt);

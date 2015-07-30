@@ -4,12 +4,12 @@ header("content-type: text/html; charset=utf-8");
 //echo "<script type='text/javascript' src='../includes/bootstrap/js/bootstrap-datepicker.js' charset='UTF-8'></script>";
 //echo "<script src='../includes/js/datepicker.js'></script>";
 
-function monatsberichtauswahl($menu,$drucken) {
+function monatsberichtauswahl($menu,$drucken,$vormonat) {
   $druckparam="";
   if ($drucken=="J") {
     $druckparam="&drucken=J";
   }
-  echo "<form class='form-horizontal' method='post' action='monatsbericht.php?save=1&menu=".$menu.$druckparam."'>";
+  echo "<a class='btn btn-primary' href='monatsbericht.php?menu=".$menu."&vormonat=1'>Vormonat</a><br>";  echo "<form class='form-horizontal' method='post' action='monatsbericht.php?save=1&menu=".$menu.$druckparam."'>";
   echo "  <fieldset>";
   echo "          <div class='control-group'>";
 
@@ -25,7 +25,12 @@ function monatsberichtauswahl($menu,$drucken) {
   echo "Von Datum: ";
   $jahr=date("Y");
   $monat=date("m");
-  $tag=date("t");
+  if ($vormonat==1) {
+    $monat=date("m", strtotime('-1 month'));
+    $tag=date('t', strtotime('-1 month')); 
+  } else {
+    $tag=date("t");
+  }  
   $vondatum=$jahr."-".$monat."-01";
 ?>
         <input type="Text" id="vondatum" name="vondatum" value="<?php echo $vondatum; ?>"/>
@@ -121,6 +126,7 @@ $jahr=substr($vondatum,0,4);
 $ktogrp = $_POST['ktogrp'];
 $strwhere="";
 $SumVortrag=0;
+$summeBetrag=0;
 if ($ktogrp!="(ohne)") {
   $strwhere=" AND fldInhaber='".$ktogrp."'";
   if ($calc==true) {
@@ -444,7 +450,7 @@ echo "</tr>";
 echo "<tr><td>.</td></tr>"; // leerzeile
 echo "<tr bgcolor=lightblue>";
 echo "<td width='15'>Summe Betrag</td>";
-$summeBetrag=$SumVortrag;
+//$summeBetrag=$SumVortrag;
 for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
 {
   $summeBetrag=$summeBetrag+$SumEinnahmeBetrag[$mon]+$SumAusgabeBetrag[$mon]+$SumUmbuchBetrag[$mon];

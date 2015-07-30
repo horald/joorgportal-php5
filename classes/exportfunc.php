@@ -23,8 +23,19 @@ function exportabfrage($menu,$menuid) {
 //    echo "</tr>";    
 //  }
 //  echo "</table>";
-
   echo "<input type='checkbox' name='checkdel' value='1'>Mit Delete-Statement.<br>";
+
+  echo "<div>";
+  echo "Buch-Datum: ";
+?>
+        <input type="Text" id="buchdatum" name="buchdatum" value="<?php echo $datum; ?>"/>
+        <img src="images2/cal.gif" onclick="javascript:NewCssCal('buchdatum','yyyyMMdd','ARROW')" style="cursor:pointer"/>
+<?php 
+  echo "</div>";
+
+  echo "Uhrzeit:";
+  echo "<input name='uhrzeit' value=''><br>";
+  echo "Name:";
   echo "<input name='datnam' value=''><br>";
   echo "<select name='auswahl' size='1'>";
   echo "<option style='background-color:#c0c0c0;' value=1 selected>Flatfile</option>";
@@ -128,7 +139,8 @@ function array_find($listarray, $lincol)
 
 function sqlexportfunc($pfad,$pararray,$listarray,$menu) {
   include("../config.php");
-  $datnam=$_POST['datnam'];
+//  $datnam=$_POST['datnam'];
+  $datnam="";
   $slash="/";
   if (substr($_SERVER['DOCUMENT_ROOT'],-1)=="/") {
     $slash="";
@@ -195,8 +207,16 @@ function exportfunc($pfad,$pararray,$listarray,$menu) {
     $slash="";
   }
   $today = date('Y-m-d-H-i-s');
+  $datum=$_POST['buchdatum'];
+  if ($datum<>"") {
+    $today=$datum."-".$_POST['uhrzeit']."-00";
+  }
+  $datnam=$_POST['datnam'];
+  if ($datnam<>"") {
+    $datnam=$datnam."-";
+  }
   //$pfad = $_SERVER['DOCUMENT_ROOT'].$slash."webportal30/";
-  $tmpfile = $pfad."mysql-in-".$pararray['dbtable']."-".$today.".tmp";
+  $tmpfile = $pfad."mysql-in-".$datnam.$pararray['dbtable']."-".$today.".tmp";
   echo $tmpfile."#<br>";
   $datei = fopen($tmpfile,"w");
 
@@ -251,7 +271,7 @@ function exportfunc($pfad,$pararray,$listarray,$menu) {
   //delete first
   $qry = "DELETE FROM ".$pararray['dbtable'].$qrywhere.";\n";
   echo $qry."<br>";
-  fwrite($datei, $qry);
+  //fwrite($datei, $qry);
 
   for($zaehl = 1; $zaehl <= $count; $zaehl++)
   {
@@ -277,7 +297,7 @@ function exportfunc($pfad,$pararray,$listarray,$menu) {
     }  
   }
   fclose($datei);  
-  $sqlfile = $pfad."mysql-in-".$pararray['dbtable']."-".$today.".sql";
+  $sqlfile = $pfad."mysql-in-".$datnam.$pararray['dbtable']."-".$today.".sql";
   rename($tmpfile,$sqlfile);
   echo $sqlfile."#<br>";
 
