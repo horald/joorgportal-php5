@@ -198,11 +198,9 @@
         	echo "\n<li class='".$liclass."' id='".$node->GetId()."'>";
         	// displaying plus or minus sign to the left of the text
         	if($last)
-        	   echo "<img src='".$httproot."includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\",\"".$httproot."\")'></img>";
-        	   //echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\")'></img>";
+        	   echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\")'></img>";
         	else
-        	   echo "<img src='".$httproot."includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\",\"".$httproot."\")'></img>";
-        	   //echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\")'></img>";
+        	   echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\")'></img>";
         	// hidden field which stores this node's state ('c' for collapsed and 'e' for expanded)
         	echo "\n<input type='hidden' id='node".$node->GetId()."' name='node".$node->GetId()."' value='".$value."' />";
         }

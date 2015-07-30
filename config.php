@@ -22,6 +22,7 @@ $downloadpath = "/home/horald/daten/Downloads/";
 $proxy="192.168.0.104:3128";
 //$proxy="";
 $brver="normal";
+$httproot=$_SERVER['HTTP_HOST']."/own/joorgportal/";
 
 //help / mediawiki
 $mediawikiactive=true;
