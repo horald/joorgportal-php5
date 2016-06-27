@@ -1,17 +1,29 @@
 <?php
 $menu=$_GET[menu];
 $idwert=$_GET[idwert];
+$druck = $_GET['druck'];
 include("drucklistefunc.php");
 include("bootstrapfunc.php");
 include("../sites/views/wp_".$menu."/showtab.inc.php");
 bootstraphead();
-bootstrapbegin($pararray['headline']);
-$druck = $_GET['druck'];
 if ($druck==1) {
-  $anzleerzl=$_POST['anzleerzl'];	
-  druckliste($anzleerzl);
+  $headline="";
 } else {
-  druckauswahl($menu,$idwert);	
+  $headline=$pararray['headline'];
+}
+bootstrapbegin($headline);
+if ($druck==1) {
+  $anzleerzl=$_POST['anzleerzl'];
+  $ueberschrift=$_POST['Ueberschrift'];
+  $gruppe = $_POST['gruppe'];
+  $anzsp=$pararray['prtanzsp'];
+  if ($anzsp='') {
+    $anzsp=1;
+  }
+  druckliste($anzleerzl,$ueberschrift,$gruppe,$anzsp);
+} else {
+  $ueberschrift=$pararray['headline'];	
+  druckauswahl($menu,$idwert,$ueberschrift);	
 }
 bootstrapend();
 ?>

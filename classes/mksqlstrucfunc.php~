@@ -1,0 +1,103 @@
+<?php
+
+function getCurrentUrl() {
+  return ((empty($_SERVER['HTTPS'])) ? 'http' : 'https') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+}
+
+function mksqlstruc_abfrage($menu,$idwert) {
+  echo "<form name='eingabe' class='form-horizontal' method='post' action='mksqlstruc.php?mksqlstruc=1&idwert=".$idwert."&menu=".$menu."' enctype='multipart/form-data'>";
+  echo "  <fieldset>";
+
+  echo "Make SQL-Struktur auführen?";  
+  echo "  <div class='form-actions'>";
+  echo "     <button type='submit' name='submit' class='btn btn-primary'>Ausführen</button>";
+//  echo "     <button class='btn'>Abbruch</button>";
+  echo "  </div>";
+  echo "  </fieldset>";
+  echo "</form>";
+}
+
+function mksqlstruc_ausfuehren() {
+  echo "<a href='mksqlstruc.php' class='btn btn-primary btn-sm active' role='button'>Zurück</a><br>"; 
+  $url = getCurrentUrl();
+  $pieces = parse_url($url);
+  $scheme = $pieces['scheme']; // enthält "http"
+  $host = $pieces['host']; // enthält "www.example.com"
+  $path = $pieces['path']; // enthält "/dir/dir/file.php"  
+  $file = strrchr($path, '/');
+  $file = ($file===false) ? $path : (($file==='/') ? '' : substr($file, 1));  
+  $pathNoFile = ($file==='') ? $path : substr($path, 0, -strlen($file));	
+//  $docpfad=substr($pathNoFile,1,strlen($pathNoFile)-9);
+  $docpfad=substr($pathNoFile,14,strlen($pathNoFile)-9);
+  echo $docpfad."<br>";
+  $docroot=$_SERVER['DOCUMENT_ROOT'];
+  echo $docroot."<br>";
+  $pfad=$docroot."/".$docpfad."sites/update/";
+  //echo $pfad."<br>";
+  $filename = $pfad.'sqlstruc.inc.php';
+  echo "<div class='alert alert-success'>";
+  echo "Datei:".$filename."<br>";
+  echo "</div>";  
+  if (!file_exists($filename)) {
+  	 if ($handle = fopen($filename, "a+")) {
+  	   fclose($handle);
+    } else {
+      echo "<div class='alert alert-error'>";
+      echo "Datei konnte nicht angelegt werden.";
+      echo "</div>";	
+      exit;
+    }
+  }	
+  // Sichergehen, dass die Datei existiert und beschreibbar ist
+  if (is_writable($filename)) {
+    $query = "SHOW TABLES";
+    $result = mysql_query($query) or die(mysql_error());
+    if (!$handle = fopen($filename, "w")) {
+      echo "<div class='alert alert-error'>";
+      echo "Kann die Datei $filename nicht öffnen";
+      echo "</div>";	
+      exit;
+    }		
+    fwrite($handle,"<?php\n");
+    fwrite($handle,'$tablearray = array ( ');
+    $count=0;
+    while ($line = mysql_fetch_array($result)) {
+	  $table=$line[0];
+	  if (substr($table,0,3)=="tbl") {
+        $count=$count+1;	  
+	    //echo $table."<br>";
+        fwrite($handle,"array('tablename' => '".$table."',\n");
+        $qrycol = "SHOW COLUMNS FROM ".$table;
+        $rescol = mysql_query($qrycol) or die(mysql_error());
+		$column="";
+        while ($lincol = mysql_fetch_array($rescol)) {
+		  //echo $lincol['Field'].",".$lincol['Type']."<br>";
+		  $column=$column."array(";
+		  $column=$column."'Field' => '".$lincol['Field']."',";
+		  $column=$column."'Type' => '".$lincol['Type']."',";
+		  $column=$column."'Key' => '".$lincol['Key']."',";
+		  $column=$column."'Default' => '".$lincol['Default']."',";
+		  $column=$column."'Extra' => '".$lincol['Extra']."'";
+		  $column=$column."),";
+        }
+		$column=substr($column,0,strlen($column)-1);
+		//echo $column."<br>";
+		//$column="dummy";
+		fwrite($handle,"'column' => array(".$column.")),\n");
+	  } 	
+    } 
+    fwrite($handle,");\n");
+    fwrite($handle,"?>");
+	
+    fclose($handle);
+    echo "<div class='alert alert-success'>";
+    echo "Struktur von ".$count." Tabellen angelegt.";
+    echo "</div>";	
+  } else {
+    echo "<div class='alert alert-error'>";
+    echo "Die Datei $filename ist nicht schreibbar<br>";
+    echo "</div>";  
+  }  
+}
+
+?>

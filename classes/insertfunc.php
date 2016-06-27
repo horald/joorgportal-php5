@@ -19,6 +19,10 @@ function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$id
   foreach ( $listarray as $arrelement )  
   {
  
+    $default="";
+    if ($arrelement['default']!="") {
+      $default=$arrelement['default'];
+    }
     $defwert='';
     if ($arrelement['name']<>"") {
       if ($arrelement['getdefault']=="true") {
@@ -177,6 +181,18 @@ function insertinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$id
         }
         echo "  </select>";
         echo "</div>";
+    }
+    if ($arrelement['type']=='time') {
+      if ($default=="now()") {
+        $timestamp = time();
+        $default = date("H:i",$timestamp);
+      }
+      echo "<div class='control-group'>";
+      echo "  <label class='control-label' style='text-align:left' for='input01'>".$arrelement['label']."</label>";
+      echo "  <div class='input'>";
+      echo "    <input type='text' id='input01' name='".$arrelement['name']."' value='".$default."'>";
+      echo "  </div>";
+      echo "</div>";  
     }
     if ($arrelement['type']=='date') {
       //echo $defwert.",".$wert."def,wert<br>";
@@ -355,7 +371,7 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
         //  $fline = mysql_fetch_array($fresult);
         //  $wert=$fline[$arrelement['seldbfield']];       
         //}
-        if (($arrelement['type']=='YN') OR ($arrelement['type']=='textarea') OR ($arrelement['type']=='pos') OR ($arrelement['type']=='calctext') OR ($arrelement['type']=='anzproz') OR ($arrelement['type']=='text') OR ($arrelement['type']=='average') OR ($arrelement['type']=='blutdruck') OR ($arrelement['type']=='blob') OR ($arrelement['type']=='calc') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl') OR ($arrelement['type']=='select') OR ($arrelement['type']=='selectid')) {
+        if (($arrelement['type']=='YN') OR ($arrelement['type']=='textarea') OR ($arrelement['type']=='pos') OR ($arrelement['type']=='calctext') OR ($arrelement['type']=='anzproz') OR ($arrelement['type']=='text') OR ($arrelement['type']=='average') OR ($arrelement['type']=='blutdruck') OR ($arrelement['type']=='blob') OR ($arrelement['type']=='calc') OR ($arrelement['type']=='time') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl') OR ($arrelement['type']=='select') OR ($arrelement['type']=='selectid')) {
           if ($arrelement['type']=='pos') {
             if ($wert=="+") {
           	  $dbwhere=$_POST[$arrelement['dbwherename']];
@@ -410,6 +426,10 @@ function insertsave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$idd
       //mysql_query($qryupd) or die("Error using mysql_query($qryupd): ".mysql_error());
       //echo $qryupd.",".$insid."=insid<br>";
     //}    
+
+//    foreach ( $filterarray as $arrelement )
+//    }
+
     mysql_close();
     echo "Die Daten wurden eingetragen<br>";
   } else {

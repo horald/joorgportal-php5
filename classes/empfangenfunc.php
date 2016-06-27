@@ -27,7 +27,8 @@ function datenholen($menu) {
   $fields="";
   echo count($obj['data'])." Datensätze<br>";
   foreach ( $obj['field'] as $field) {
-    $fields=$fields."'".$field."',";
+    //$fields=$fields."'".$field."',";
+    $fields=$fields.$field.",";
   }
   $fields=substr($fields,0,strlen($fields)-1);
   foreach ( $obj['data'] as $datenarray ) {
@@ -38,7 +39,7 @@ function datenholen($menu) {
     $daten=substr($daten,0,strlen($daten)-1);
   	 $sqlins="INSERT INTO ".$obj['table']." (".$fields.") VALUES (".$daten.")";
     echo $sqlins."<br>";
-    //mysql_query($sqlins) or die("Error using mysql_query($sqlins): ".mysql_error());
+    mysql_query($sqlins) or die("Error using mysql_query($sqlins): ".mysql_error());
     
   }	
 }

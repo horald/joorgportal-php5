@@ -198,9 +198,11 @@
         	echo "\n<li class='".$liclass."' id='".$node->GetId()."'>";
         	// displaying plus or minus sign to the left of the text
         	if($last)
-        	   echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\")'></img>";
+        	   echo "<img src='".$httproot."includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\",\"".$httproot."\")'></img>";
+        	   //echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol."-last.jpg' class='image-last' onclick='Switch(this,\"".$this->style."\")'></img>";
         	else
-        	   echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\")'></img>";
+        	   echo "<img src='".$httproot."includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\",\"".$httproot."\")'></img>";
+        	   //echo "<img src='http://localhost/own/joorgportal/includes/styles/".$this->style."/images/".$symbol.".jpg' class='image' onclick='Switch(this,\"".$this->style."\")'></img>";
         	// hidden field which stores this node's state ('c' for collapsed and 'e' for expanded)
         	echo "\n<input type='hidden' id='node".$node->GetId()."' name='node".$node->GetId()."' value='".$value."' />";
         }
@@ -449,15 +451,19 @@ class Node
 	*/
     public function ShowContent()
     {
-    
-    $winwidth=1035;
-    //$winheight=580;
-    $winheight=580;
-    //echo $this->file;
-    echo "            <iframe src='".$this->file."' name='Fensterlein' width='".$winwidth."' height='".$winheight."'";
-    echo "               align='center' frameborder='0'>";
-    echo "               <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>";
-    echo "            </iframe>";
+    $target="J";
+    if ($target=="J") {
+    	echo "<a href='".$this->file."' target='_blank'>Neues Fenster</a>";
+    } else {	
+      $winwidth=1035;
+      //$winheight=580;
+      $winheight=580;
+      //echo $this->file;
+      echo "            <iframe src='".$this->file."' name='Fensterlein' width='".$winwidth."' height='".$winheight."'";
+      echo "               align='center' frameborder='0'>";
+      echo "               <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>";
+      echo "            </iframe>";
+    }    
     
 //         echo"<br />\n\n";
 //         echo "content:".$this->file;

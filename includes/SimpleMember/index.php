@@ -21,10 +21,10 @@
  * 
  */
 
-    session_start();
+   session_start();
 
-    $uid = $_SESSION['uid'];
-    $pwd = $_SESSION['pwd'];
+   $uid = $_SESSION['uid'];
+   $pwd = $_SESSION['pwd'];
 
 	require('main.php');
 

@@ -451,15 +451,14 @@ class Node
 	*/
     public function ShowContent()
     {
-    
-    $winwidth=1035;
-    //$winheight=580;
-    $winheight=580;
-    //echo $this->file;
-    echo "            <iframe src='".$this->file."' name='Fensterlein' width='".$winwidth."' height='".$winheight."'";
-    echo "               align='center' frameborder='0'>";
-    echo "               <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>";
-    echo "            </iframe>";
+      $winwidth=1035;
+      //$winheight=580;
+      $winheight=580;
+      //echo $this->file;
+      echo "            <iframe src='".$this->file."' name='Fensterlein' width='".$winwidth."' height='".$winheight."'";
+      echo "               align='center' frameborder='0'>";
+      echo "               <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>";
+      echo "            </iframe>";
     
 //         echo"<br />\n\n";
 //         echo "content:".$this->file;

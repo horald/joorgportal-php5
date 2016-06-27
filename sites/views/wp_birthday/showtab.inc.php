@@ -18,7 +18,15 @@ $listarray = array ( array ( 'label' => 'Vorname',
                              'name' => 'alter', 
                              'width' => 40, 
                              'type' => 'age',
-                             'dbfield' => 'fldGebDatum' ));
+                             'dbfield' => 'fldGebDatum' ),
+                     array ( 'label' => 'Status',
+                             'name' => 'status', 
+                             'width' => 100, 
+                             'type' => 'selectid',
+                             'dbtable' => 'tblstatus',
+                             'seldbfield' => 'fldbez',
+                             'seldbindex' => 'fldindex',
+                             'dbfield' => 'fldid_status' ));
 
 $filterarray = array (array ( 'label' => 'nur aktuelle',
                              'name' => 'nuraktuelle', 
@@ -26,7 +34,16 @@ $filterarray = array (array ( 'label' => 'nur aktuelle',
                              'type' => 'text',
                              'default' => 'now()',
                              'sign' => '>=',
-                             'dbfield' => 'fldSort' ));
+                             'dbfield' => 'fldSort' ),
+                     array ( 'label' => 'Status:',
+                             'name' => 'fltstatus', 
+                             'width' => 1, 
+                             'type' => 'selectid',
+                             'sign' => '=',
+                             'dbtable' => 'tblstatus',
+                             'seldbfield' => 'fldbez',
+                             'seldbindex' => 'fldindex',
+                             'dbfield' => 'fldid_status' ));
 
 
 $pararray = array ( 'headline' => 'Geburtstage',

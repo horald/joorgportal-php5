@@ -22,11 +22,11 @@
  */
    
 	define("SCRIPTNAME",	"Simple Member");
-	define("BASEHREF",	"http://localhost/wp/joorgportal30/includes/SimpleMember");
+	define("BASEHREF",	"http://localhost/own/joorgportal/includes/SimpleMember");
 	define("DOMAIN",		"localhost");
 	define("FROMEMAIL",	"youremail@yourdomain.com");
 	define("SITENAME",	"Free-Php.net");
-	define("INC_DIR",		"/var/www/wp/joorgportal30/includes/SimpleMember/inc/");
+	define("INC_DIR",		"/var/www/html/own/joorgportal/includes/SimpleMember/inc/");
 	define("PAG_DIR",		INC_DIR."pages/");
 	define("INC_DB",		INC_DIR."db.php");
 

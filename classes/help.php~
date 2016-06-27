@@ -1,6 +1,9 @@
-<?
+<?php
 $menu=$_GET[menu];
 $idwert=$_GET[idwert];
+$menuid=$_GET[menuid];
+$pagename=$_GET['pagename'];
+$action=$_GET['action'];
 include("../config.php");
 include("helpfunc.php");
 include("bootstrapfunc.php");
@@ -8,8 +11,21 @@ include("../sites/views/wp_".$menu."/showtab.inc.php");
 bootstraphead();
 bootstrapbegin($pararray['headline']);
 
-echo $idwert."=idwert<br>";
-hilfefunc($menu,$idwert);
+if ($action=="back") {
+  $pageno=$_GET['pageno'];
+  if ($pageno>0) {
+  	 $pageno=$pageno-1;
+  	 $pagename="";
+  }
+}	
+if ($action=="forward") {
+  $pageno=$_GET['pageno'];
+  $pageno=$pageno+1;
+  $pagename="";
+}	
+
+
+hilfefunc($menu,$idwert,$menuid,$pagename,$pageno);
 
 bootstrapend();
 ?>

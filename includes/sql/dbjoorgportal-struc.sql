@@ -68,19 +68,6 @@ CREATE TABLE `tbladr_liste` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
-DELIMITER ;;
-
-CREATE TRIGGER `tbladr_liste_ai` AFTER INSERT ON `tbladr_liste` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tbladr_liste','INS');;
-
-CREATE TRIGGER `tbladr_liste_au` AFTER UPDATE ON `tbladr_liste` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tbladr_liste','UPD');;
-
-CREATE TRIGGER `tbladr_liste_ad` AFTER DELETE ON `tbladr_liste` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (old.fldIndex,'dbWebportal','tbladr_liste','DEL');;
-
-DELIMITER ;
-
 DROP TABLE IF EXISTS `tbladr_lstgrp`;
 CREATE TABLE `tbladr_lstgrp` (
   `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -386,19 +373,6 @@ CREATE TABLE `tblelternstunden` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
-DELIMITER ;;
-
-CREATE TRIGGER `tblelternstunden_ai` AFTER INSERT ON `tblelternstunden` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblelternstunden','INS');;
-
-CREATE TRIGGER `tblelternstunden_au` AFTER UPDATE ON `tblelternstunden` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblelternstunden','UPD');;
-
-CREATE TRIGGER `tblelternstunden_ad` AFTER DELETE ON `tblelternstunden` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (old.fldIndex,'dbWebportal','tblelternstunden','DEL');;
-
-DELIMITER ;
-
 DROP TABLE IF EXISTS `tblerledigung`;
 CREATE TABLE `tblerledigung` (
   `fldIndex` bigint(3) unsigned NOT NULL AUTO_INCREMENT,
@@ -448,19 +422,6 @@ CREATE TABLE `tblessensplan` (
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-DELIMITER ;;
-
-CREATE TRIGGER `tblessensplan_ai` AFTER INSERT ON `tblessensplan` FOR EACH ROW
-insert into dbsync.tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblessensplan','INS');;
-
-CREATE TRIGGER `tblessensplan_au` AFTER UPDATE ON `tblessensplan` FOR EACH ROW
-insert into dbsync.tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblessensplan','UPD');;
-
-CREATE TRIGGER `tblessensplan_ad` AFTER DELETE ON `tblessensplan` FOR EACH ROW
-insert into dbsync.tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (old.fldIndex,'dbWebportal','tblessensplan','DEL');;
-
-DELIMITER ;
 
 DROP TABLE IF EXISTS `tbletagen`;
 CREATE TABLE `tbletagen` (
@@ -530,19 +491,6 @@ CREATE TABLE `tblgeburtstage` (
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-
-DELIMITER ;;
-
-CREATE TRIGGER `tblgeburtstage_ai` AFTER INSERT ON `tblgeburtstage` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblgeburtstage','INS');;
-
-CREATE TRIGGER `tblgeburtstage_au` AFTER UPDATE ON `tblgeburtstage` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblgeburtstage','UPD');;
-
-CREATE TRIGGER `tblgeburtstage_ad` AFTER DELETE ON `tblgeburtstage` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (old.fldIndex,'dbWebportal','tblgeburtstage','DEL');;
-
-DELIMITER ;
 
 DROP TABLE IF EXISTS `tblgepaeck`;
 CREATE TABLE `tblgepaeck` (
@@ -783,19 +731,6 @@ CREATE TABLE `tblktosal` (
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-
-DELIMITER ;;
-
-CREATE TRIGGER `tblktosal_ai` AFTER INSERT ON `tblktosal` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblktosal','INS');;
-
-CREATE TRIGGER `tblktosal_au` AFTER UPDATE ON `tblktosal` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblktosal','UPD');;
-
-CREATE TRIGGER `tblktosal_ad` AFTER DELETE ON `tblktosal` FOR EACH ROW
-insert into tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (old.fldIndex,'dbWebportal','tblktosal','DEL');;
-
-DELIMITER ;
 
 DROP TABLE IF EXISTS `tblktotyp`;
 CREATE TABLE `tblktotyp` (
@@ -1263,19 +1198,6 @@ CREATE TABLE `tblverbesserung` (
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-
-DELIMITER ;;
-
-CREATE TRIGGER `tblverbesserung_ai` AFTER INSERT ON `tblverbesserung` FOR EACH ROW
-insert into dbsync.tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblverbesserung','INS');;
-
-CREATE TRIGGER `tblverbesserung_au` AFTER UPDATE ON `tblverbesserung` FOR EACH ROW
-insert into dbsync.tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (new.fldIndex,'dbWebportal','tblverbesserung','UPD');;
-
-CREATE TRIGGER `tblverbesserung_ad` AFTER DELETE ON `tblverbesserung` FOR EACH ROW
-insert into dbsync.tbldbsync(fldtblindex,flddbname,fldtblname,fldstatus) values (old.fldIndex,'dbWebportal','tblverbesserung','DEL');;
-
-DELIMITER ;
 
 DROP TABLE IF EXISTS `tblverpack`;
 CREATE TABLE `tblverpack` (

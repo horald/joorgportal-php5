@@ -22,17 +22,17 @@
  */
    
 	define("SCRIPTNAME",	"Simple Member");
-	define("BASEHREF",	"http://yourdomain/SimpleMember");
+	define("BASEHREF",	"http://localhost/own/joorgportal/includes/SimpleMember");
 	define("DOMAIN",		"localhost");
 	define("FROMEMAIL",	"youremail@yourdomain.com");
 	define("SITENAME",	"Free-Php.net");
-	define("INC_DIR",		"/path/to/your/install/SimpleMember/inc/");
+	define("INC_DIR",		"/var/www/own/joorgportal/includes/SimpleMember/inc/");
 	define("PAG_DIR",		INC_DIR."pages/");
 	define("INC_DB",		INC_DIR."db.php");
 
-	define("MYSQLUSER",	""); // mysql username
-	define("MYSQLPASS",	""); // mysql password
-	define("MYSQLDB",		"SimpleMember"); // mysql database name
+	define("MYSQLUSER",	"root"); // mysql username
+	define("MYSQLPASS",	"mysql"); // mysql password
+	define("MYSQLDB",		"dbWebportal"); // mysql database name
 
 	require(INC_DB);
 

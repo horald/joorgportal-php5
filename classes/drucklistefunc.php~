@@ -1,10 +1,39 @@
 <?PHP
 session_start();
 
-function druckauswahl($menu,$idwert) {
+function druckauswahl($menu,$idwert,$ueberschrift) {
   echo "<form class='form-horizontal' method='post' action='druckliste.php?menu=".$menu."&idwert=".$idwert."&druck=1'>";
   echo "<fieldset>";
   echo "<div class='control-group'>";
+
+//  mysql_query("SET NAMES 'utf8'");
+//SELECT * FROM tblfilter where fldName='gruppe'
+
+  $query = "SELECT * FROM tblgrperl";
+  echo "          <div class='control-group'>";
+  echo "            <label class='control-label' style='text-align:left' for='input01'>Gruppe:</label>";
+  echo "            <div class='input'>";
+//  echo "              <input type='text' id='input01' name='gruppe' value=''>";
+        echo "  <select name='gruppe' size='1'>";
+        $result = mysql_query($query) or die(mysql_error());
+        while ($line = mysql_fetch_array($result)) {
+          $strgrp = $line['fldbez'];
+          if ($strgrp='Notenliste') {
+            echo "<option style='background-color:#c0c0c0;' selected>".$strgrp."</option>";
+          } else {  
+            echo "<option style='background-color:#c0c0c0;' >".$strgrp."</option>";
+          }  
+        }
+        echo "  </select>";
+  echo "            </div>";
+  echo "          </div>";
+
+  echo "          <div class='control-group'>";
+  echo "            <label class='control-label' style='text-align:left' for='input01'>Überschrift:</label>";
+  echo "            <div class='input'>";
+  echo "              <input type='text' id='input01' name='Ueberschrift' value='".$ueberschrift."'>";
+  echo "            </div>";
+  echo "          </div>";
 
   echo "          <div class='control-group'>";
   echo "            <label class='control-label' style='text-align:left' for='input01'>Anzahl Leerzeilen:</label>";
@@ -22,9 +51,19 @@ function druckauswahl($menu,$idwert) {
   echo "</form>";
 }
 
-function druckliste($anzleerzl) {
+function druckliste($anzleerzl,$ueberschrift,$gruppe) {
 $menu=$_GET[menu];
-include("../sites/views/wp_".$menu."/showtab.inc.php");
+$anzsp=1;
+if ($gruppe=='(ohne)') {
+  include("../sites/views/wp_".$menu."/showtab.inc.php");
+} else {
+  //echo $gruppe."=gruppe<br>";	
+  include("../sites/views/wp_".$menu."/showtab_".$gruppe.".inc.php");
+  $anzsp=$pararray['prtanzsp'];
+  if ($anzsp=='') {
+    $anzsp=1;
+  }
+}  
 include ("../config.php");
 echo "<html>";
 echo "<link rel='stylesheet' type='text/css' href='style.css' />";
@@ -34,6 +73,7 @@ $datum = date("d.m.Y",$timestamp);
 $uhrzeit = date("H:i",$timestamp);
 $dbselarr = $_SESSION['DBSELARR'];
 $count=sizeof($dbselarr);
+mysql_query("SET NAMES 'utf8'");
 $query="SELECT * FROM ".$pararray['dbtable']." WHERE fldindex=".$dbselarr[0];	
 //echo $query."<br>";
 $result = mysql_query($query) or die(mysql_error().$query);
@@ -47,25 +87,36 @@ $line = mysql_fetch_array($result);
 $bisdatum=$line['flddatum'];
 $bisdatum=substr($bisdatum,8,2).".".substr($bisdatum,5,2).".".substr($bisdatum,0,4);
 //echo "<h2>Liste vom ".$datum." - ".$uhrzeit." Uhr</h2>";
-echo "<h3>Liste vom ".$vondatum." - ".$bisdatum." </h3>";
+if ($ueberschrift<>"") {
+  echo "<h3>".$ueberschrift."</h3>";
+} else {
+  echo "<h3>Liste vom ".$vondatum." - ".$bisdatum." </h3>";
+}  
+//$anzsp=1;
 echo "<table border'3'>";
 echo "<tr class='tabAuswahl'>";
-foreach ( $listarray as $arrelement )
-{
-  if (($arrelement['fieldhide']<>"true") && ($arrelement['fieldprthide']<>"true")) {
-  	 $width=strval($arrelement['width'])+3;
-    echo "<td width='".$width."'>".$arrelement['label']."</td>";
-  }  
+for ($i = 1; $i <= $anzsp; $i++) {
+  foreach ( $listarray as $arrelement )
+  {
+    if (($arrelement['fieldhide']<>"true") && ($arrelement['fieldprthide']<>"true")) {
+  	   $width=strval($arrelement['width'])+3;
+      echo "<td width='".$width."'>".$arrelement['label']."</td>";
+    }  
+  }
 }
 echo "</tr>";
 echo "</table>";
 echo "<table border='3'>";
+$count=ceil($count/$anzsp);
 for ( $x = 0; $x < $count; $x++ ) {
-  $query="SELECT * FROM ".$pararray['dbtable']." WHERE fldindex=".$dbselarr[$x];	
+  echo "<tr height='35'>";
+for ($i = 0; $i < $anzsp; $i++) {
+  $p=$x+$i*$count;
+  if ($dbselarr[$p]<>'') {	
+  $query="SELECT * FROM ".$pararray['dbtable']." WHERE fldindex=".$dbselarr[$p];	
   //echo $query."<br>";
   $result = mysql_query($query) or die(mysql_error().$query);
   $line = mysql_fetch_array($result);
-  echo "<tr height='35'>";
   foreach ( $listarray as $arrelement )
   {
     if (($arrelement['fieldhide']<>"true") && ($arrelement['fieldprthide']<>"true")) {
@@ -106,8 +157,10 @@ for ( $x = 0; $x < $count; $x++ ) {
       }
     }  
   }  
+}
+}
   echo "</tr>";
-  if ($x==5) {
+  if ($x==30) {
     for ( $y = 0; $y < $anzleerzl; $y++ ) {
       echo "<tr height='35'>";
       foreach ( $listarray as $arrelement )
@@ -137,6 +190,7 @@ mysql_close();
 echo "</table><br>";
 echo "</body>";
 echo "</html>";
+
 }
 
 ?>

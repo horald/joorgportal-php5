@@ -4,16 +4,36 @@ header("content-type: text/html; charset=utf-8");
 function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$menuid,$krit) {
   include("../config.php");
 
+  $anzsp=$pararray['anzsp'];
+  $anzsp=2;
+  if ($anzsp=='') {
+    $anzsp=1;
+  }
+  echo $anzsp."=anzsp<br>";
+  $anzelem=sizeof($listarray);
+  echo $anzelem."=anzelem<br>";
+
   $query = "SELECT * FROM ".$pararray['dbtable']." WHERE ".$pararray['fldindex']."='$idwert'";
+  mysql_query("SET NAMES 'utf8'");
   $result = mysql_query($query) or die("Error using mysql_query($sql): ".mysql_error());
   $line = mysql_fetch_array($result);
 
-  echo "<table><tr><td width='500px'>";
+//  echo "<table>";
+//  echo "<td width='500px'>";
   echo "<form name='eingabe' class='form-horizontal' method='post' action='update.php?update=1&idwert=".$idwert."&menu=".$menu."&menuid=".$menuid."' enctype='multipart/form-data'>";
   echo "  <fieldset>";
 
-  foreach ( $listarray as $arrelement )  
+//for ($i = 1; $i <= $anzsp; $i++) {
+  //foreach ( $listarray as $arrelement )
+echo "<table>";
+  for ($ielem = 0; $ielem <= $anzelem; $ielem++)  
+  //echo "<tr>";
+  for ($i = 0; $i <= $anzsp; $i++) {
   {
+    //echo "<td width='500px'>";
+    $p=$ielem+$i*$anzelem;
+    //echo $p."=p<br>";
+  	 $arrelement=$listarray[$p];
     $wert=$line[$arrelement['dbfield']];
     switch ( $arrelement['type'] )
     {
@@ -235,12 +255,12 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
         //echo "          </div>";
       break;
       case 'calcsum':
-        echo "          <div class='control-group'>";
-        echo "            <label class='control-label' style='text-align:left' for='input01'>".$arrelement['label']."</label>";
-        echo "            <div class='input'>";
-        echo "              <input type='text' id='input01' name='".$arrelement['name']."' value='".$wert."'>";
-        echo "            </div>";
-        echo "          </div>";
+        //echo "          <div class='control-group'>";
+        //echo "            <label class='control-label' style='text-align:left' for='input01'>".$arrelement['label']."</label>";
+        //echo "            <div class='input'>";
+        //echo "              <input type='text' id='input01' name='".$arrelement['name']."' value='".$wert."'>";
+        //echo "            </div>";
+        //echo "          </div>";
       break;
       case 'calctext':
         echo "          <div class='control-group'>";
@@ -301,7 +321,11 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
         echo "          </div>";
       break;
     }  	
+  //echo "</td>";
   }
+  //echo "</tr>";
+}
+echo "</table>";
 
         echo "          <div class='control-group'>";
         //echo "            <label class='control-label' >Resync</label>";
@@ -317,6 +341,12 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
         echo "            </div>";
         echo "          </div>";
 
+  echo "          <div class='control-group'>";
+  echo "            <div class='checkbox'>";
+  echo "              <input type='checkbox' name='errmsg'> Zeig Fehlermeldung";
+  echo "            </div>";
+  echo "          </div>";
+
 
   echo "  <div class='form-actions'>";
   echo "     <button type='submit' name='submit' value='save' class='btn btn-primary'>Speichern</button>";
@@ -327,7 +357,7 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
   echo "  </div>";
   echo "  </fieldset>";
   echo "</form>";
-  echo "</td>";
+//  echo "</td>";
   echo "<td valign='top'>";
 
   foreach ( $listarray as $arrelement )  
@@ -438,7 +468,7 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
     }  	
   }
 
-  echo "</td></tr></table>";
+//  echo "</td></tr></table>";
 
 
 }
@@ -521,7 +551,7 @@ function updatecheckconnect1($pararray,$listarray,$filterarray,$filter,$idwert,$
 
 }
 
-function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$dbname) {
+function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$dbname,$errmsg) {
 
   if (isset($_REQUEST['submit'])) { 
     $strset="";
@@ -530,9 +560,13 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
     foreach ( $listarray as $arrelement )
     {
       if ($arrelement['fieldsave']<>'NO') {
-        if (($arrelement['type']=='blob') OR ($arrelement['type']=='pos') OR ($arrelement['type']=='textarea') OR ($arrelement['type']=='blutdruck') OR ($arrelement['type']=='average') OR ($arrelement['type']=='YN') OR ($arrelement['type']=='text') OR ($arrelement['type']=='procent') OR ($arrelement['type']=='calcsum') OR ($arrelement['type']=='blobid') OR ($arrelement['type']=='image') OR ($arrelement['type']=='calctext') OR ($arrelement['type']=='select') OR ($arrelement['type']=='selectid') OR ($arrelement['type']=='zahl') OR ($arrelement['type']=='date') OR ($arrelement['type']=='calc')) {
+        if (($arrelement['type']=='hostname') OR ($arrelement['type']=='ipaddr') OR ($arrelement['type']=='blob') OR ($arrelement['type']=='zahlid') OR ($arrelement['type']=='pos') OR ($arrelement['type']=='textarea') OR ($arrelement['type']=='blutdruck') OR ($arrelement['type']=='average') OR ($arrelement['type']=='YN') OR ($arrelement['type']=='text') OR ($arrelement['type']=='procent') OR ($arrelement['type']=='blobid') OR ($arrelement['type']=='image') OR ($arrelement['type']=='calctext') OR ($arrelement['type']=='select') OR ($arrelement['type']=='selectid') OR ($arrelement['type']=='zahl') OR ($arrelement['type']=='date') OR ($arrelement['type']=='calc')) {
         $name=$arrelement['name'];
         $wert=$_POST[$name];
+
+        if ($arrelement['type']=='hostname') {
+          $wert=gethostname();
+        }
         
         if ($arrelement['type']=='pos') {
           if ($wert=="+") {
@@ -549,7 +583,10 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
           $filename = $_FILES['datei']['tmp_name'];
           //echo ">".$filename."<=filename<br>";
           if ($filename!="") {
-            $handle = fopen($filename, "rb");            $wert = addslashes(fread($handle, filesize($filename)));            fclose($handle);          }        
+            $handle = fopen($filename, "rb");
+            $wert = addslashes(fread($handle, filesize($filename)));
+            fclose($handle);
+          }        
         } 
         
         if ($strset=="") {
@@ -563,24 +600,40 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
         } else {
           $strfld=$strfld.",".$arrelement['dbfield'];
           $strval=$strval.",'".$wert."'";
-        }          
+        }      
       }
       }
     }
 
+    if ($pararray['DBSYNC']='OK') {
+      $strset=$strset.",flddbsyncstatus='SYNC'";
+    }  
+    //$strset=substr($strset,0,-2);
+    if ($pararray['dbsyncnr']=="J") {
+  	   //$sql=$sql.",flddbsyncnr=".$autoinc_start;
+  	   $strset=$strset.",fldtimestamp=datetime('now', 'localtime')";
+    }
+
     $query = "UPDATE ".$pararray['dbtable']." SET ".$strset." WHERE ".$pararray['fldindex']."='$idwert'";
-    //echo $query."<br>";
+    if ($errmsg==true) {
+      echo $query."<br>";
+    } 
+    mysql_query("SET NAMES 'utf8'");
     mysql_query($query) or die("Error using mysql_query($sql): ".mysql_error());
     $resync=$_POST['resync'];
     if ($resync==true) {
-      $qrysync="INSERT INTO tbldbsync (flddbname, fldtblname, fldtblindex, fldstatus, flddbsync) VALUES ('".$dbname."','".$pararray['dbtable']."','".$idwert."','INS','NEW')";
+      //$qrysync="INSERT INTO tbldbsync (flddbname, fldtblname, fldtblindex, fldstatus, flddbsync) VALUES ('".$dbname."','".$pararray['dbtable']."','".$idwert."','INS','NEW')";
       //echo $qrysync."<br>";
-      mysql_query($qrysync) or die("Error using mysql_query($sql): ".mysql_error());    }
+      //mysql_query($qrysync) or die("Error using mysql_query($sql): ".mysql_error());
+      $qrysync = "UPDATE ".$pararray['dbtable']." SET fldtimestamp='2016-02-01 08:00:00', flddbsyncnr=1 WHERE ".$pararray['fldindex']."='$idwert'";
+      mysql_query($qrysync) or die("Error using mysql_query($qrysync): ".mysql_error());
+    }
     $dscopy=$_POST['dscopy'];
     if ($dscopy==true) {
       $qrycopy = "INSERT INTO ".$pararray['dbtable']." (".$strfld.") VALUES(".$strval.") ";
       //echo $qrysync."<br>";
-      mysql_query($qrycopy) or die("Error using mysql_query($qrycopy): ".mysql_error());    }
+      mysql_query($qrycopy) or die("Error using mysql_query($qrycopy): ".mysql_error());
+    }
     echo "Die Daten wurden eingetragen<br>";
   } else {
     echo "Der Vorgang wurde abgebrochen.<br>"; 
@@ -588,11 +641,11 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
 
 }
 
-function updatesave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$dbname,$menuid) {
+function updatesave($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$dbname,$menuid,$errmsg) {
 
   echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&idwert=".$menuid."'>zurueck</a><br>";
   if (isset($_REQUEST['submit'])) { 
-    updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$dbname);
+    updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$dbname,$errmsg);
   } else {
     echo "<div class='alert alert-warning'>";
     echo "Der Vorgang wurde abgebrochen.<br>"; 

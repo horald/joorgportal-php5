@@ -56,7 +56,7 @@ function stammdatenimportieren($einkauftable) {
         $result = mysql_query($query) or die(mysql_error()." ".$query);
         $line = mysql_fetch_array($result);
         echo $line[fldBez]."<br>";
-        $qryins="INSERT INTO ".$einkauftable." (fldBez,fldAbteilung,fldOrt,fldKonto,fldAnz,fldPreis,fldStatus,fldBarcode,fldEinkaufDat) VALUES('$line[fldBez]','$line[fldAbteilung]','$line[fldOrt]','$line[fldKonto]','$line[fldAnz]',$line[fldPreis],'offen','$line[fldBarcode]','$datum')";
+        $qryins="INSERT INTO ".$einkauftable." (fldBez,fldAbteilung,fldOrt,fldKonto,fldAnz,fldPreis,fldStatus,fldBarcode,fldEinkaufDatum) VALUES('$line[fldBez]','$line[fldAbteilung]','$line[fldOrt]','$line[fldKonto]','$line[fldAnz]',$line[fldPreis],'offen','$line[fldBarcode]','$datum')";
         $resins = mysql_query($qryins) or die(mysql_error()." ".$qryins);
       }
     }

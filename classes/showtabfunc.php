@@ -763,6 +763,7 @@ if ($drucken=="N") {
   $bez=translate("PRINT","Drucken",$langshort);
   echo "<a class='btn btn-primary' href='showtab.php?menu=".$menu."&drucken=J&menuid=".$idwert."' target='_blank' >".$bez."</a> ";
   $bez=translate("HELP","Hilfe",$langshort);
+  $mediawikimain="";
   if ($mediawikimain=="") {
     echo "<a class='btn btn-primary' href='help.php?menu=".$menu."&idwert=".$idwert."&menuid=".$idwert."'>".$bez."</a><br>";
   } else {
@@ -808,6 +809,13 @@ foreach ( $listarray as $arrelement )
         echo "<th width='".$arrelement['width']."'><input type='checkbox' value='0'></th>";
       break;
       case 'icon':
+        $bez=$arrelement['label'];
+        $name=$arrelement['name'];
+        $bez=translate($name,$bez,$langshort);
+        echo "<th> </th>";
+        echo "<th width='".$arrelement['width']."'>".$bez."</th>";
+      break;
+      case 'iconempty':
         $bez=$arrelement['label'];
         $name=$arrelement['name'];
         $bez=translate($name,$bez,$langshort);
@@ -1313,6 +1321,15 @@ while ($line = mysql_fetch_array($result)) {
           }  
         }  
       break;
+      case 'iconempty':
+        if ($drucken=="N") {
+          if ($line[$arrelement['dbfield']]<>'') {	
+        	   echo "<td><img src='../images/gruen-icon.jpg'></td>";
+        	 } else {
+        	   echo "<td><img src='../images/rot-icon.jpg'></td>";
+        	 }	
+        }  
+      break;
       case 'choise':
         echo "<td>".$wert."</td>";
       break;
@@ -1329,7 +1346,13 @@ while ($line = mysql_fetch_array($result)) {
         echo "<td>".$wert."</td>";
       break;
       case 'blob':
-          echo "<td><img src='meinbild.php?id=". $line[$pararray['fldindex']] ."' alt='test' /></td>";
+          $fldbild=$pararray['fldindex'];
+          if ($arrelement['fldbild']<>'') {
+          	$fldbild=$arrelement['fldbild'];
+          }
+          //echo "<td><img src='meinbild.php?id=". $line[$pararray['fldindex']] ."' alt='test' /></td>";
+          //echo "<td><img src='meinbild.php?id=". $line['fldb01bild'] ."' alt='test' /></td>";
+          echo "<td><img src='meinbild.php?id=". $line[$fldbild] ."' alt='test' /></td>";
       break;
       case 'date':
         $Datum = $line[$arrelement['dbfield']];

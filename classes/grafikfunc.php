@@ -1,7 +1,25 @@
 <?php
 
-function grafikauswahl() {
+function grafikauswahl($menu,$idwert) {
+  echo "<form name='eingabe' class='form-horizontal' method='post' action='grafik.php?grafik=1&menu=".$menu."&idwert=".$idwert."' enctype='multipart/form-data'>";
 
+        $fquery = "SELECT * FROM tblktoinhaber";
+        $fresult = mysql_query($fquery) or die(mysql_error());
+        echo "<div class='control-group'>";
+        echo "  <label class='control-label' style='text-align:left' for='input01'>Kontoinhaber:</label>";
+        echo "  <select name='ktoinhaber' size='1'>";
+        while ($fline = mysql_fetch_array($fresult)) {
+          $index = $fline['fldindex'];
+          echo "<option style='background-color:#c0c0c0;' value=".$index.">".$fline['fldBez']."</option>";
+        }
+        echo "  </select>";
+        echo "</div>";
+
+
+  echo "  <div class='form-actions'>";
+  echo "     <button type='submit' name='submit' class='btn btn-primary'>Auswerten</button>";
+  echo "</div>";
+  echo "</form>";
 }
 
 function grafikanzeigen() {

@@ -13,10 +13,13 @@ if ($druck==1) {
 }
 bootstrapbegin($headline);
 if ($druck==1) {
-  $anzleerzl=$_POST['anzleerzl'];	
-  druckliste($anzleerzl);
+  $anzleerzl=$_POST['anzleerzl'];
+  $ueberschrift=$_POST['Ueberschrift'];
+  $gruppe = $_POST['gruppe'];
+  druckliste($anzleerzl,$ueberschrift,$gruppe);
 } else {
-  druckauswahl($menu,$idwert);	
+  $ueberschrift=$pararray['headline'];	
+  druckauswahl($menu,$idwert,$ueberschrift);	
 }
 bootstrapend();
 ?>

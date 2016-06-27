@@ -424,6 +424,46 @@ for ( $kto = 0; $kto < $nAnz; $kto++ )
     echo "</tr>";
   }
 }  
+
+$query = "SELECT sum(fldBetrag) AS Betrag FROM `tblktosal` WHERE fldDatum<'".$vondatum."' AND fldInhaber='".$ktogrp."' ";
+//echo $query."<br>";
+$result = mysql_query($query);
+if ($line = mysql_fetch_array($result)) {
+  echo "<tr>";
+  echo "<td width='15'>Übertrag</td>";	
+  $SumUmbuchBetrag[$vonmonat]=$SumUmbuchBetrag[$vonmonat]+$line['Betrag'];
+  echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$line['Betrag'])."</td><td width='5'> </td>";
+  echo "</tr>";
+}
+
+$query = "SELECT * FROM `tblktosal` WHERE fldInhaber='".$ktogrp."' AND fldKonto NOT IN (SELECT fldKurz FROM tblktokonten WHERE fldKurz=tblktosal.fldKonto) ";
+$result = mysql_query($query);
+$arrKonten = array();
+$arrKtoBez = array();
+$arrKtoInd = array();
+while ($line = mysql_fetch_array($result)) { 
+  $arrKonten[] = $line[fldKonto];
+  $arrKtoBez[] = $line[fldKonto]." (ohne Zuordnung)";
+  $arrKtoInd[] = "N";
+}
+$nAnz = count($arrKonten);
+for ( $kto = 0; $kto < $nAnz; $kto++ ) {
+    echo "<tr>";
+    echo "<td width='15'>".$arrKtoBez[$kto]."</td>";	
+    for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ ) {
+      $query = "SELECT sum(fldBetrag) AS Betrag, month(fldDatum) as Monat FROM `tblktosal` WHERE month(fldDatum)=".$mon." AND fldInhaber='".$ktogrp."' AND fldKonto NOT IN (SELECT fldKurz FROM tblktokonten WHERE fldKurz=tblktosal.fldKonto) GROUP BY month(fldDatum)";
+      $result = mysql_query($query);
+      if ($line = mysql_fetch_array($result)) {
+    	  $Betrag[$mon]=$line['Betrag'];
+    	} else {
+        $Betrag[$mon]="0";
+    	}  
+    	$SumUmbuchBetrag[$mon]=$SumUmbuchBetrag[$mon]+$Betrag[$mon];
+      echo "<td style='text-align:right' width='25'>".sprintf("%.2f",$Betrag[$mon])."</td><td width='5'> </td>";
+    }
+    echo "</tr>";    
+}
+
 $Betrag=0;
 for ( $mon = $vonmonat; $mon <= $bismonat; $mon++ )
 {
@@ -537,6 +577,63 @@ function userberichtanzeigen($ktoinhgrp) {
       echo "</tr>";  
     }
   }
+
+
+    if ($arrtyp[$icnttyp][typ]=="UMBUCH") {
+    $zwsum=0;
+    $abssum=0;
+    for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+      $qrysal = "SELECT sum(fldBetrag) AS Betrag FROM tblktosal WHERE fldInhaber='".$arrInhaber[$icnt-1]."' AND fldDatum<'".$vondatum."'";
+      $ressal = mysql_query($qrysal) or die(mysql_error());
+      $linsal = mysql_fetch_array($ressal);
+      $iBetrag = $linsal['Betrag'];
+      $arrBetrag[$icnt-1] = $iBetrag;
+      $arrSumme[$icnt-1] = $arrSumme[$icnt-1] + $iBetrag;
+      $zwsum=$zwsum + $iBetrag;
+      $abssum=$abssum + abs($iBetrag);
+    }
+    if ($abssum<>0) {
+      echo "<tr>";
+      echo "<td width='15'>Übertrag</td>";
+      for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+        echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$arrBetrag[$icnt-1])."</td>";
+      }
+      echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$zwsum)."</td>";
+      echo "<td style='text-align:center' width='15'>.";
+      //echo "<img src='sparkline.php' usemap='#sparkline' />"; 
+      echo "</td>";
+      echo "</tr>";  
+    }
+
+//$query = "SELECT * FROM `tblktosal` WHERE fldInhaber='".$ktogrp."' AND fldKonto NOT IN (SELECT fldKurz FROM tblktokonten WHERE fldKurz=tblktosal.fldKonto) ";
+    $zwsum=0;
+    $abssum=0;
+    for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+      $qrysal = "SELECT sum(fldBetrag) AS Betrag FROM tblktosal WHERE fldInhaber='".$arrInhaber[$icnt-1]."' AND fldKonto NOT IN (SELECT fldKurz FROM tblktokonten WHERE fldKurz=tblktosal.fldKonto) AND fldDatum>='".$vondatum."' AND fldDatum<='".$bisdatum."'";
+      $ressal = mysql_query($qrysal) or die(mysql_error());
+      $linsal = mysql_fetch_array($ressal);
+      $arrBetrag[$icnt-1] = $linsal['Betrag'];
+      $arrSumme[$icnt-1] = $arrSumme[$icnt-1] + $linsal['Betrag'];
+      $zwsum=$zwsum + $linsal['Betrag'];
+      $abssum=$abssum + abs($linsal['Betrag']);
+    }
+    if ($abssum<>0) {
+      echo "<tr>";
+      echo "<td width='15'>Konto fehlt</td>";
+      for ( $icnt = 1; $icnt <= $nAnz; $icnt++ ) {
+        echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$arrBetrag[$icnt-1])."</td>";
+      }
+      echo "<td style='text-align:right' width='15'>".sprintf("%.2f",$zwsum)."</td>";
+      echo "<td style='text-align:center' width='15'>.";
+      //echo "<img src='sparkline.php' usemap='#sparkline' />"; 
+      echo "</td>";
+      echo "</tr>";  
+    }
+
+
+
+ }
+
       echo "<tr bgcolor=lightgreen>";
       echo "<td width='15'>Summe ".$arrtyp[$icnttyp][bez]."</td>";
       $zwsum=0;

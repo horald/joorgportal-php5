@@ -451,14 +451,14 @@ function importtxtfile($importarray,$datei,$importpfad,$gdbtyp) {
   echo "</div>";
 }
 
-function importsqlite($menu) {  
+function importsqlite($menu,$konto) {  
   include("../config.php");
   include("../sites/views/wp_".$menu."/showtab.inc.php");
   $fields="";
   foreach ( $listarray as $arrelement ) {
     $weiter=false;
     if ($arrelement['sqliteimport']<>"N") {
-      if (($arrelement['type']=='text') OR ($arrelement['type']=='select') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl')) {
+      if (($arrelement['type']=='text') OR ($arrelement['type']=='time') OR ($arrelement['type']=='calc') OR ($arrelement['type']=='select') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl')) {
         $weiter=true;
       }
     }
@@ -470,45 +470,65 @@ function importsqlite($menu) {
       }
     } 
   }
-  //echo $fields."<br>";
+  //echo $konto."<br>";
   //$where="fldVondatum>='2015-01-01'";
-  $where="";
-  if ($where<>"") {
-    $sql="SELECT ".$fields." FROM ".$pararray['dbtable']." WHERE ".$where; 
+  if ($konto<>"") {
+  	 $where="fldInhaber='".$konto."'";
   } else {
-    $sql="SELECT ".$fields." FROM ".$pararray['dbtable']; 
+    $where="";
+  }  
+  if ($where<>"") {
+    $sql="SELECT fldindex,".$fields." FROM ".$pararray['dbtable']." WHERE ".$where; 
+  } else {
+    $sql="SELECT fldindex,".$fields." FROM ".$pararray['dbtable']; 
   }
   echo "<div class='alert alert-success'>";
   echo $sql."<br>";
   echo "</div>";
   $db = new SQLite3('../../../android/own/joorgsqlite/data/joorgsqlite.db');
   $results = $db->query($sql);
+  mysql_query("SET NAMES 'utf8'");
   while ($row = $results->fetchArray()) {
     $daten="";
+    $upddaten="";
     foreach ( $listarray as $arrelement ) {
       $weiter=false;
       if ($arrelement['sqliteimport']<>"N") {
-        if (($arrelement['type']=='text') OR ($arrelement['type']=='select') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl')) {
+        if (($arrelement['type']=='text') OR ($arrelement['type']=='time') OR ($arrelement['type']=='calc') OR ($arrelement['type']=='select') OR ($arrelement['type']=='date') OR ($arrelement['type']=='zahl')) {
           $weiter=true;
         }
       }
       if ($weiter) {
         if ($daten=="") {
           $daten="'".$row[$arrelement['dbfield']]."'";
+          $upddaten=$arrelement['dbfield']."='".$row[$arrelement['dbfield']]."'";
         } else {
           $daten=$daten.",'".$row[$arrelement['dbfield']]."'";
+          $upddaten=$upddaten.",".$arrelement['dbfield']."='".$row[$arrelement['dbfield']]."'";
         }
       } 
     } 
-    $sqlins="INSERT INTO ".$pararray['dbtable']." (".$fields.") VALUES (".$daten.")";
+    if ($pararray['getimportwhere']=="true") {
+      $qryupd="SELECT * FROM ".$pararray['dbtable']." WHERE fldDatum='".$row['fldDatum']."' AND fldUhrzeit='".$row['fldUhrzeit'].":00' AND fldInhaber='".$row['fldInhaber']."'";
+    } else {
+      $qryupd="SELECT * FROM ".$pararray['dbtable']." WHERE ".$pararray['fldindex']."=".$row['fldindex'];
+    } 
+    $resupd = mysql_query($qryupd) or die("Error using mysql_query($qryupd): ".mysql_error());
+    if ($linupd = mysql_fetch_array($resupd)) {
+      //$sqlins="UPDATE ".$pararray['dbtable']." SET ".$upddaten." WHERE fldDatum='".$row['fldDatum']."' AND fldUhrzeit='".$row['fldUhrzeit'].":00' AND fldInhaber='".$row['fldInhaber']."'";
+      $sqlins="UPDATE ".$pararray['dbtable']." SET ".$upddaten." WHERE ".$pararray['fldindex']."=".$row['fldindex'];
+    } else {
+      $sqlins="INSERT INTO ".$pararray['dbtable']." (".$fields.") VALUES (".$daten.")";
+    }
     echo "<div class='alert alert-success'>";
+    echo $qryupd."<br>";
     echo $sqlins."<br>";
     echo "</div>";
     mysql_query($sqlins) or die("Error using mysql_query($sqlins): ".mysql_error());
   }
 }
 
-function importfunc($importpfad,$menu) {
+function importfunc($importpfad,$menu,$pararray) {
   $zeroignore = $_POST['zeroignore'];
   $count = $_POST['count'];
   $ktotyp = $_POST['ktotyp'];
@@ -576,42 +596,9 @@ function importfunc($importpfad,$menu) {
       }
     }
     if ($ktotyp=="SQLITE-IMPORT") {
-      importsqlite($menu);
+      importsqlite($menu,$konto);
    }
   }     
-  
-}
-
-function importfuncalt($menu) {
-      include("../config.php");
-      $datei=$_POST['datei'];
-      if ($datei=="") {
-        $datei="import.sql";
-      }
-      $slash="/";       
-      if (substr($_SERVER['DOCUMENT_ROOT'],-1)=="/") {
-        $slash="";
-      }
-      $pfad=$_SERVER['DOCUMENT_ROOT'].$slash."webportal30/import/";
-      echo "Pfad :".$pfad."#<br>";
-      echo "Datei:".$datei."#<br>";
-      $file=$pfad.$datei;
-      echo "File:".$file."<br>";
-      $lines = file($file); 
-      $newquery="";
-      foreach ($lines as $line_num => $query) {
-         if (trim($query)=="" || substr($query,0,2)=="--" || substr($query,0,2)=="/*") {
-         } else {
-           $newquery=$newquery.$query;
-           //echo $query."<br>";
-           if (substr(trim($query),-1)==";") {
-             echo "query:".$newquery."<br>";
-             $result = @mysql_query($newquery) or die(mysql_error());
-             $newquery=""; 
-           } 
-           //$result = @mysql_query($query) or die(mysql_error());
-         }
-      }
   
 }
 

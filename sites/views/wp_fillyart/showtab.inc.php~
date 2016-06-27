@@ -1,0 +1,31 @@
+<?php
+$listarray = array ( array ( 'label' => 'Bezeichnung',
+                             'name' => 'bez', 
+                             'width' => 100, 
+                             'type' => 'text',
+                             'dbfield' => 'fldbez' ),
+                     array ( 'label' => 'Bild',
+                             'name' => 'bild', 
+                             'width' => 20, 
+                             'type' => 'blob',
+                             'fldbild' => 'fldb01bild',
+                             'dbfield' => 'fldb01bild' ),
+                     array ( 'label' => 'Filetyp',
+                             'name' => 'filetyp',
+                             'default' => 'image/jpeg', 
+                             'width' => 20, 
+                             'type' => 'text',
+                             'dbfield' => 'fldb01filetype' ),
+                     array ( 'label' => 'Bild-Nr',
+                             'name' => 'bildid', 
+                             'width' => 20, 
+                             'type' => 'blobid',
+                             'dbfield' => 'fldb01bild' ));
+
+
+$pararray = array ( 'headline' => 'Filly ',
+                    'dbtable' => 'tblfilly',
+                    'orderby' => '',
+                    'strwhere' => '',
+                    'fldindex' => 'fldindex');
+?>

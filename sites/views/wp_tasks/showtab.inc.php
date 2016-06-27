@@ -158,7 +158,7 @@ $pararray = array ( 'headline' => 'Erledigungen',
                     'dbtable' => 'tblerledigung',
                     'markfield' => 'fldStatus', 
                     'markseldb' => 'erledigt',
-                    'orderby' => 'fldRang,fldDatum DESC',
+                    'orderby' => 'fldRang,fldDatum',
                     'strwhere' => 'fldDetailInd=0',
                     'flddetail' => 'fldDetailInd',
                     'fldindex' => 'fldIndex');
