@@ -1,3 +1,7 @@
 <?php
-echo "Etikettendruck";
+include("../config.php");
+include("drucketikettenfunc.php");
+echo "<html><body>";
+etikettendrucken();	
+echo "</body></html>";
 ?>

@@ -17,11 +17,11 @@ function showxml() {
 
   foreach($xml->sms as $strbody) {
     $lweiter=true;
-    if ($strbody['contact_name']=="Flinkster") {
-     	$lweiter=true;
-    } else {
-      $lweiter=false;    
-    }
+    //if ($strbody['contact_name']=="Flinkster") {
+    // 	$lweiter=true;
+    //} else {
+    //  $lweiter=false;    
+    //}
   	 if ($lweiter) {
   	 	echo "<tr>";
       echo "<td>".$strbody['contact_name']."</td>";	

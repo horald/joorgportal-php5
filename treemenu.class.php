@@ -88,7 +88,7 @@
 	      @param $id - node's id
 	*
 	*/
-    public function AddNodeAction($caption,$file="",$id,$target)
+    public function AddNodeAction($caption,$file="",$id,$target="")
     {
        if(preg_match("/^[0-9|_]+$/",$id)==0)
           return;
@@ -170,6 +170,8 @@
     public function DisplayNode($id,$last)
     {
         $node=$this->nodes[$id];
+        $httproot="http://".$_SERVER['SERVER_NAME'].substr($_SERVER['PHP_SELF'],0,strlen($_SERVER['PHP_SELF'])-9);
+        //echo $httproot."<br>";
 
         // defining if this node is selected
         if(isset($_REQUEST["nodeid"]) && $_REQUEST["nodeid"]==$node->GetId())

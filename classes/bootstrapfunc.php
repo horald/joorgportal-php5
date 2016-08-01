@@ -1,6 +1,6 @@
 <?php
 
-function bootstraphead($loadbootstrap) {
+function bootstraphead($loadbootstrap="") {
 include("../config.php");
 echo "<!DOCTYPE html>";
 echo "<html lang='de'>";
@@ -92,7 +92,7 @@ $('.multiselect').multiselect();
 echo "</head>";
 }
 
-function bootstrapbegin($headline,$showheadline) {
+function bootstrapbegin($headline,$showheadline="") {
 echo "<body>";
 echo "<div class='row-fluid'>";
 echo "<div class='span12'>";

@@ -15,7 +15,7 @@ function startmenu() {
     $treeMenu->SetStyle("joomportal");
     $treeMenu->SetCaption("Navigation");
 
-    page_menu($treeMenu,'0');
+    page_menu($treeMenu,'0','',0);
     mysql_close();
 
     $treeMenu->Debug(false);
@@ -70,12 +70,15 @@ function startseite($layout) {
   if (filesize($dbFile) == 0 ) {
     startinstall(); 
   } else {
+  	 $updvers="";
 //    include("classes/checkupgrade.php");
 //    check_version();
-    $dbFile="update".$updvers.".sql";    
-    if (filesize($dbFile) != 0 ) {
-      echo "Update gefunden!<br>";
-      include("updatewp.php");
+    $dbFile="update".$updvers.".sql";  
+    if (file_exists($dbFile)) { 
+      if (filesize($dbFile) != 0 ) {
+        echo "Update gefunden!<br>";
+        include("updatewp.php");
+      }
     } else {
       if ($layout == "joorgmobil") {
         startmobil();
@@ -89,6 +92,7 @@ function startseite($layout) {
 
 }
 
+$layout="joorgportal";
 startseite($layout);
 
 ?>

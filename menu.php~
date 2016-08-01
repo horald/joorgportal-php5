@@ -76,7 +76,7 @@ function page_menu($treeMenu,$vaterid,$brver,$childid) {
     	case "WEBLINK":
       	$addr=$line['fldtblwebadr'];
       	//echo $addr."=addr<br>";
-      	$target=$line['fldtarget'];
+      	$target=$line['fldTarget'];
       break;
       default:	
         $qrymod = "SELECT * FROM tblmenu_liste, tblmenu_modul WHERE tblmenu_liste.fldid_modul=tblmenu_modul.fldindex and tblmenu_liste.fldIndex='".$page."'";

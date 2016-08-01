@@ -25,6 +25,7 @@ echo "<table border='3'>";
 $dbselarr = $_SESSION['DBSELARR'];
 $count=sizeof($dbselarr);
 $gepaeckid=-1;
+mysql_query("SET NAMES 'utf8'");
 for ( $x = 0; $x < $count; $x++ )
 {
  $query="SELECT * FROM tbltc_reiseliste WHERE fldindex=".$dbselarr[$x];	

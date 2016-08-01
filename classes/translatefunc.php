@@ -1,7 +1,8 @@
 <?php
-include("../config.php");
+//include("../config.php");
 
 function translate($name,$bez,$langshort) {
+  /*	
   if ($langshort=="") {
     echo $langshort."=langshort translate2<br>";
   }
@@ -10,6 +11,7 @@ function translate($name,$bez,$langshort) {
   if ($line = mysql_fetch_array($result)) {
     $bez=$line['fldBez'];
   }
+  */
   return $bez;
 }
 ?>

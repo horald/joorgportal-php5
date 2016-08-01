@@ -1,6 +1,5 @@
 <?php
 header("content-type: text/html; charset=utf-8");
-session_start();
 include("translatefunc.php");
 
 echo "<script type='text/javascript'>";
@@ -169,7 +168,10 @@ function callshowtab($menu,$strwhere,$iddetail,$idwert,$drucken,$computerid,$use
     echo "<br>";
   }
   $bez=$pararray['headline'];
-  $name=$pararray['name'];
+  $name="";
+  if (isset($pararray['name'])) {
+    $name=$pararray['name'];
+  }
   $bez=translate($name,$bez,$langshort);
   if ($user<>"") {
     $bez=$bez." (angemeldet als ".$user.")";

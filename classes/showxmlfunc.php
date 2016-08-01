@@ -1,7 +1,8 @@
 <?php
 
 function showxml() {
-  $urlxml="http://localhost/daten/xml/sms-20150611175719.xml";
+//  $urlxml="http://localhost/daten/xml/sms-20150611175719.xml";
+  $urlxml="http://localhost/daten/xml/sms.xml";
   $xml = simplexml_load_file($urlxml);
   echo "<div class='alert alert-success'>";
   echo "xml=".$urlxml."<br>";

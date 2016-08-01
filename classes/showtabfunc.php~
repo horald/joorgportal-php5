@@ -1,6 +1,5 @@
 <?php
 header("content-type: text/html; charset=utf-8");
-session_start();
 include("translatefunc.php");
 
 echo "<script type='text/javascript'>";
@@ -1323,16 +1322,11 @@ while ($line = mysql_fetch_array($result)) {
       break;
       case 'iconempty':
         if ($drucken=="N") {
-        	   if ($arrelement['target']<>"") {
-              echo "<td><a class='btn' href='".$arrelement['func']."?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."' target='_blank'><i class='".$arrelement['dbfield']."'></i></a></td>";
-        	   } else {
-        	     if ($line['fldfilename']<>'') {	
-        	       echo "<td><img src='../images/gruen-icon.jpg'></td>";
-        	     } else {
-        	       echo "<td><img src='../images/rot-icon.jpg'></td>";
-        	     }	
-//              echo "<td><a class='btn' href='".$arrelement['func']."?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."'><i class='".$arrelement['dbfield']."'></i></a></td>";
-            }  
+          if ($line[$arrelement['dbfield']]<>'') {	
+        	   echo "<td><img src='../images/gruen-icon.jpg'></td>";
+        	 } else {
+        	   echo "<td><img src='../images/rot-icon.jpg'></td>";
+        	 }	
         }  
       break;
       case 'choise':

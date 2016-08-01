@@ -38,12 +38,12 @@ $str=$year."-".$mon."-".$day.",".$date.",".$date1;
 //ImageString ($bild, 10, 50, 5, $str, $gruen);
 $day1 = date('d', $date1);
 $mon1 = date('m', $date1);
-//$nextday=4;
-if ($day1<$nextday) {
-  $nextmon=$mon1;
-} else {
-  $nextmon=$mon1+1;
-}
+$nextmon=$mon;
+//if ($day1<$nextday) {
+//  $nextmon=$mon1;
+//} else {
+//  $nextmon=$mon1+1;
+//}
 $nextyear=2015;
 if ($nextmon>12) {
   $nextmon="01";

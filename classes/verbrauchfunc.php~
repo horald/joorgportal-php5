@@ -31,7 +31,7 @@ $dat=$_GET['vondatum'];
 $year=substr($dat,0,4);
 $mon=substr($dat,5,2);
 $nextday=substr($dat,8,2);
-$date2 = mktime(0, 0, 0, $mon, $nextday, $year);
+$date2 = mktime(0, 0, 0, $nextmon, $nextday, $year);
 $date1 = time();
 //echo $dat.",".$date1."<br>";
 $str=$year."-".$mon."-".$day.",".$date.",".$date1;
@@ -39,11 +39,11 @@ $str=$year."-".$mon."-".$day.",".$date.",".$date1;
 $day1 = date('d', $date1);
 $mon1 = date('m', $date1);
 //$nextday=4;
-if ($day1<$nextday) {
-  $nextmon=$mon1;
-} else {
-  $nextmon=$mon1+1;
-}
+//if ($day1<$nextday) {
+//  $nextmon=$mon1;
+//} else {
+//  $nextmon=$mon1+1;
+//}
 $nextyear=2015;
 if ($nextmon>12) {
   $nextmon="01";
@@ -55,7 +55,8 @@ $day2 = date('d', $date2);
 $mon2 = date('m', $date2);
 $maxtage=30;
 if ($mon1==$mon2) {
-  $anztage=$day2-$day1-1;
+  //$anztage=$day2-$day1-1;
+  $anztage=$day2-$day1;
 } else {
   $anztage=$maxtage-$day1+$day2;
 }

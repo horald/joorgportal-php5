@@ -83,7 +83,7 @@ echo "<tr><td>auto-incr</td><td>: ".$autovar."</td></tr>";
 $autooffset = $path['auto_offset'];
 echo "<tr><td>auto-offset</td><td>: ".$autooffset."</td></tr>";
 
-echo "httproot:".$_SERVER['PHP_SELF']."<br>";
+echo "httproot:<br>";
 echo "<tr><td>Language</td><td>: ";
 //echo "<form method='post' action='welcome.php'>";
 echo "<select name='langshort' size='1'>";

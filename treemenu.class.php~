@@ -88,7 +88,7 @@
 	      @param $id - node's id
 	*
 	*/
-    public function AddNodeAction($caption,$file="",$id,$target)
+    public function AddNodeAction($caption,$file="",$id,$target="")
     {
        if(preg_match("/^[0-9|_]+$/",$id)==0)
           return;
@@ -170,6 +170,11 @@
     public function DisplayNode($id,$last)
     {
         $node=$this->nodes[$id];
+        //$httproot=substr($_SERVER['PHP_SELF'],strlen($_SERVER['PHP_SELF'])-9);
+        //$httproot=$_SERVER['PHP_SELF'];
+        //$httproot="http://".$_SERVER['SERVER_NAME']."/own/joorgportal/";
+        $httproot="http://".$_SERVER['SERVER_NAME'].substr($_SERVER['PHP_SELF'],0,strlen($_SERVER['PHP_SELF'])-9);
+        echo $httproot."<br>";
 
         // defining if this node is selected
         if(isset($_REQUEST["nodeid"]) && $_REQUEST["nodeid"]==$node->GetId())
@@ -451,10 +456,6 @@ class Node
 	*/
     public function ShowContent()
     {
-    $target="J";
-    if ($target=="J") {
-    	echo "<a href='".$this->file."' target='_blank'>Neues Fenster</a>";
-    } else {	
       $winwidth=1035;
       //$winheight=580;
       $winheight=580;
@@ -463,7 +464,6 @@ class Node
       echo "               align='center' frameborder='0'>";
       echo "               <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen</p>";
       echo "            </iframe>";
-    }    
     
 //         echo"<br />\n\n";
 //         echo "content:".$this->file;

@@ -1,16 +1,9 @@
 <?php
-$menu=$_GET[menu];
-$idwert=$_GET[idwert];
+include("../config.php");
 include("drucketikettenfunc.php");
-include("bootstrapfunc.php");
-include("../sites/views/wp_".$menu."/showtab.inc.php");
-bootstraphead();
-bootstrapbegin($pararray['headline']);
-$etiketten = $_GET['etiketten'];
-if ($etiketten==1) {
-  etikettendrucken();	
-} else {
-  etikettenauswahl($menu,$idwert);		
-}
-bootstrapend();
+echo "<html>";
+etikettenkopf();
+echo "<body>";
+etikettendrucken();	
+echo "</body></html>";
 ?>
