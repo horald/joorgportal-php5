@@ -9,13 +9,15 @@ function startmobil() {
 
 function startmenu() {
     require_once("treemenu.class.php");
+    include("config.php");
 
+//echo $menuuser."=menuuser<br>";
     // create TreeMenu object
     $treeMenu = new TreeMenu();
     $treeMenu->SetStyle("joomportal");
     $treeMenu->SetCaption("Navigation");
 
-    page_menu($treeMenu,'0');
+    page_menu($treeMenu,'0','',0,$menuuser);
     mysql_close();
 
     $treeMenu->Debug(false);

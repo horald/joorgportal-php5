@@ -27,7 +27,6 @@ echo "<pre>";
 echo "<table>";
 echo "<tr><td>Stand</td>  <td>: ".$versdat."</td></tr>";
 echo "<tr><td>Version</td><td>: ".$versnr."</td></tr>";
-echo "<tr><td>Benutzer</td><td>: ".get_current_user()."</td></tr>";
 /*
 echo "<form method='post' action='about.php'>";
 echo "<tr><td>Layout</td><td>: ";

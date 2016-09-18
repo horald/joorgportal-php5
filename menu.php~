@@ -58,8 +58,12 @@ function showmenuitem($bez,$addr,$id,$vaterid) {
 //  }
 }	
 
-function page_menu($treeMenu,$vaterid,$brver,$childid) {
-  $query = "SELECT * FROM tblmenu_liste WHERE fldview='J' AND fldparent='".$vaterid."' AND fldversion>='0303' ORDER BY fldSort";
+function page_menu($treeMenu,$vaterid,$brver,$childid,$menuuser) {
+  if ($menuuser=="J") {
+    $query = "SELECT * FROM tblmenu_liste WHERE fldview='J' AND fldparent='".$vaterid."' AND fldversion>='0303' AND fldusername='".get_current_user()."' ORDER BY fldSort";
+  } else {
+    $query = "SELECT * FROM tblmenu_liste WHERE fldview='J' AND fldparent='".$vaterid."' AND fldversion>='0303' ORDER BY fldSort";
+  }
   //echo $query."<br>";
   $result = mysql_query($query) or die(mysql_error());
 
@@ -76,7 +80,7 @@ function page_menu($treeMenu,$vaterid,$brver,$childid) {
     	case "WEBLINK":
       	$addr=$line['fldtblwebadr'];
       	//echo $addr."=addr<br>";
-      	$target=$line['fldTarget'];
+      	$target=$line['fldtarget'];
       break;
       default:	
         $qrymod = "SELECT * FROM tblmenu_liste, tblmenu_modul WHERE tblmenu_liste.fldid_modul=tblmenu_modul.fldindex and tblmenu_liste.fldIndex='".$page."'";

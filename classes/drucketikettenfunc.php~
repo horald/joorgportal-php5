@@ -19,10 +19,11 @@ function etikettenauswahl($menu,$idwert) {
 function etikettenkopf() {
   echo "<head>"; 
   echo "<style>";
-  echo "@page { margin: 12mm }";
+  echo "@page { margin: 12mm 0; }";
   //echo "table, td, th { border: 1px solid black; }";
   //echo "td, th { border: 1px solid black; }";
-  echo "table { border-spacing: 2.54mm 0; }";
+  //echo "table { border-spacing: 2.54mm 0; }";
+  echo "table { border-spacing: 3mm 0; }";
   echo "td, th {width: 63.5mm; height: 29.63mm; text-align:center; vertical-align:middle;}";
   echo "</style>"; 
   echo "</head>";
@@ -50,7 +51,10 @@ function etikettendrucken() {
        //echo $qrynotiz."<br>";
        $resnotiz = mysql_query($qrynotiz) or die(mysql_error());
        if ($linnotiz = mysql_fetch_array($resnotiz)) {
-    	   echo "<td style='background-image:url(http://localhost/own/joorgsqlite/sites/images/marmelade.jpg);background-repeat: no-repeat;background-position: center;'>".$linnotiz['fldbez']."</td>";
+           $jpgbild="marmelade.jpg";
+           //$jpgbild="kamele.jpg";
+    	   echo "<td style='background-image:url(http://localhost/daten/images/".$jpgbild.");background-repeat: no-repeat;background-position: center;'><elem style='padding-left:25px;'>".$linnotiz['fldbez']."</elem></td>";
+    	   //echo "<td style='background-repeat: no-repeat;background-position: center;'>".$linnotiz['fldbez']."</td>";
        } else {
     	   //echo "<td>".$nr."</td>";
     	   echo "<td> </td>";

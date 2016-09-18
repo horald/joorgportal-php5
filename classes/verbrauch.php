@@ -20,7 +20,7 @@ echo "<a href='http://datapass.de' target='_blank'  class='btn btn-primary btn-s
 //echo "<a href='verbrauch.php?holverbrauch=2' class='btn btn-primary btn-sm active' role='button'>Verbrauch abfragen</a><br><br> ";
 
 if ($holverbrauch==1) {
-  echo "<img src='verbrauchfunc.php?verbrauch=".$_POST['verbrauch']."&vondatum=".$_POST['vondatum']."' usemap='#verbrauch' />"; 
+  echo "<img src='verbrauchfunc.php?verbrauch=".$_POST['verbrauch']."&vondatum=".$_POST['vondatum']."&datvol=".$_POST['datvol']."' usemap='#verbrauch' />"; 
 } else {
   echo "<form class='form-horizontal' method='post' action='verbrauch.php?holverbrauch=1&id=".$id."'>";
 //  $defquery="SELECT * FROM tblfilter WHERE fldmaske='".strtoupper($menu)."_DEFAULT' AND fldName='".$arrelement['name']."'";
@@ -44,6 +44,7 @@ if ($holverbrauch==1) {
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('vondatum','yyyyMMdd','ARROW')" style="cursor:pointer"/></dd>
 <?php 
   echo "<dd><input type='text' name='verbrauch' value=''/></dd>";
+  echo "<dd><input type='text' name='datvol' value='1'/></dd>";
   echo "<dd><input type='submit' value='Verbrauch senden' /></dd>";
   echo "</form>";
 }

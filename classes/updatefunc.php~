@@ -611,7 +611,9 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
     //$strset=substr($strset,0,-2);
     if ($pararray['dbsyncnr']=="J") {
   	   //$sql=$sql.",flddbsyncnr=".$autoinc_start;
-  	   $strset=$strset.",fldtimestamp=datetime('now', 'localtime')";
+      $datetime = new DateTime();
+      $timestamp=$datetime->format('Y-m-d H:i:s');  
+  	   $strset=$strset.",fldtimestamp='".$timestamp."'";
     }
 
     $query = "UPDATE ".$pararray['dbtable']." SET ".$strset." WHERE ".$pararray['fldindex']."='$idwert'";

@@ -56,8 +56,15 @@ if (($timestamp = strtotime($localuptodate)) === false) {
 }
 
 $localversion=$line['fldbez'];
-echo "<tr><td>Stand</td><td>: ".$localuptodate."</td></tr>";
-echo "<tr><td>Version</td><td>: ".$localversion."</td></tr>";
+echo "<tr><td>DB-Stand</td><td>: ".$localuptodate."</td><td> </td>";
+echo "<td>DB-Version</td><td>: ".$localversion."</td></tr>";
+$ini_array = parse_ini_file("version.txt");
+$versdat=$ini_array['versdat'];
+$versnr=$ini_array['versnr'];
+echo "<tr><td>Stand</td><td>: ".$versdat."</td><td> </td>";
+echo "<td>Version</td><td>: ".$versnr."</td></tr>";
+echo "</table>";
+echo "<table>";
 $browser = new checkBrowser ;
 echo "<tr><td>Browser</td><td>: ".$browser->Name." ".$browser->Version."</td></tr>";
 $bez=translate("DATABASE","Datenbank",$locallangshort);

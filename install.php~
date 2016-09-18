@@ -97,7 +97,7 @@ if (isset($_REQUEST['step'])) {
 //      }    
       mysql_connect($_SESSION['dbhost'],$_SESSION['dbuser'],$_SESSION['dbpass']);
       mysql_select_db($_SESSION['dbname']);
-      $lines = file('sites/install/dbjoorgportal.sql');
+      $lines = file('install.sql');
       $newquery="";
       $remark='false';
       $cntlin=0;

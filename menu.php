@@ -58,8 +58,12 @@ function showmenuitem($bez,$addr,$id,$vaterid) {
 //  }
 }	
 
-function page_menu($treeMenu,$vaterid,$brver,$childid) {
-  $query = "SELECT * FROM tblmenu_liste WHERE fldview='J' AND fldparent='".$vaterid."' AND fldversion>='0303' ORDER BY fldSort";
+function page_menu($treeMenu,$vaterid,$brver,$childid,$menuuser) {
+  if ($menuuser=="J") {
+    $query = "SELECT * FROM tblmenu_liste WHERE fldview='J' AND fldparent='".$vaterid."' AND fldversion>='0303' AND fldusername='".get_current_user()."' ORDER BY fldSort";
+  } else {
+    $query = "SELECT * FROM tblmenu_liste WHERE fldview='J' AND fldparent='".$vaterid."' AND fldversion>='0303' AND fldusermenu<>'J' ORDER BY fldSort";
+  }
   //echo $query."<br>";
   $result = mysql_query($query) or die(mysql_error());
 

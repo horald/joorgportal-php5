@@ -51,7 +51,10 @@ function etikettendrucken() {
        //echo $qrynotiz."<br>";
        $resnotiz = mysql_query($qrynotiz) or die(mysql_error());
        if ($linnotiz = mysql_fetch_array($resnotiz)) {
-    	   echo "<td style='background-image:url(http://localhost/daten/images/marmelade.jpg);background-repeat: no-repeat;background-position: center;'>".$linnotiz['fldbez']."</td>";
+           //$jpgbild="marmelade.jpg";
+           $jpgbild="kamele.jpg";
+    	   echo "<td style='background-image:url(http://localhost/daten/images/".$jpgbild.");background-repeat: no-repeat;background-position: center;'><elem style='padding-left:25px;'>".$linnotiz['fldbez']."</elem></td>";
+    	   //echo "<td style='background-repeat: no-repeat;background-position: center;'>".$linnotiz['fldbez']."</td>";
        } else {
     	   //echo "<td>".$nr."</td>";
     	   echo "<td> </td>";

@@ -1,3 +1,10 @@
+-- Adminer 4.1.0 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
 CREATE TABLE `tblabteilung` (
   `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
   `fldAbteilung` varchar(80) CHARACTER SET latin1 COLLATE latin1_german1_ci NOT NULL,
@@ -112,7 +119,6 @@ CREATE TABLE `tblaufgabenliste` (
   `fldtext` varchar(500) NOT NULL,
   `fldid_haeufigkeit` bigint(20) NOT NULL,
   `fldid_benutzer` bigint(20) NOT NULL,
-  `fldbf` int(11) NOT NULL,
   PRIMARY KEY (`fldindex`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -152,7 +158,6 @@ CREATE TABLE `tblbenutzer` (
   `fldbez` varchar(200) COLLATE utf8_bin NOT NULL,
   `fldtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `fldbackgroundfilename` char(250) COLLATE utf8_bin NOT NULL,
-  `fldusername` char(50) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -177,7 +182,6 @@ CREATE TABLE `tblbilder` (
   `fldb01bild` blob NOT NULL,
   `fldb01filetype` varchar(10) NOT NULL,
   `fldid_art` bigint(20) NOT NULL,
-  `flddbsyncstatus` varchar(10) NOT NULL DEFAULT 'SYNC',
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -330,11 +334,8 @@ CREATE TABLE `tblEinkauf_liste` (
   `flde01vorrat` bigint(20) NOT NULL,
   `fldStatus` varchar(10) NOT NULL DEFAULT 'offen',
   `fldEinkaufDatum` varchar(10) NOT NULL,
-  `fldEinkaufUhrzeit` varchar(10) NOT NULL,
   `fldid_kopf` bigint(20) NOT NULL,
-  `flddbsyncnr` int(11) NOT NULL DEFAULT '8',
   `fldtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `flddbsyncstatus` varchar(10) NOT NULL DEFAULT 'SYNC',
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -357,7 +358,6 @@ CREATE TABLE `tblelternstunden` (
   `fldarchivdat` date NOT NULL DEFAULT '1900-01-01',
   `fldAnwender` varchar(20) COLLATE utf8_bin NOT NULL,
   `fldRang` varchar(2) COLLATE utf8_bin NOT NULL DEFAULT '00',
-  `fldid_kitajahr` bigint(20) NOT NULL,
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -379,7 +379,6 @@ CREATE TABLE `tblerledigung` (
   `fldGruppe` varchar(200) NOT NULL,
   `fldurl` varchar(255) NOT NULL,
   `fldcategory` varchar(200) NOT NULL,
-  `flddbsyncstatus` varchar(20) NOT NULL DEFAULT 'SYNC',
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -504,47 +503,6 @@ CREATE TABLE `tblfunc` (
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `tblfunc` (`fldIndex`, `fldBez`, `fldphp`, `fldMenuID`, `fldTyp`, `fldTarget`, `fldParam`, `fldAktiv`, `fldName`, `fldtimestamp`, `fldversion`, `flddbsyncstatus`) VALUES
-(3,	'Ins Archiv',	'insarchiv.php',	183,	'MENU',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'0312',	'SYNC'),
-(13,	'Aus Stammdaten',	'ausstammdaten.php',	183,	'MENU',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(23,	'Monatsbericht',	'monatsbericht.php',	213,	'MENU',	'_blank',	'&drucken=J',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(33,	'Aus Archiv',	'ausarchiv.php',	183,	'MENU',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(43,	'Auswertung',	'KontenVorschau.php',	183,	'MENU',	'_blank',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(53,	'Adressliste',	'druckadressliste.php',	263,	'MENU',	'_blank',	'&wert=',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(63,	'Gruppenliste',	'druckgruppenliste.php',	263,	'MENU',	'_blank',	'&wert=',	'J',	'',	'0000-00-00 00:00:00',	'0312',	'SYNC'),
-(73,	'sync',	'sync.php',	593,	'MENUALL',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(83,	'resync all',	'resyncall.php',	593,	'MENUALL',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(93,	'export',	'export.php',	593,	'MENUALL',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(103,	'import',	'import.php',	593,	'MENUALL',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(113,	'raten',	'raten.php',	213,	'MENU',	'',	'',	'N',	'',	'0000-00-00 00:00:00',	'0312',	'SYNC'),
-(133,	'Dauerauftrag',	'dauerauftrag.php',	233,	'MENU',	'',	'',	'J',	'',	'0000-00-00 00:00:00',	'',	'SYNC'),
-(134,	'Trigger',	'trigger.php',	503,	'MENU',	'',	'&trigger=4',	'J',	'',	'2013-09-10 21:15:07',	'',	'SYNC'),
-(144,	'del sel',	'delsel.php',	493,	'MENU',	'',	'',	'J',	'',	'2013-09-14 08:29:00',	'',	'SYNC'),
-(154,	'Druck Geschenke',	'druckgeschenkliste.php',	203,	'MENU',	'_blank',	'&wert=',	'J',	'',	'2013-11-16 13:43:27',	'',	'SYNC'),
-(164,	'Druck Aufgabenplan',	'druckaufgabenplan.php',	754,	'MENU',	'_blank',	'',	'J',	'',	'2014-01-16 20:52:30',	'',	'SYNC'),
-(174,	'Delete select',	'delsel.php',	754,	'MENU',	'',	'',	'J',	'',	'2014-01-16 20:55:48',	'',	'SYNC'),
-(184,	'Aufgabenplan kopieren',	'schedulecopy.php',	754,	'MENU',	'',	'',	'J',	'',	'2014-01-16 20:57:00',	'',	'SYNC'),
-(194,	'Stundenplan',	'druckstundenplan.php',	1004,	'MENU',	'_blank',	'',	'J',	'',	'2014-08-22 16:22:20',	'',	'SYNC'),
-(195,	'Grafik',	'grafik.php',	213,	'MENU',	'',	'',	'J',	'',	'2014-11-19 17:08:15',	'0312',	'SYNC'),
-(200,	'Druck Liste',	'druckliste.php',	1054,	'MENU',	'_blank',	'',	'J',	'',	'2015-04-30 15:27:12',	'0315',	'SYNC'),
-(197,	'Holen',	'empfangen.php',	183,	'MENU',	'',	'',	'J',	'',	'2014-12-17 17:31:37',	'0312',	'SYNC'),
-(199,	'Leeren',	'leeren.php',	183,	'MENU',	'',	'',	'J',	'',	'2015-02-14 23:42:14',	'0312',	'SYNC'),
-(201,	'Druck Grafik',	'druckgrafik.php',	1054,	'MENU',	'_blank',	'',	'J',	'',	'2015-05-06 16:09:09',	'0315',	'SYNC'),
-(202,	'Druck Liste',	'druckliste.php',	1456,	'MENU',	'_blank',	'',	'J',	'',	'2015-05-08 16:30:44',	'0315',	'SYNC'),
-(203,	'Gruppenaufgabenliste',	'druckgrpaufgabenliste.php',	754,	'MENU',	'_blank',	'&wert=',	'J',	'',	'2015-05-13 08:16:44',	'0312',	'SYNC'),
-(204,	'Holen',	'empfangen.php',	1110,	'MENU',	'',	'',	'J',	'',	'2015-05-28 05:31:16',	'0315',	'SYNC'),
-(205,	'delsel',	'delsel.php',	213,	'MENU',	'',	'',	'J',	'',	'2015-06-13 17:00:05',	'0312',	'SYNC'),
-(206,	'Grafik',	'r=site/page&view=graph',	213,	'YIIMENU',	'',	'',	'N',	'',	'2015-06-22 06:13:52',	'0312',	'SYNC'),
-(207,	'Buchen',	'buchen.php',	183,	'MENU',	'',	'',	'J',	'buchen',	'2015-06-23 05:57:44',	'0312',	'SYNC'),
-(208,	'Druck Essensplan',	'druckessensplan.php',	994,	'MENU',	'',	'',	'J',	'',	'2015-08-22 12:42:10',	'0312',	'SYNC'),
-(209,	'mailen',	'mailsend.php',	263,	'MENU',	'',	'',	'J',	'',	'2015-08-27 15:47:47',	'0312',	'SYNC'),
-(210,	'Druck Liste',	'druckliste.php',	1461,	'MENU',	'_blank',	'',	'J',	'',	'2015-10-09 15:49:39',	'0312',	'SYNC'),
-(211,	'Druck Liste',	'druckliste.php',	734,	'MENU',	'_blank',	'',	'J',	'',	'2015-10-09 16:06:49',	'0312',	'SYNC'),
-(212,	'Druck Liste',	'druckliste.php',	1074,	'MENU',	'_blank',	'',	'J',	'',	'2015-10-24 11:09:07',	'0312',	'SYNC'),
-(221,	'Druck Reiseliste',	'druckreiseliste.php',	633,	'MENU',	'_blank',	'',	'J',	'',	'2016-07-17 11:15:19',	'0312',	'SYNC'),
-(231,	'Druck Etikett',	'drucketiketten.php',	734,	'MENU',	'_blank',	'',	'J',	'',	'2016-07-25 18:31:49',	'0312',	'SYNC'),
-(303,	'Drucke leer',	'druckleer.php',	1044,	'MENU',	'_blank',	'',	'J',	'',	'2016-08-11 05:35:29',	'0312',	'SYNC'),
-(403,	'Status',	'status.php',	1110,	'MENU',	'',	'',	'J',	'',	'2016-08-30 05:25:37',	'0312',	'SYNC');
 
 CREATE TABLE `tblgeburtstage` (
   `fldIndex` int(3) NOT NULL AUTO_INCREMENT,
@@ -638,7 +596,6 @@ CREATE TABLE `tblheizung` (
   `fldid_geraet` bigint(20) NOT NULL,
   `fldAblesedat` date NOT NULL,
   `fldok` varchar(5) NOT NULL,
-  `flddbsyncstatus` varchar(10) NOT NULL DEFAULT 'SYNC',
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -676,13 +633,6 @@ CREATE TABLE `tblkategorie` (
   `fldbez` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-
-CREATE TABLE `tblkitajahr` (
-  `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
-  `fldbez` varchar(10) NOT NULL,
-  PRIMARY KEY (`fldindex`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `tblktoart` (
@@ -740,13 +690,6 @@ CREATE TABLE `tblktogrp_liste` (
   `fldbez` varchar(250) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`fldindex`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
-
-CREATE TABLE `tblktoinhaber` (
-  `fldIndex` bigint(20) NOT NULL AUTO_INCREMENT,
-  `fldBez` varchar(50) NOT NULL,
-  PRIMARY KEY (`fldIndex`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `tblktoinhgrpzuord` (
@@ -864,8 +807,6 @@ CREATE TABLE `tblmenu_liste` (
   `fldversion` varchar(5) COLLATE utf8_bin NOT NULL DEFAULT '0303',
   `fldTyp` varchar(50) COLLATE utf8_bin NOT NULL,
   `fldName` varchar(200) COLLATE utf8_bin NOT NULL,
-  `fldusername` varchar(50) COLLATE utf8_bin NOT NULL,
-  `fldusermenu` varchar(1) COLLATE utf8_bin NOT NULL DEFAULT 'N',
   `fldtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fldid_publictyp` bigint(20) NOT NULL,
   `fldhelplink` varchar(500) COLLATE utf8_bin NOT NULL,
@@ -876,168 +817,6 @@ CREATE TABLE `tblmenu_liste` (
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `tblmenu_liste` (`fldMenu`, `fldIndex`, `fldtblwebadr`, `fldSort`, `fldGroup`, `fldview`, `fldid_modul`, `fldparent`, `fldversion`, `fldTyp`, `fldName`, `fldusername`, `fldusermenu`, `fldtimestamp`, `fldid_publictyp`, `fldhelplink`, `fldtarget`, `fldid_menuprojekt`, `fldart`, `flddbsyncstatus`) VALUES
-('Gruppen bearbeiten',	93,	NULL,	'00000',	NULL,	'J',	93,	'18',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Adressliste',	83,	'\"http://localhost/webportal/adressliste/index.php\"',	'00008',	NULL,	'J',	73,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Addressliste-neu',	73,	'\"sites/views/wp_adress/index.php\"',	'00007',	'MAIN',	'N',	3,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Notizen',	63,	'\"http://localhost/webportal/zwiegespraech/index.php\"',	'00003',	NULL,	'J',	33,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Erledigungen',	53,	'\"http://localhost/webportal/erledigung/index.php\"',	'00002',	NULL,	'J',	13,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Geburtstage',	43,	'\"http://localhost/webportal/geburtstage/index.php\"',	'00006',	NULL,	'J',	63,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Konto',	33,	'\"http://localhost/webportal/konto/ktosal.php\"',	'00003',	NULL,	'J',	23,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Geschenkeliste',	23,	'\"http://localhost/webportal/geschenke/index.php\"',	'00006',	NULL,	'J',	53,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Administration',	13,	'\"admin/index.php\"',	'00100',	'MAIN',	'J',	3,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Einkaufsliste',	3,	'\"sites/views/wp_shopping/index.php\"',	'00010',	'MAIN',	'J',	43,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Status bearbeiten',	103,	NULL,	'00000',	NULL,	'J',	13,	'Erledigungen',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Vorrat',	113,	NULL,	'00004',	NULL,	'J',	93,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Reiseliste',	123,	NULL,	'00005',	NULL,	'J',	93,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Docman',	133,	NULL,	'00006',	NULL,	'J',	93,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Elternstunden',	143,	NULL,	'00009',	NULL,	'J',	113,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Home',	153,	NULL,	'00001',	NULL,	'J',	83,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Verbesserung',	163,	NULL,	'00011',	NULL,	'J',	93,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Essensplan',	173,	NULL,	'00012',	NULL,	'J',	93,	'0',	'0302',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Einkaufsliste',	183,	'',	'00010',	'MAIN',	'J',	173,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Administration',	193,	'',	'00100',	'MAIN',	'J',	133,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Geschenke',	203,	'',	'00006',	NULL,	'J',	183,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Haushaltsbuch',	213,	'',	'00004',	NULL,	'J',	153,	'1034',	'0312',	'MODUL',	'ACCOUNT',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Geburtstage',	223,	'',	'00006',	NULL,	'J',	193,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Erledigungen',	233,	'',	'00003',	NULL,	'J',	143,	'1034',	'0303',	'MODUL',	'TASK',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Notizen',	243,	'',	'00003',	NULL,	'N',	163,	'0',	'0303',	'MODUL',	'NOTICE',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Prior',	393,	NULL,	'',	NULL,	'J',	303,	'233',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Adressliste',	263,	'',	'00008',	NULL,	'J',	203,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Status bearbeiten',	283,	NULL,	'00013',	NULL,	'J',	273,	'233',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Vorrat',	293,	NULL,	'00004',	NULL,	'N',	243,	'0',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Checkliste',	303,	NULL,	'00005',	NULL,	'N',	253,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Docman',	313,	NULL,	'00006',	NULL,	'N',	263,	'0',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Elternstunden',	323,	'',	'00009',	NULL,	'J',	233,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Home',	333,	NULL,	'00001',	NULL,	'J',	213,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Verbesserung',	343,	NULL,	'00011',	NULL,	'N',	223,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Essensplan',	353,	NULL,	'00012',	NULL,	'N',	223,	'0',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Fahrtenbuch',	363,	NULL,	'00013',	NULL,	'N',	283,	'0',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Kaufort',	373,	NULL,	'00014',	NULL,	'J',	293,	'183',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Status bearbeiten',	383,	NULL,	NULL,	NULL,	'J',	273,	'183',	'0303',	'',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Benutzer',	403,	NULL,	'',	NULL,	'J',	323,	'233',	'0303',	'MODUL',	'USER',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Kategorie',	413,	NULL,	'',	NULL,	'J',	313,	'233',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Terminkalender',	423,	NULL,	'00015',	NULL,	'N',	333,	'0',	'0303',	'PLUGIN',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Stammdaten',	433,	NULL,	'',	NULL,	'J',	343,	'183',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Kontengruppe',	443,	NULL,	'',	NULL,	'J',	363,	'213',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Module',	453,	NULL,	'',	NULL,	'J',	353,	'193',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Konten',	463,	NULL,	'',	NULL,	'J',	373,	'213',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Kontenzuordnung',	473,	'',	'',	NULL,	'J',	383,	'463',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Sync-Computer',	483,	'',	'',	NULL,	'J',	393,	'193',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('dbsync',	493,	'',	'',	NULL,	'J',	403,	'483',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Trigger',	503,	'',	'',	NULL,	'J',	413,	'483',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Erledigungsgruppe',	513,	NULL,	'',	NULL,	'J',	423,	'233',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Programmupdate',	523,	'',	'00090',	NULL,	'J',	433,	'193',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Funktionen',	533,	NULL,	'',	NULL,	'J',	443,	'193',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Oberkonten',	543,	'',	'',	NULL,	'J',	453,	'463',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Abteilungen',	553,	NULL,	'',	NULL,	'J',	463,	'183',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Adressgruppe',	563,	NULL,	'',	NULL,	'J',	473,	'263',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Kontenart',	573,	NULL,	'',	NULL,	'J',	483,	'183',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Adresszuordnung',	583,	NULL,	'',	NULL,	'J',	493,	'263',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Reiseliste',	613,	'',	'00016',	NULL,	'J',	513,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Bilder',	603,	NULL,	'',	NULL,	'J',	503,	'293',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Reisegrund',	623,	NULL,	'',	NULL,	'J',	523,	'613',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Gepaeckliste',	633,	'',	'',	NULL,	'J',	533,	'613',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Gepaeckstueck',	643,	NULL,	'',	NULL,	'J',	543,	'613',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Briefverkehr',	653,	NULL,	'',	NULL,	'J',	553,	'313',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Zimmer',	663,	NULL,	'',	NULL,	'J',	563,	'293',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Moebel',	673,	NULL,	'',	NULL,	'J',	573,	'293',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Faecher',	683,	NULL,	'',	NULL,	'J',	583,	'293',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('RechDatum',	693,	NULL,	'',	NULL,	'J',	593,	'363',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Wiki',	703,	NULL,	'00091',	NULL,	'N',	613,	'0',	'0303',	'PLUGIN',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Sprache',	713,	NULL,	'',	NULL,	'J',	603,	'193',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Dauerauftrag',	723,	NULL,	'',	NULL,	'J',	623,	'233',	'0303',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Kontotyp',	733,	'',	'',	'',	'J',	633,	'463',	'0312',	'MODUL',	'',	'',	'N',	'0000-00-00 00:00:00',	0,	'',	'',	13,	'',	'SYNC'),
-('Notizen',	734,	NULL,	'00003',	NULL,	'J',	163,	'0',	'0303',	'MODUL',	'',	'',	'N',	'2013-08-29 17:22:44',	0,	'',	'',	13,	'',	'SYNC'),
-('Gruppe',	744,	NULL,	'',	NULL,	'J',	423,	'734',	'0303',	'MODUL',	'',	'',	'N',	'2013-08-30 16:26:12',	0,	'',	'',	13,	'',	'SYNC'),
-('Aufgabenplan',	754,	'',	'00080',	NULL,	'J',	644,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'2014-01-16 20:47:43',	0,	'',	'',	13,	'',	'SYNC'),
-('Benutzerwechsel',	764,	NULL,	'',	NULL,	'J',	654,	'754',	'0303',	'MODUL',	'',	'',	'N',	'2014-01-16 21:48:32',	0,	'',	'',	13,	'',	'SYNC'),
-('Termine',	973,	'',	'00009',	'',	'J',	843,	'0',	'0303',	'MODUL',	'DATES',	'',	'N',	'2013-08-27 17:43:06',	3,	'Joorgportal/Termine',	'',	13,	'',	'SYNC'),
-('Statusgruppe',	974,	'',	'',	NULL,	'N',	0,	'263',	'0312',	'MODUL',	'',	'',	'N',	'2014-04-08 21:12:47',	0,	'',	'',	13,	'',	'SYNC'),
-('Aufgabenuser',	984,	'',	'',	NULL,	'J',	674,	'754',	'0312',	'MODUL',	'',	'',	'N',	'2014-04-28 19:13:56',	0,	'',	'',	13,	'',	'SYNC'),
-('Essensplan',	994,	'',	'00011',	NULL,	'J',	684,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'2014-07-26 08:57:26',	0,	'',	'',	13,	'',	'SYNC'),
-('Stundenplan',	1004,	NULL,	'',	NULL,	'J',	1013,	'973',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 16:15:28',	0,	'',	'',	13,	'',	'SYNC'),
-('Zeiten',	1014,	NULL,	'',	NULL,	'J',	1344,	'1004',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 16:18:12',	0,	'',	'',	13,	'',	'SYNC'),
-('Wotag',	1024,	NULL,	'',	NULL,	'J',	1345,	'1004',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 16:19:44',	0,	'',	'',	13,	'',	'SYNC'),
-('Privat',	1034,	'',	'00002',	NULL,	'J',	783,	'0',	'0312',	'MODUL',	'',	'',	'N',	'2014-08-22 17:58:12',	0,	'',	'',	13,	'',	'SYNC'),
-('Heizung',	1044,	NULL,	'',	NULL,	'J',	803,	'1034',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 18:01:51',	0,	'',	'',	13,	'',	'SYNC'),
-('Blutdruck',	1054,	NULL,	'',	NULL,	'J',	973,	'1034',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 18:02:53',	0,	'',	'',	13,	'',	'SYNC'),
-('Umfragen',	1064,	NULL,	'',	NULL,	'J',	1073,	'1034',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 18:04:17',	0,	'',	'',	13,	'',	'SYNC'),
-('Tabletten',	1074,	NULL,	'',	NULL,	'J',	1153,	'1034',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 20:44:58',	0,	'',	'',	13,	'',	'SYNC'),
-('Bildverz',	1084,	NULL,	'',	NULL,	'J',	1233,	'1034',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 20:57:12',	0,	'',	'',	13,	'',	'SYNC'),
-('Vorrat',	1094,	NULL,	'00005',	NULL,	'J',	123,	'1034',	'0303',	'MODUL',	'',	'',	'N',	'2014-08-22 20:59:20',	0,	'',	'',	13,	'',	'SYNC'),
-('Familie',	1095,	'',	'00003',	NULL,	'J',	0,	'0',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-03 06:31:39',	0,	'',	'',	0,	'',	'SYNC'),
-('Rezepte',	1096,	'',	'',	NULL,	'J',	703,	'994',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-03 06:42:22',	0,	'',	'',	0,	'',	'SYNC'),
-('Docman',	1097,	'',	'00004',	NULL,	'J',	0,	'0',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-03 06:44:23',	0,	'',	'',	0,	'',	'SYNC'),
-('Briefverkehr',	1098,	'',	'',	NULL,	'J',	553,	'1097',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-03 06:45:33',	0,	'',	'',	0,	'',	'SYNC'),
-('Test',	1099,	'app/index.php?r=site/index',	'',	NULL,	'N',	0,	'0',	'0312',	'WEBLINK',	'',	'',	'N',	'2014-11-03 17:19:44',	0,	'',	'',	0,	'',	'SYNC'),
-('Importtyp',	1100,	'',	'',	NULL,	'J',	1043,	'213',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-05 17:36:02',	0,	'',	'',	0,	'',	'SYNC'),
-('Jahr',	1101,	'',	'',	NULL,	'J',	1023,	'1044',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-14 17:21:02',	0,	'',	'',	0,	'',	'SYNC'),
-('Geraet',	1102,	'',	'',	NULL,	'J',	1033,	'1044',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-14 17:24:15',	0,	'',	'',	0,	'',	'SYNC'),
-('Zimmer',	1103,	'',	'',	NULL,	'J',	563,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-19 17:38:29',	0,	'',	'',	0,	'',	'SYNC'),
-('Moebel',	1104,	'',	'',	NULL,	'J',	573,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-19 17:47:37',	0,	'',	'',	0,	'',	'SYNC'),
-('Faecher',	1105,	'',	'',	NULL,	'J',	583,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-20 06:14:27',	0,	'',	'',	0,	'',	'SYNC'),
-('Status',	1106,	'',	'',	NULL,	'J',	273,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-20 06:46:16',	0,	'',	'',	0,	'',	'SYNC'),
-('Statusgrp',	1107,	'',	'',	NULL,	'J',	664,	'1106',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-20 06:47:38',	0,	'',	'',	0,	'',	'SYNC'),
-('Statuszuord',	1108,	'',	'',	NULL,	'J',	1323,	'1106',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-20 06:49:09',	0,	'',	'',	0,	'',	'SYNC'),
-('Bilder',	1109,	'',	'',	NULL,	'J',	503,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-20 16:55:47',	0,	'',	'',	0,	'',	'SYNC'),
-('Fahrtenbuch',	1110,	'',	'',	NULL,	'J',	283,	'1034',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-21 07:00:22',	0,	'',	'',	0,	'',	'SYNC'),
-('RechDatum',	1111,	'',	'',	NULL,	'J',	593,	'1110',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-21 17:05:47',	0,	'',	'',	0,	'',	'SYNC'),
-('sqlite',	1112,	'',	'',	NULL,	'J',	1346,	'1110',	'0312',	'MODUL',	'',	'',	'N',	'2014-11-21 17:35:53',	0,	'',	'',	0,	'',	'SYNC'),
-('mynetmon',	1113,	'',	'',	NULL,	'J',	1347,	'483',	'0312',	'MODUL',	'',	'',	'N',	'2014-12-31 15:57:01',	0,	'',	'',	0,	'',	'SYNC'),
-('Inhabergruppe',	1115,	'',	'',	NULL,	'J',	1133,	'443',	'0312',	'MODUL',	'',	'',	'N',	'2015-01-05 21:14:49',	0,	'',	'',	0,	'',	'SYNC'),
-('Inhaberzuordnung',	1116,	'',	'',	NULL,	'J',	1143,	'443',	'0312',	'MODUL',	'',	'',	'N',	'2015-01-05 21:17:54',	0,	'',	'',	0,	'',	'SYNC'),
-('Konten&uumlbersicht',	1117,	'',	'',	NULL,	'J',	893,	'213',	'0312',	'MODUL',	'',	'',	'N',	'2015-01-05 21:38:48',	0,	'',	'',	0,	'',	'SYNC'),
-('Versionen',	1118,	'',	'',	NULL,	'J',	863,	'193',	'0312',	'MODUL',	'',	'',	'N',	'2015-01-06 06:09:05',	0,	'',	'',	0,	'',	'SYNC'),
-('Benutzer',	1119,	'',	'',	NULL,	'J',	323,	'1004',	'0312',	'MODUL',	'',	'',	'N',	'2015-02-02 06:03:43',	0,	'',	'',	0,	'',	'SYNC'),
-('Adressstatus',	1444,	'',	'',	'',	'J',	1353,	'263',	'0312',	'MODUL',	'',	'',	'N',	'2015-03-17 16:54:43',	0,	'',	'',	0,	'',	'SYNC'),
-('Statusgruppe',	1445,	'',	'',	'',	'J',	963,	'1444',	'0312',	'MODUL',	'',	'',	'N',	'2015-03-17 17:01:04',	0,	'',	'',	0,	'',	'SYNC'),
-('Statuszuord',	1446,	'',	'',	'',	'J',	1323,	'1444',	'0312',	'MODUL',	'',	'',	'N',	'2015-03-17 17:02:15',	0,	'',	'',	0,	'',	'SYNC'),
-('Statusgruppe',	1447,	'',	'',	NULL,	'J',	963,	'283',	'0312',	'MODUL',	'',	'',	'N',	'2015-04-20 05:21:08',	0,	'',	'',	0,	'',	'SYNC'),
-('Statuszuord',	1448,	'',	'',	NULL,	'J',	1323,	'283',	'0312',	'MODUL',	'',	'',	'N',	'2015-04-20 05:22:18',	0,	'',	'',	0,	'',	'SYNC'),
-('Verbrauch',	1449,	'',	'',	NULL,	'J',	1354,	'1034',	'0315',	'MODUL',	'',	'',	'N',	'2015-04-22 05:13:29',	0,	'',	'',	0,	'',	'SYNC'),
-('Zeitpunkt',	1452,	'',	'',	NULL,	'J',	983,	'1054',	'0315',	'MODUL',	'',	'',	'N',	'2015-04-30 15:22:31',	0,	'',	'',	0,	'',	'SYNC'),
-('Reports',	1451,	'',	'',	NULL,	'J',	1356,	'213',	'0315',	'MODUL',	'',	'',	'N',	'2015-04-23 16:07:02',	0,	'',	'',	0,	'',	'SYNC'),
-('Oberkategorie',	1453,	'',	'',	NULL,	'J',	1357,	'1094',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-04 05:49:30',	0,	'',	'',	0,	'',	'SYNC'),
-('Grundeinheit',	1454,	'',	'',	NULL,	'J',	713,	'1094',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-04 05:51:45',	0,	'',	'',	0,	'',	'SYNC'),
-('Mengeneinheit',	1455,	'',	'',	NULL,	'J',	723,	'1094',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-04 05:53:25',	0,	'',	'',	0,	'',	'SYNC'),
-('Kosten',	1456,	'',	'',	NULL,	'J',	1293,	'213',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-08 16:04:08',	0,	'',	'',	0,	'',	'SYNC'),
-('Dauerauftragtyp',	1457,	'',	'',	NULL,	'J',	1313,	'1456',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-08 16:11:13',	0,	'',	'',	0,	'',	'SYNC'),
-('Termingruppen',	1458,	'',	'',	NULL,	'J',	1263,	'973',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-11 17:10:57',	0,	'',	'',	0,	'',	'SYNC'),
-('Teminserie',	1459,	'',	'',	NULL,	'J',	1283,	'973',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-11 17:14:53',	0,	'',	'',	0,	'',	'SYNC'),
-('Kalender',	1460,	'classes/calendar.php',	'',	NULL,	'J',	0,	'973',	'0315',	'WEBLINK',	'',	'',	'N',	'2015-05-11 17:18:38',	0,	'',	'',	0,	'',	'SYNC'),
-('Aufgabenliste',	1461,	'',	'',	NULL,	'J',	1358,	'754',	'0315',	'MODUL',	'',	'',	'N',	'2015-05-11 19:24:05',	0,	'',	'',	0,	'',	'SYNC'),
-('Etagen',	1462,	'',	'',	NULL,	'J',	1123,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2015-06-27 19:14:32',	0,	'',	'',	0,	'',	'SYNC'),
-('Hilfe',	1463,	'',	'',	NULL,	'J',	1359,	'1521',	'0312',	'MODUL',	'',	'',	'N',	'2015-07-01 15:59:41',	0,	'',	'',	0,	'',	'SYNC'),
-('Häufigkeit',	1464,	'',	'',	NULL,	'J',	1360,	'1461',	'0312',	'MODUL',	'',	'',	'N',	'2015-08-09 12:02:13',	0,	'',	'',	0,	'',	'SYNC'),
-('Treegrid',	1465,	'',	'',	NULL,	'J',	753,	'1097',	'0312',	'MODUL',	'',	'',	'N',	'2015-08-18 15:59:23',	0,	'',	'',	0,	'',	'SYNC'),
-('Make Sql-Struc',	1466,	'classes/mksqlstruc.php',	'',	NULL,	'J',	0,	'483',	'0312',	'WEBLINK',	'',	'',	'N',	'2015-08-21 05:13:51',	0,	'',	'',	0,	'',	'SYNC'),
-('Tools',	1467,	'sites/html/tools.php?idwert=1467',	'00099',	NULL,	'J',	0,	'0',	'0312',	'WEBLINK',	'',	'',	'N',	'2015-09-15 05:32:01',	0,	'',	'',	0,	'',	'SYNC'),
-('Joorgsqlite',	1468,	'http://localhost/android/own/joorgsqlite/index.php',	'',	NULL,	'J',	0,	'1467',	'0312',	'WEBLINK',	'',	'',	'N',	'2015-09-15 05:36:24',	0,	'',	'_blank',	0,	'',	'SYNC'),
-('Benutzer',	1469,	'',	'',	NULL,	'J',	323,	'984',	'0312',	'MODUL',	'',	'',	'N',	'2015-09-19 11:19:46',	0,	'',	'',	0,	'',	'SYNC'),
-('Rechnungen',	1470,	'',	'',	NULL,	'J',	883,	'1110',	'0312',	'MODUL',	'',	'',	'N',	'2015-10-02 16:15:24',	0,	'',	'',	0,	'',	'SYNC'),
-('Rechnungen',	1471,	'',	'',	NULL,	'J',	883,	'1097',	'0312',	'MODUL',	'',	'',	'N',	'2015-10-02 16:20:32',	0,	'',	'',	0,	'',	'SYNC'),
-('Computer',	1481,	'',	'',	NULL,	'J',	1361,	'193',	'0312',	'MODUL',	'',	'',	'N',	'2015-12-31 13:43:46',	0,	'',	'',	0,	'',	'SYNC'),
-('Tables',	1491,	'',	'',	NULL,	'J',	1303,	'193',	'0312',	'MODUL',	'',	'',	'N',	'2015-12-31 14:17:58',	0,	'',	'',	0,	'',	'SYNC'),
-('Filly',	1501,	'',	'',	NULL,	'J',	1371,	'1511',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-06 17:03:10',	0,	'',	'',	0,	'',	'SYNC'),
-('Fillys',	1511,	'',	'',	NULL,	'J',	1381,	'1034',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-07 07:02:58',	0,	'',	'',	0,	'',	'SYNC'),
-('Hilfe',	1521,	'',	'',	NULL,	'J',	1391,	'193',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-07 17:05:59',	0,	'',	'',	0,	'',	'SYNC'),
-('Hilfeindex',	1531,	'',	'',	NULL,	'J',	1401,	'1521',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-07 17:09:27',	0,	'',	'',	0,	'',	'SYNC'),
-('Fillyart',	1541,	'',	'',	NULL,	'J',	1411,	'1511',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-11 07:04:08',	0,	'',	'',	0,	'',	'SYNC'),
-('Bilder',	1551,	'',	'',	NULL,	'J',	503,	'1511',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-11 07:23:59',	0,	'',	'',	0,	'',	'SYNC'),
-('Bildart',	1561,	'',	'',	NULL,	'J',	1421,	'1094',	'0312',	'MODUL',	'',	'',	'N',	'2016-01-11 07:33:15',	0,	'',	'',	0,	'',	'SYNC'),
-('FengOffice',	1571,	'http://localhost/app/fengoffice',	'',	NULL,	'J',	0,	'1097',	'0312',	'WEBLINK',	'',	'',	'N',	'2016-01-12 16:50:59',	0,	'',	'_blank',	0,	'',	'SYNC'),
-('Rückwärts',	1581,	'',	'',	NULL,	'J',	1431,	'1095',	'0312',	'MODUL',	'',	'',	'N',	'2016-05-17 15:50:21',	0,	'',	'',	0,	'',	'SYNC'),
-('sms',	1591,	'',	'',	NULL,	'J',	1441,	'734',	'0312',	'MODUL',	'',	'',	'N',	'2016-07-04 16:20:04',	0,	'',	'',	0,	'',	'SYNC'),
-('Dateimanager',	1601,	'',	'',	NULL,	'J',	1451,	'1097',	'0312',	'MODUL',	'',	'',	'N',	'2016-07-06 05:09:54',	0,	'',	'',	0,	'',	'SYNC'),
-('autoincupdate',	1603,	'',	'',	NULL,	'J',	1503,	'193',	'0312',	'MODUL',	'',	'',	'N',	'2016-08-01 16:08:44',	0,	'',	'',	0,	'',	'SYNC'),
-('Kontoinhaber',	1703,	'',	'',	NULL,	'J',	1603,	'213',	'0312',	'MODUL',	'',	'',	'N',	'2016-08-11 19:32:49',	0,	'',	'',	0,	'',	'SYNC'),
-('Home-about',	1803,	'',	'00001',	NULL,	'J',	1703,	'0',	'0312',	'MODUL',	'',	'horald',	'N',	'2016-09-16 15:56:19',	0,	'',	'',	0,	'',	'SYNC'),
-('Privat',	1903,	'',	'00002',	NULL,	'J',	783,	'0',	'0312',	'MODUL',	'',	'horald',	'N',	'2016-09-16 16:17:02',	0,	'',	'',	0,	'',	'SYNC'),
-('Fillys',	2003,	'',	'',	NULL,	'J',	1381,	'1903',	'0312',	'MODUL',	'',	'horald',	'N',	'2016-09-16 16:28:18',	0,	'',	'',	0,	'',	'SYNC'),
-('Filly',	2103,	'',	'',	NULL,	'J',	1371,	'2003',	'0312',	'MODUL',	'',	'horald',	'N',	'2016-09-16 16:31:35',	0,	'',	'',	0,	'',	'SYNC'),
-('Fillyart',	2203,	'',	'',	NULL,	'J',	1411,	'2003',	'0312',	'MODUL',	'',	'horald',	'N',	'2016-09-16 16:36:27',	0,	'',	'',	0,	'',	'SYNC'),
-('Bilder',	2303,	'',	'',	NULL,	'J',	503,	'2003',	'0312',	'MODUL',	'',	'horald',	'N',	'2016-09-16 16:39:52',	0,	'',	'',	0,	'',	'SYNC');
 
 CREATE TABLE `tblmenu_modul` (
   `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1052,167 +831,6 @@ CREATE TABLE `tblmenu_modul` (
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `tblmenu_modul` (`fldindex`, `fldbez`, `fldwebadr`, `fldlang`, `fldversion`, `fldtimestamp`, `fldsource`, `fldid_publictyp`, `flddbsyncstatus`) VALUES
-(73,	'Adressliste',	'sites/views/wp_adress/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(63,	'Geburtstage',	'sites/views/wp_birthday/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(53,	'Geschenkliste',	'sites/views/wp_present/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(43,	'Einkaufsliste',	'sites/views/wp_shopping/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(33,	'Notizen',	'sites/views/wp_notice/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(23,	'Konto',	'sites/views/wp_account/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(13,	'Erledigungen',	'sites/views/wp_tasks/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(3,	'Administration',	'admin/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(83,	'Home',	'welcome.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(93,	'Dummy',	'sites/views/wp_dummy/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(113,	'Elternstunden',	'sites/views/wp_parenthours/index.php',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(123,	'Vorrat',	'classes/showtab.php?menu=stock',	'de',	'0302',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(133,	'Administration',	'classes/showtab.php?menu=admin',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(143,	'Erledigungen',	'classes/showtab.php?menu=tasks',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(153,	'Konto',	'classes/showtab.php?menu=account',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(163,	'Notizen',	'classes/showtab.php?menu=notice',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(173,	'Einkaufsliste',	'classes/showtab.php?menu=shopping',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(183,	'Geschenkliste',	'classes/showtab.php?menu=present',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(193,	'Geburtstage',	'classes/showtab.php?menu=birthday',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(203,	'Adressliste',	'classes/showtab.php?menu=address',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(213,	'Home',	'welcome.php',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(223,	'Dummy',	'classes/showtab.php?menu=dummy',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(233,	'Elternstunden',	'classes/showtab.php?menu=hours',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(243,	'Vorrat',	'classes/showtab.php?menu=stock',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(253,	'Checkliste',	'classes/showtab.php?menu=checklist',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(263,	'Docman',	'classes/showtab.php?menu=docman',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(273,	'Status',	'classes/showtab.php?menu=status',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(283,	'Fahrtenbuch',	'classes/showtab.php?menu=drive',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(293,	'Kaufort',	'classes/showtab.php?menu=station',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(643,	'Menutyp',	'classes/showtab.php?menu=menutyp',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(303,	'Prior',	'classes/showtab.php?menu=prior',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(313,	'Kategoire',	'classes/showtab.php?menu=category',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(323,	'User',	'classes/showtab.php?menu=user',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(333,	'Terminkalender',	'http://localhost/luxcal/',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(343,	'Stammdaten',	'classes/showtab.php?menu=stamm',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(353,	'Modul',	'classes/showtab.php?menu=modul',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(363,	'Kontengruppe',	'classes/showtab.php?menu=kontengruppe',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(373,	'Konten',	'classes/showtab.php?menu=konten',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(383,	'Kontozuordnung',	'classes/showtab.php?menu=ktozuord',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(393,	'SyncComputer',	'classes/showtab.php?menu=synccomp',	'de',	'0312',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(403,	'dbsync',	'classes/showtab.php?menu=dbsync',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(413,	'Trigger',	'classes/showtab.php?menu=trigger',	'de',	'0308',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(423,	'Erledigungsgruppe',	'classes/showtab.php?menu=erlgrp',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(433,	'Programmupdate',	'classes/showtab.php?menu=prgupdate',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(443,	'Funktion',	'classes/showtab.php?menu=func',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(453,	'Oberkonten',	'classes/showtab.php?menu=upperaccount',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(463,	'Abteilungen',	'classes/showtab.php?menu=abteilung',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(473,	'Adressgruppe',	'classes/showtab.php?menu=adrgrp',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(483,	'Kontenart',	'classes/showtab.php?menu=ktoart',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(493,	'Adresszuordnung',	'classes/showtab.php?menu=adrzuordnung',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(503,	'Bilder',	'classes/showtab.php?menu=images',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(513,	'Reise',	'classes/showtab.php?menu=travel',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(523,	'Reisegrund',	'classes/showtab.php?menu=tc_reason',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(533,	'GepÃ¤ckliste',	'classes/showtab.php?menu=tc_gepaeck',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(543,	'Gepaeckstueck',	'classes/showtab.php?menu=tc_gepaeckstueck',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(553,	'Briefverkehr',	'classes/showtab.php?menu=brfverkehr',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(563,	'Zimmer',	'classes/showtab.php?menu=rooms',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(573,	'MÃ¶bel',	'classes/showtab.php?menu=moebel',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(583,	'Faecher',	'classes/showtab.php?menu=faecher',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(593,	'RechDatum',	'classes/showtab.php?menu=rechdat',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(603,	'Sprache',	'classes/showtab.php?menu=translate',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(613,	'Wiki',	'http://localhost/tools/mediawiki/index.php',	'de',	'0309',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(623,	'Dauerauftrag',	'classes/showtab.php?menu=dauerauftrag',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(633,	'ktoeatyp',	'classes/showtab.php?menu=ktoeatyp',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(644,	'Aufgabenplan',	'classes/showtab.php?menu=aufgabenplan',	'de',	'0303',	'2014-01-16 20:46:36',	'',	0,	'SYNC'),
-(654,	'Benutzerwechsel',	'classes/showtab.php?menu=userrotate',	'de',	'0303',	'2014-01-16 21:48:07',	'',	0,	'SYNC'),
-(1353,	'Adressstatus',	'classes/showtab.php?menu=adrstatus',	'de',	'0312',	'2015-03-17 16:55:30',	'',	0,	'SYNC'),
-(674,	'Aufgabenbenutzer',	'classes/showtab.php?menu=aufgabenbenutzer',	'de',	'0311',	'2014-04-28 19:13:09',	'',	0,	'SYNC'),
-(684,	'Essensplan',	'classes/showtab.php?menu=essensplan',	'de',	'0312',	'2014-07-26 08:56:18',	'',	0,	'SYNC'),
-(653,	'Kategorie (AufrÃ¤umen)',	'classes/showtab.php?menu=vo_category',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(663,	'Unterkategorie',	'classes/showtab.php?menu=undercategory',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(673,	'Userkategory',	'classes/showtab.php?menu=usercategory',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(693,	'Essensplan',	'classes/showtab.php?menu=essensplan',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(703,	'Rezepte',	'classes/showtab.php?menu=rezepte',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(713,	'Grundeinheit',	'classes/showtab.php?menu=grundeinheit',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(723,	'Mengeneinheit',	'classes/showtab.php?menu=mengein',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(733,	'Zutaten',	'classes/showtab.php?menu=zutaten',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(743,	'Grundartikel',	'classes/showtab.php?menu=grundartikel',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(753,	'treegrid',	'classes/showtab.php?menu=treegrid',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(763,	'Beschenkte',	'classes/showtab.php?menu=beschenkte',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(773,	'Familie',	'classes/submenushow.php?menu=family',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(783,	'Privat',	'classes/submenushow.php?menu=privat',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(793,	'Reisekosten',	'classes/showtab.php?menu=reisekosten',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(803,	'Heizung',	'classes/showtab.php?menu=heizung',	'de',	'0303',	'0000-00-00 00:00:00',	'',	0,	'SYNC'),
-(813,	'Barcode',	'classes/showtab.php?menu=barcode',	'de',	'0303',	'2013-07-26 05:27:46',	'',	0,	'SYNC'),
-(823,	'Update erzeugen',	'classes/updateerzeugen.php?idwert=953',	'de',	'0309',	'2013-08-16 17:30:25',	'',	0,	'SYNC'),
-(833,	'gcal',	'classes/plugin/google/calendar.php?menu=gcal',	'de',	'0307',	'2013-08-27 17:38:10',	'<iframe src=\"https://www.google.com/calendar/embed?height=500&wkst=1&bgcolor=%23FFFFFF&src=meh8bg5v4qo65dfl4v6as701fs%40group.calendar.google.com&color=%23B1365F&src=7lie3jn3a26mct92vlnifu0mmo%40group.calendar.google.com&color=%2328754E&src=bu0hs6s4bkprpkr24bqt113fbo%40group.calendar.google.com&color=%235229A3&src=de.german%23holiday%40group.v.calendar.google.com&color=%23875509&ctz=Europe%2FBerlin\" style=\" border-width:0 \" width=\"800\" height=\"500\" frameborder=\"0\" scrolling=\"no\"></iframe>',	13,	'SYNC'),
-(843,	'Termine',	'classes/showtab.php?menu=termine',	'de',	'0307',	'2013-08-28 05:34:10',	'',	0,	'SYNC'),
-(853,	'(ohne)',	'',	'de',	'0308',	'2013-08-29 05:25:44',	'',	0,	'SYNC'),
-(863,	'Version',	'classes/showtab.php?menu=version',	'de',	'0308',	'2013-08-30 14:10:16',	'',	0,	'SYNC'),
-(873,	'Prgtyp',	'classes/showtab.php?menu=prgtyp',	'de',	'0308',	'2013-08-30 14:36:59',	'',	0,	'SYNC'),
-(883,	'Rechnung',	'classes/showtab.php?menu=rechnung',	'de',	'0308',	'2013-08-30 18:31:41',	'',	0,	'SYNC'),
-(893,	'KontenÃ¼bersicht',	'classes/overviewaccount.php',	'de',	'0308',	'2013-09-04 15:15:19',	'',	0,	'SYNC'),
-(903,	'Stammdatentyp',	'classes/showtab.php?menu=stammtyp',	'de',	'0308',	'2013-09-07 19:16:56',	'',	0,	'SYNC'),
-(913,	'synctyp',	'classes/showtab.php?menu=synctyp',	'de',	'0308',	'2013-09-10 05:07:44',	'',	0,	'SYNC'),
-(923,	'dbsync-Remote',	'classes/showtab.php?menu=dbsyncremote',	'de',	'0308',	'2013-09-11 05:07:57',	'',	0,	'SYNC'),
-(933,	'Funktion-Remote',	'classes/showtab.php?menu=funcremote',	'de',	'0308',	'2013-09-11 18:27:21',	'',	0,	'SYNC'),
-(943,	'Erledigung-Remote',	'classes/showtab.php?menu=tasksremote',	'de',	'0308',	'2013-09-11 17:20:29',	'',	0,	'SYNC'),
-(953,	'Publictyp',	'classes/showtab.php?menu=publictyp',	'de',	'0309',	'2013-10-06 13:55:44',	'',	0,	'SYNC'),
-(963,	'Statusgruppe',	'classes/showtab.php?menu=statusgrp',	'de',	'0309',	'2013-10-06 14:16:53',	'',	0,	'SYNC'),
-(973,	'Blutdruck',	'classes/showtab.php?menu=blutdruck',	'de',	'0309',	'2013-10-25 13:18:25',	'',	0,	'SYNC'),
-(983,	'Zeitpunkt',	'classes/showtab.php?menu=zeitpunkt',	'de',	'0309',	'2013-10-25 13:30:00',	'',	0,	'SYNC'),
-(993,	'Kitajahr',	'classes/showtab.php?menu=kitajahr',	'de',	'0309',	'2013-10-25 19:41:06',	'',	0,	'SYNC'),
-(1003,	'Kitauser',	'classes/showtab.php?menu=kitauser',	'de',	'0309',	'2013-10-25 20:17:05',	'',	0,	'SYNC'),
-(1013,	'Stundenplan',	'classes/showtab.php?menu=stdplan',	'de',	'0309',	'2013-10-26 06:37:41',	'',	0,	'SYNC'),
-(1023,	'Jahr',	'classes/showtab.php?menu=jahr',	'de',	'0310',	'2013-11-09 22:41:49',	'',	0,	'SYNC'),
-(1033,	'GerÃ¤te',	'classes/showtab.php?menu=geraet',	'de',	'0310',	'2013-12-01 14:44:10',	'',	0,	'SYNC'),
-(1043,	'Kontotyp',	'classes/showtab.php?menu=ktotyp',	'de',	'0310',	'2013-12-05 06:20:02',	'',	0,	'SYNC'),
-(1053,	'Kontengruppe',	'classes/showtab.php?menu=ktogrp',	'de',	'0310',	'2013-12-12 06:21:57',	'',	0,	'SYNC'),
-(1063,	'Kontenzuordnung',	'classes/showtab.php?menu=ktogrpzuord',	'de',	'0310',	'2013-12-12 06:40:07',	'',	0,	'SYNC'),
-(1073,	'Umfragen',	'classes/showtab.php?menu=poll_umfragen',	'de',	'0310',	'2013-12-12 21:52:40',	'',	0,	'SYNC'),
-(1083,	'Antworten',	'classes/showtab.php?menu=poll_antworten',	'de',	'0310',	'2013-12-12 22:01:40',	'',	0,	'SYNC'),
-(1093,	'Login',	'includes/SimpleMember/inc/login.php',	'de',	'0310',	'2013-12-13 16:57:46',	'',	0,	'SYNC'),
-(1103,	'Installerzeugen',	'classes/installerzeugen.php',	'de',	'0310',	'2013-12-17 17:43:04',	'',	0,	'SYNC'),
-(1113,	'logout',	'includes/SimpleMember/logout.php',	'de',	'0310',	'2013-12-20 21:14:13',	'',	0,	'SYNC'),
-(1123,	'Etagen',	'classes/showtab.php?menu=etagen',	'de',	'0310',	'2014-01-02 20:05:25',	'',	0,	'SYNC'),
-(1133,	'Kontoinhabergruppe',	'classes/showtab.php?menu=ktoinhgrp',	'de',	'0310',	'2014-01-07 07:13:58',	'',	0,	'SYNC'),
-(1143,	'Inhaberzuord',	'classes/showtab.php?menu=ktoinhgrpzuord',	'de',	'0310',	'2014-01-07 07:22:26',	'',	0,	'SYNC'),
-(1153,	'Tabletten',	'classes/showtab.php?menu=tabletten',	'de',	'0310',	'2014-01-08 07:10:01',	'',	0,	'SYNC'),
-(1163,	'Mysqldumper',	'http://localhost/mysqldumper',	'de',	'0310',	'2014-01-08 17:07:55',	'',	0,	'SYNC'),
-(1173,	'Settrigger',	'classes/showtab.php?menu=settrigger',	'de',	'0310',	'2014-01-13 07:49:52',	'',	0,	'SYNC'),
-(1183,	'Resyncalltyp',	'classes/showtab.php?menu=resyncalltyp',	'de',	'0310',	'2014-01-13 17:00:56',	'',	0,	'SYNC'),
-(1203,	'Aufgabenplan',	'classes/showtab.php?menu=aufgabenplan',	'de',	'0310',	'2014-01-15 06:23:50',	'',	0,	'SYNC'),
-(1223,	'Benutzerwechsel',	'classes/showtab.php?menu=userrotate',	'de',	'0310',	'2014-01-16 21:28:47',	'',	0,	'SYNC'),
-(1233,	'Bildverz',	'classes/showtab.php?menu=bildverz',	'de',	'0310',	'2014-01-27 06:33:43',	'',	0,	'SYNC'),
-(309,	'Raum',	'classes/showtab.php?menu=raum',	'de',	'0309',	'2014-02-06 17:43:40',	'',	0,	'SYNC'),
-(1253,	'Aufgabenbenutzer',	'classes/showtab.php?menu=aufgabenbenutzer',	'de',	'0311',	'2014-02-18 17:13:21',	'',	0,	'SYNC'),
-(1263,	'Termingruppen',	'classes/showtab.php?menu=terminegrp',	'de',	'0311',	'2014-02-24 06:32:18',	'',	0,	'SYNC'),
-(1273,	'Musik',	'classes/showtab.php?menu=music',	'de',	'0311',	'2014-03-06 21:39:55',	'',	0,	'SYNC'),
-(1283,	'Terminserie',	'classes/showtab.php?menu=terminserie',	'de',	'0311',	'2014-03-07 06:33:53',	'',	0,	'SYNC'),
-(1293,	'Dauerauftragkto',	'classes/showtab.php?menu=ktodauerauftrag',	'de',	'0312',	'2014-03-31 16:20:34',	'',	0,	'SYNC'),
-(1303,	'Tables',	'classes/showtab.php?menu=tables',	'de',	'0312',	'2014-05-05 05:24:34',	'',	0,	'SYNC'),
-(1313,	'Dauerauftragtyp',	'classes/showtab.php?menu=dauerauftragtyp',	'de',	'0312',	'2014-05-08 05:52:07',	'',	0,	'SYNC'),
-(1323,	'Statuszuord',	'classes/showtab.php?menu=statuszuord',	'de',	'0312',	'2014-06-20 08:51:38',	'',	3,	'SYNC'),
-(1333,	'Etiketten',	'classes/showtab.php?menu=etiketten',	'de',	'0312',	'2014-06-24 15:54:26',	'',	0,	'SYNC'),
-(1343,	'Artikelnr',	'classes/showtab.php?menu=artikelnr',	'de',	'0312',	'2014-06-26 05:51:31',	'',	0,	'SYNC'),
-(1344,	'Zeiten',	'classes/showtab.php?menu=stdzeit',	'de',	'0312',	'2014-08-22 09:34:51',	'',	0,	'SYNC'),
-(1345,	'Wotag',	'classes/showtab.php?menu=stdwotag',	'de',	'0312',	'2014-08-22 09:38:36',	'',	0,	'SYNC'),
-(1346,	'showsqlite',	'classes/showsqlite.php',	'de',	'0312',	'2014-11-21 17:34:55',	'',	0,	'SYNC'),
-(1347,	'netmon',	'../mynetmon/index.php',	'de',	'0312',	'2014-12-31 15:56:23',	'',	0,	'SYNC'),
-(1354,	'verbrauch',	'classes/verbrauch.php',	'de',	'0315',	'2015-04-22 05:12:39',	'',	0,	'SYNC'),
-(1355,	'datapass',	'http://datapass.de/',	'de',	'0315',	'2015-04-23 15:52:46',	'',	0,	'SYNC'),
-(1356,	'report',	'classes/showtab.php?menu=report',	'de',	'0315',	'2015-04-23 16:05:57',	'',	0,	'SYNC'),
-(1357,	'Oberkategorie',	'classes/showtab.php?menu=vo_category',	'de',	'0315',	'2015-05-04 05:48:43',	'',	0,	'SYNC'),
-(1358,	'Aufgabenliste',	'classes/showtab.php?menu=aufgabenliste',	'de',	'0315',	'2015-05-11 18:21:45',	'',	0,	'SYNC'),
-(1359,	'help',	'classes/showtab.php?menu=help',	'de',	'0312',	'2015-07-01 15:58:56',	'',	0,	'SYNC'),
-(1360,	'Häufigkeit',	'classes/showtab.php?menu=haeufigkeit',	'de',	'0312',	'2015-08-09 12:02:50',	'',	0,	'SYNC'),
-(1361,	'Computer',	'classes/showtab.php?menu=computer',	'de',	'0312',	'2015-12-31 13:42:52',	'',	0,	'SYNC'),
-(1371,	'Filly',	'classes/showtab.php?menu=filly',	'de',	'0312',	'2016-01-06 17:02:32',	'',	0,	'SYNC'),
-(1381,	'FillySubmenu',	'	classes/submenushow.php?menu=fillys',	'de',	'0312',	'2016-01-07 07:02:27',	'',	0,	'SYNC'),
-(1391,	'HilfeSubmenu',	'	classes/submenushow.php?menu=hilfe',	'de',	'0312',	'2016-01-07 17:05:06',	'',	0,	'SYNC'),
-(1401,	'Hilfeindex',	'classes/showtab.php?menu=helpindex',	'de',	'0312',	'2016-01-07 17:08:55',	'',	0,	'SYNC'),
-(1411,	'Fillyart',	'classes/showtab.php?menu=fillyart',	'de',	'0312',	'2016-01-11 07:03:18',	'',	0,	'SYNC'),
-(1421,	'Bildart',	'classes/showtab.php?menu=bildart',	'de',	'0312',	'2016-01-11 07:32:10',	'',	0,	'SYNC'),
-(1431,	'Rueckwaerts',	'classes/rueckwaerts.php',	'de',	'0312',	'2016-05-17 15:49:41',	'',	0,	'SYNC'),
-(1441,	'showxml',	'classes/showxml.php',	'de',	'0312',	'2016-07-04 16:19:05',	'',	0,	'SYNC'),
-(1451,	'filemanager',	'classes/showtab.php?menu=filemanager',	'de',	'0312',	'2016-07-06 05:08:50',	'',	0,	'SYNC'),
-(1503,	'autoincupdate',	'classes/autoincupdate.php',	'de',	'0312',	'2016-08-01 16:09:25',	'',	0,	'SYNC'),
-(1603,	'Kontoinhaber',	'classes/showtab.php?menu=ktoinhaber',	'de',	'0312',	'2016-08-11 19:32:12',	'',	0,	'SYNC'),
-(1703,	'about',	'classes/about.php',	'de',	'0312',	'2016-09-16 15:55:36',	'',	0,	'SYNC');
 
 CREATE TABLE `tblmenu_projekt` (
   `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1228,11 +846,6 @@ CREATE TABLE `tblmenu_typ` (
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `tblmenu_typ` (`fldIndex`, `fldBez`) VALUES
-(3,	'MODUL'),
-(13,	'PLUGIN'),
-(23,	'WEBLINK'),
-(24,	'YIIMODUL');
 
 CREATE TABLE `tblnotiz` (
   `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1329,7 +942,6 @@ CREATE TABLE `tblrechdat` (
   `fldBez` varchar(200) COLLATE utf8_bin NOT NULL,
   `fldLink` varchar(250) COLLATE utf8_bin NOT NULL,
   `fldBemerkung` varchar(250) COLLATE utf8_bin NOT NULL,
-  `flddbsyncstatus` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT 'SYNC',
   PRIMARY KEY (`fldIndex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1400,23 +1012,6 @@ CREATE TABLE `tblstatus` (
   PRIMARY KEY (`fldindex`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `tblstatus` (`fldindex`, `fldbez`, `fldtyp`) VALUES
-(1,	'(ohne)',	''),
-(2,	'offen',	''),
-(3,	'erledigt',	''),
-(4,	'zurueckges',	''),
-(6,	'klaeren',	''),
-(7,	'in Arbeit',	''),
-(8,	'spaeter',	''),
-(9,	'Aufgabe',	''),
-(14,	'zugesagt',	''),
-(24,	'OK',	''),
-(25,	'geantwortet',	''),
-(26,	'Retour',	''),
-(27,	'Neu',	''),
-(31,	'verschickt',	''),
-(41,	'Fehler',	''),
-(51,	'Zusage',	'');
 
 CREATE TABLE `tblstat_grp` (
   `fldindex` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1659,9 +1254,6 @@ CREATE TABLE `tblversion` (
   PRIMARY KEY (`fldindex`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `tblversion` (`fldindex`, `fldbez`, `fldkurz`, `flddatum`, `fldversion`) VALUES
-(1,	'Version 3.12',	'0312',	'2014-10-20',	'0.312'),
-(2,	'Version 3.15',	'0315',	'2015-01-06',	'0.315');
 
 CREATE TABLE `tblvorrat` (
   `fldIndex` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1777,3 +1369,6 @@ CREATE TABLE `tblzutaten` (
 CREATE TABLE `tblzwieart` (
   `fldart` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+-- 2016-08-01 05:53:41

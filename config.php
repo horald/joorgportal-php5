@@ -9,6 +9,9 @@ $version="0.3.0.15 (alpha)";
 $bootstrapver=2;
 $layout="joorgportal";
 
+//user
+$menuuser="J";
+
 //specific
 $language="german";
 $langshort="de";
@@ -31,9 +34,9 @@ $mediawikimain="Hauptseite";
 
 //frame
 //$winwidth=1035;
-$winwidth=1135;
+$winwidth=1235;
 //$winheight=580;
-$winheight=300;
+$winheight=400;
 
 //audioframe
 $audiowidth=1200;

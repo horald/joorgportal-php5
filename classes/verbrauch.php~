@@ -3,8 +3,14 @@ include("bootstrapfunc.php");
 include("verbrauchholen.php");
 bootstraphead();
 bootstrapbegin("Verbrauch");
-$id=$_GET['id'];
-$holverbrauch=$_GET['holverbrauch'];
+$id=0;
+if (isset($_GET['id'])) {
+  $id=$_GET['id'];
+}
+$holverbrauch=0;
+if (isset($_GET['holverbrauch'])) {
+  $holverbrauch=$_GET['holverbrauch'];
+}
 if ($holverbrauch==2) {
 //  echo "<a href='verbrauch.php' class='btn btn-primary btn-sm active' role='button'>zurück</a><br><br> ";
   verbrauchholen();	
@@ -38,6 +44,7 @@ if ($holverbrauch==1) {
         <img src="images2/cal.gif" onclick="javascript:NewCssCal('vondatum','yyyyMMdd','ARROW')" style="cursor:pointer"/></dd>
 <?php 
   echo "<dd><input type='text' name='verbrauch' value=''/></dd>";
+  echo "<dd><input type='text' name='datvol' value='1'/></dd>";
   echo "<dd><input type='submit' value='Verbrauch senden' /></dd>";
   echo "</form>";
 }

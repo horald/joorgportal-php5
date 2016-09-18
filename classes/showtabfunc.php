@@ -1501,6 +1501,7 @@ while ($line = mysql_fetch_array($result)) {
       }  
     }  
   }  
+        echo "<td width='5'><a class='btn' href='delete.php?idwert=".$line[$pararray['fldindex']]."&menu=".$menu."&menuid=".$idwert."'><i class='icon-remove'></i></a></td>";
   echo "</tr>";
   $menge = array_push ( $dbselarr, $line[$pararray['fldindex']] );
 }  
