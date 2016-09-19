@@ -2,7 +2,7 @@
 session_start();
 $sprache = isset($_POST['sprache']) ? $_POST['sprache'] : 'english';
 
-include "language/lang_".$sprache.".php";
+include "includes/language/lang_".$sprache.".php";
 
 function db_connect() {
 	$conn = mysql_connect($_SESSION['dbhost'], $_SESSION['dbuser'], $_SESSION['dbpass']);
@@ -97,7 +97,7 @@ if (isset($_REQUEST['step'])) {
 //      }    
       mysql_connect($_SESSION['dbhost'],$_SESSION['dbuser'],$_SESSION['dbpass']);
       mysql_select_db($_SESSION['dbname']);
-      $lines = file('install.sql');
+      $lines = file('sites/install/dbjoorgportal.sql');
       $newquery="";
       $remark='false';
       $cntlin=0;

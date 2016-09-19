@@ -9,9 +9,9 @@ function updateinput($pararray,$listarray,$filterarray,$filter,$idwert,$menu,$me
   if ($anzsp=='') {
     $anzsp=1;
   }
-  echo $anzsp."=anzsp<br>";
+  //echo $anzsp."=anzsp<br>";
   $anzelem=sizeof($listarray);
-  echo $anzelem."=anzelem<br>";
+  //echo $anzelem."=anzelem<br>";
 
   $query = "SELECT * FROM ".$pararray['dbtable']." WHERE ".$pararray['fldindex']."='$idwert'";
   mysql_query("SET NAMES 'utf8'");
@@ -334,12 +334,14 @@ echo "</table>";
         echo "            </div>";
         echo "          </div>";
 
+/*
         echo "          <div class='control-group'>";
         //echo "            <label class='control-label' >Resync</label>";
         echo "            <div class='checkbox'>";
         echo "              <input type='checkbox' name='resync'> Resync";
         echo "            </div>";
         echo "          </div>";
+*/
 
   echo "          <div class='control-group'>";
   echo "            <div class='checkbox'>";

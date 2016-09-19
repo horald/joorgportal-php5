@@ -10,7 +10,7 @@ $bootstrapver=2;
 $layout="joorgportal";
 
 //user
-$menuuser="J";
+//$menuuser="J";
 
 //specific
 $language="german";

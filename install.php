@@ -2,7 +2,7 @@
 session_start();
 $sprache = isset($_POST['sprache']) ? $_POST['sprache'] : 'english';
 
-include "language/lang_".$sprache.".php";
+include "includes/language/lang_".$sprache.".php";
 
 function db_connect() {
 	$conn = mysql_connect($_SESSION['dbhost'], $_SESSION['dbuser'], $_SESSION['dbpass']);
@@ -137,9 +137,6 @@ if (isset($_REQUEST['step'])) {
   }
 } else {
   echo $txtinstall1."<br>";
-//  echo $txtinstall2."<br>";
-//  echo $txtinstall3."<br>";
-//  echo $txtinstall4."<br>";
   echo "</td></tr><tr><td align=right>";
   echo "<input type=button value='".$txtnext."' onclick=\"window.location.href='?step=1'\">";
 }

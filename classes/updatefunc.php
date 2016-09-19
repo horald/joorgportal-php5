@@ -589,6 +589,7 @@ function updatesavedirect($pararray,$listarray,$filterarray,$filter,$idwert,$men
             $wert = addslashes(fread($handle, filesize($filename)));
             fclose($handle);
           }        
+          //echo 
         } 
         
         if ($strset=="") {
